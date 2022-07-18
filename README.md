@@ -7,6 +7,6 @@ This publication is currently in Review in Nature Methods.
 
 The preprint can be found here: researchsquare.com
 
-The code in this repository allows processing of LC-OzID-MS and LC-OzID-MS/MS files as well as mass spectrometry data from direct infusion ESI-MS as part of the workflow introduced in the associated publication, which is available under (in preparation).
+The code in this repository allows processing of LC-OzID-MS and LC-OzID-MS/MS files as well as mass spectrometry data from direct infusion ESI-MS as part of the workflow introduced in the associated publication.
 
 Usage of the code is explained in the Supplementary Information of the associated publication.
