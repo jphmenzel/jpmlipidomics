@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<audit_log_root format_version="21.1">
+  <document_hash>/HcaK9yxy2VoNGvzF1IAEnpFvyU=</document_hash>
+  <root_hash>vT93Xjq7N+U8UmMsa8qmADR6Qgk=</root_hash>
+  <audit_log>
+    <audit_log_entry skyline_version="21.1.0.278-fe50e66f2 (64-Bit)" time_stamp="2022-05-19T10:39:12+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>changed</type>
+        <name>{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}</name>
+        <en_expanded>Transition Settings -- Full-Scan changed</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>changed</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan changed</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}{2:PropertySeparator}{0:TransitionFullScan_ResolvingPower}</name>
+        <name>{3:15000}</name>
+        <name>{3:10000}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan &gt; Resolving power changed from "15000" to "10000"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}{2:PropertySeparator}{0:TransitionFullScan_ResolvingPower}</name>
+        <name>{3:15000}</name>
+        <name>{3:10000}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan &gt; Resolving power changed from "15000" to "10000"</en_expanded>
+      </all_info>
+      <hash>5Kh2e9feBL35tkazjk8qDpXWf3s=</hash>
+    </audit_log_entry>
+    <audit_log_entry skyline_version="21.1.0.278-fe50e66f2 (64-Bit)" time_stamp="2022-03-17T12:34:32+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>changed</type>
+        <name>{0:SrmSettings_TransitionSettings}</name>
+        <en_expanded>Transition Settings changed</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>changed</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}</name>
+        <en_expanded>Settings &gt; Transition Settings changed</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Libraries}{2:PropertySeparator}{0:TransitionLibraries_IonMatchTolerance}</name>
+        <name>{3:0.0255}</name>
+        <name>{3:0.0355}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Library &gt; Ion match tolerance changed from "0.0255" to "0.0355"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MzMatchTolerance}</name>
+        <name>{3:0.025}</name>
+        <name>{3:0.035}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Method match tolerance m/z changed from "0.025" to "0.035"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:18}</name>
+        <name>{3:15}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed from "18" to "15"</en_expanded>
+      </all_info>
+      <hash>LCyRtFBGtwXCU5S88gEkWjhPXag=</hash>
+    </audit_log_entry>
+    <audit_log_entry skyline_version="21.1.0.278-fe50e66f2 (64-Bit)" time_stamp="2022-03-14T17:19:05+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>changed</type>
+        <name>{0:SrmSettings_TransitionSettings}</name>
+        <en_expanded>Transition Settings changed</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>changed</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}</name>
+        <en_expanded>Settings &gt; Transition Settings changed</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Libraries}{2:PropertySeparator}{0:TransitionLibraries_IonMatchTolerance}</name>
+        <name>{3:0.0355}</name>
+        <name>{3:0.0255}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Library &gt; Ion match tolerance changed from "0.0355" to "0.0255"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MzMatchTolerance}</name>
+        <name>{3:0.035}</name>
+        <name>{3:0.025}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Method match tolerance m/z changed from "0.035" to "0.025"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MinTime}</name>
+        <name>{3:1}</name>
+        <name>{3:0}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Min time changed from "1" to "0"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:15}</name>
+        <name>{3:18}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed from "15" to "18"</en_expanded>
+      </all_info>
+      <hash>NTwJ443sRYAeoMFNuo7LjyMT158=</hash>
+    </audit_log_entry>
+    <audit_log_entry skyline_version="21.1.0.278-fe50e66f2 (64-Bit)" time_stamp="2022-03-14T09:53:09+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>changed</type>
+        <name>{0:SrmSettings_TransitionSettings}</name>
+        <en_expanded>Transition Settings changed</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>changed</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}</name>
+        <en_expanded>Settings &gt; Transition Settings changed</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Libraries}{2:PropertySeparator}{0:TransitionLibraries_IonMatchTolerance}</name>
+        <name>{3:0.0255}</name>
+        <name>{3:0.0355}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Library &gt; Ion match tolerance changed from "0.0255" to "0.0355"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MzMatchTolerance}</name>
+        <name>{3:0.025}</name>
+        <name>{3:0.035}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Method match tolerance m/z changed from "0.025" to "0.035"</en_expanded>
+      </all_info>
+      <hash>OI5ubp76GQEjrMbym9/vKj1gtSI=</hash>
+    </audit_log_entry>
+    <audit_log_entry skyline_version="21.1.0.278-fe50e66f2 (64-Bit)" time_stamp="2022-03-07T12:51:26+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>changed_to</type>
+        <name>{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:15}</name>
+        <en_expanded>Transition Settings -- Instrument &gt; Max time changed to "15"</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>changed_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:15}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed to "15"</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:20}</name>
+        <name>{3:15}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed from "20" to "15"</en_expanded>
+      </all_info>
+      <hash>xxrjrGF4I7mNrJa6zlQiI4ud/ik=</hash>
+    </audit_log_entry>
+    <audit_log_entry skyline_version="21.1.0.278-fe50e66f2 (64-Bit)" time_stamp="2022-03-06T11:54:46+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>changed_to</type>
+        <name>{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:20}</name>
+        <en_expanded>Transition Settings -- Instrument &gt; Max time changed to "20"</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>changed_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:20}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed to "20"</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:15}</name>
+        <name>{3:20}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed from "15" to "20"</en_expanded>
+      </all_info>
+      <hash>wA9FQ/x+7ESvRcq/Y36Ghlwpyww=</hash>
+    </audit_log_entry>
+    <audit_log_entry skyline_version="21.1.0.278-fe50e66f2 (64-Bit)" time_stamp="2021-12-17T14:11:06+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>changed_to</type>
+        <name>{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:15}</name>
+        <en_expanded>Transition Settings -- Instrument &gt; Max time changed to "15"</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>changed_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:15}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed to "15"</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:21}</name>
+        <name>{3:15}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed from "21" to "15"</en_expanded>
+      </all_info>
+      <hash>JdpkIZArGpo3avPX6zdC/cZI5K0=</hash>
+    </audit_log_entry>
+    <audit_log_entry skyline_version="21.1.0.278-fe50e66f2 (64-Bit)" time_stamp="2021-11-23T18:20:14+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>changed_to</type>
+        <name>{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:21}</name>
+        <en_expanded>Transition Settings -- Instrument &gt; Max time changed to "21"</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>changed_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:21}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed to "21"</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:18}</name>
+        <name>{3:21}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed from "18" to "21"</en_expanded>
+      </all_info>
+      <hash>urCFcXKz6B5DT3CsU4sgq+Uz4W0=</hash>
+    </audit_log_entry>
+    <audit_log_entry skyline_version="20.2.0.343-a7a9e8c4f (64-Bit)" time_stamp="2021-05-19T18:44:31+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>changed_to</type>
+        <name>{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:18}</name>
+        <en_expanded>Transition Settings -- Instrument &gt; Max time changed to "18"</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>changed_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:18}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed to "18"</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:10}</name>
+        <name>{3:18}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed from "10" to "18"</en_expanded>
+      </all_info>
+      <hash>QRMPO0fHSSWEW8Xjt+5RVs3xf7s=</hash>
+    </audit_log_entry>
+    <audit_log_entry skyline_version="20.2.0.343-a7a9e8c4f (64-Bit)" time_stamp="2021-05-19T11:28:48+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>changed_to</type>
+        <name>{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:10}</name>
+        <en_expanded>Transition Settings -- Instrument &gt; Max time changed to "10"</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>changed_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:10}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed to "10"</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:18}</name>
+        <name>{3:10}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed from "18" to "10"</en_expanded>
+      </all_info>
+      <hash>YKEpxjv4sOiW0c3T/8g5IrtB9uM=</hash>
+    </audit_log_entry>
+    <audit_log_entry skyline_version="20.2.0.343-a7a9e8c4f (64-Bit)" time_stamp="2021-05-10T11:16:27+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>changed_to</type>
+        <name>{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:18}</name>
+        <en_expanded>Transition Settings -- Instrument &gt; Max time changed to "18"</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>changed_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:18}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed to "18"</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:11}</name>
+        <name>{3:18}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed from "11" to "18"</en_expanded>
+      </all_info>
+      <hash>15PKHN3fN4hTioPeQL6wX39IqF4=</hash>
+    </audit_log_entry>
+    <audit_log_entry skyline_version="20.2.0.343-a7a9e8c4f (64-Bit)" time_stamp="2021-05-10T10:14:58+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>changed_to</type>
+        <name>{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:11}</name>
+        <en_expanded>Transition Settings -- Instrument &gt; Max time changed to "11"</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>changed_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:11}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed to "11"</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:12}</name>
+        <name>{3:11}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed from "12" to "11"</en_expanded>
+      </all_info>
+      <hash>xwta90CXM0oG58KyKYeBLPvBT5g=</hash>
+    </audit_log_entry>
+    <audit_log_entry skyline_version="20.2.0.343-a7a9e8c4f (64-Bit)" time_stamp="2021-05-05T12:24:11+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>changed_to</type>
+        <name>{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:12}</name>
+        <en_expanded>Transition Settings -- Instrument &gt; Max time changed to "12"</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>changed_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:12}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed to "12"</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:18}</name>
+        <name>{3:12}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed from "18" to "12"</en_expanded>
+      </all_info>
+      <hash>sDGTwvXY7S7hdxGVc8JYPgWYKto=</hash>
+    </audit_log_entry>
+    <audit_log_entry skyline_version="20.2.0.343-a7a9e8c4f (64-Bit)" time_stamp="2021-04-28T10:06:15+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>changed_to</type>
+        <name>{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:18}</name>
+        <en_expanded>Transition Settings -- Instrument &gt; Max time changed to "18"</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>changed_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:18}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed to "18"</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{3:12}</name>
+        <name>{3:18}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed from "12" to "18"</en_expanded>
+      </all_info>
+      <hash>VWcU4vVwWmZhwXmbU+UO6jsUPNY=</hash>
+    </audit_log_entry>
+    <audit_log_entry skyline_version="20.2.0.343-a7a9e8c4f (64-Bit)" time_stamp="2021-04-21T15:14:39+10:00" user="QUTAD\menzel2" mode="m">
+      <undo_redo>
+        <type>start_log_existing_doc</type>
+        <en_expanded>Start of audit log for already existing document</en_expanded>
+      </undo_redo>
+      <summary>
+        <type>start_log_existing_doc</type>
+        <en_expanded>Start of audit log for already existing document</en_expanded>
+      </summary>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Filter}{2:PropertySeparator}{0:TransitionFilter_SmallMoleculePrecursorAdductsString}</name>
+        <name>"[M+H]"</name>
+        <name>"[M+]"</name>
+        <en_expanded>Settings &gt; Transition Settings -- Filter &gt; Molecule Precursor adducts changed from "[M+H]" to "[M+]"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Filter}{2:PropertySeparator}{0:TransitionFilter_PeptideIonTypesString}</name>
+        <name>"y"</name>
+        <name>"y, p"</name>
+        <en_expanded>Settings &gt; Transition Settings -- Filter &gt; Ion types changed from "y" to "y, p"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Filter}{2:PropertySeparator}{0:TransitionFilter_AutoSelect}</name>
+        <name>{3:True}</name>
+        <name>{3:False}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Filter &gt; Auto-select all matching transitions changed from True to False</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Libraries}{2:PropertySeparator}{0:TransitionLibraries_IonMatchTolerance}</name>
+        <name>{3:0.5}</name>
+        <name>{3:0.0255}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Library &gt; Ion match tolerance changed from "0.5" to "0.0255"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxMz}</name>
+        <name>{3:1500}</name>
+        <name>{3:1200}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max m/z changed from "1500" to "1200"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MzMatchTolerance}</name>
+        <name>{3:0.055}</name>
+        <name>{3:0.025}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Method match tolerance m/z changed from "0.055" to "0.025"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MinTime}</name>
+        <name>{2:Missing}</name>
+        <name>{3:1}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Min time changed from Missing to "1"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_Instrument}{2:PropertySeparator}{0:TransitionInstrument_MaxTime}</name>
+        <name>{2:Missing}</name>
+        <name>{3:12}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Instrument &gt; Max time changed from Missing to "12"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}{2:PropertySeparator}{0:TransitionFullScan_AcquisitionMethod}</name>
+        <name>"{6:FullScanAcquisitionMethod_None}"</name>
+        <name>"{6:FullScanAcquisitionMethod_DIA}"</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan &gt; Acquisition method changed from "None" to "DIA"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}{2:PropertySeparator}{0:TransitionFullScan_IsolationScheme}</name>
+        <name>{2:Missing}</name>
+        <name>"All Ions"</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan &gt; Isolation scheme changed from Missing to "All Ions"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>is_</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}{2:PropertySeparator}{0:TransitionFullScan_IsolationScheme}{2:PropertySeparator}{0:IsolationScheme_IsolationWidth}</name>
+        <name>"{6:IsolationWidthType_results}"</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan &gt; Isolation scheme &gt; Isolation width is "Results"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>is_</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}{2:PropertySeparator}{0:TransitionFullScan_IsolationScheme}{2:PropertySeparator}{0:IsolationScheme_SpecialHandling}</name>
+        <name>"All Ions"</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan &gt; Isolation scheme &gt; Deconvolution is "All Ions"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>is_</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}{2:PropertySeparator}{0:TransitionFullScan_IsolationScheme}{2:PropertySeparator}{0:IsolationScheme_PrespecifiedIsolationWindows}</name>
+        <name>{2:Empty}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan &gt; Isolation scheme &gt; Prespecified isolation windows is Empty</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}{2:PropertySeparator}{0:TransitionFullScan_ProductMassAnalyzer}</name>
+        <name>"{6:FullScanMassAnalyzerType_none}"</name>
+        <name>"{6:FullScanMassAnalyzerType_tof}"</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan &gt; Product mass analyzer changed from "None" to "TOF"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}{2:PropertySeparator}{0:TransitionFullScan_ResolvingPower}</name>
+        <name>{2:Missing}</name>
+        <name>{3:15000}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan &gt; Resolving power changed from Missing to "15000"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}{2:PropertySeparator}{0:TransitionFullScan_PrecursorIsotopes}</name>
+        <name>"{6:FullScanPrecursorIsotopes_None}"</name>
+        <name>"{6:FullScanPrecursorIsotopes_Count}"</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan &gt; Isotope peaks included changed from "None" to "Count"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}{2:PropertySeparator}{0:TransitionFullScan_PrecursorIsotopeFilter}</name>
+        <name>{2:Missing}</name>
+        <name>{3:1}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan &gt; Peaks changed from Missing to "1"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}{2:PropertySeparator}{0:TransitionFullScan_PrecursorMassAnalyzer}</name>
+        <name>"{6:FullScanMassAnalyzerType_none}"</name>
+        <name>"{6:FullScanMassAnalyzerType_tof}"</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan &gt; Precursor mass analyzer changed from "None" to "TOF"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}{2:PropertySeparator}{0:TransitionFullScan_ResolvingPower}</name>
+        <name>{2:Missing}</name>
+        <name>{3:15000}</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan &gt; Resolving power changed from Missing to "15000"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>changed_from_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_TransitionSettings}{2:TabSeparator}{0:TransitionSettings_FullScan}{2:PropertySeparator}{0:TransitionFullScan_IsotopeEnrichments}</name>
+        <name>{2:Missing}</name>
+        <name>"Default"</name>
+        <en_expanded>Settings &gt; Transition Settings -- Full-Scan &gt; Isotope labeling enrichment changed from Missing to "Default"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>added_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}</name>
+        <name>"Small Molecule Transition List"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports : "Small Molecule Transition List" was added</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:Name}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Name"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:MoleculeName}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Molecule Name"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:MoleculeFormula}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Molecule Formula"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:IonFormula}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Ion Formula"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:NeutralFormula}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "NeutralFormula"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:Adduct}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Adduct"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:Mz}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Mz"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:Charge}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Charge"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:CollisionEnergy}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Collision Energy"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:ExplicitCollisionEnergy}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Explicit Collision Energy"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:ExplicitRetentionTime}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Explicit Retention Time"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:ExplicitRetentionTimeWindow}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Explicit Retention Time Window"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:ProductMz}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Product Mz"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:ProductCharge}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Product Charge"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:ProductIonFormula}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Product Ion Formula"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:ProductNeutralFormula}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Product Neutral Formula"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:ProductAdduct}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Columns : contains "Product Adduct"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>is_</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpec_Filters}</name>
+        <name>{2:Empty}</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Filters is Empty</en_expanded>
+      </all_info>
+      <all_info>
+        <type>is_</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Small Molecule Transition List"{2:PropertySeparator}{0:ViewSpecLayout_DefaultLayoutName}</name>
+        <name>{2:Missing}</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Small Molecule Transition List" &gt; Default Layout Name is Missing</en_expanded>
+      </all_info>
+      <all_info>
+        <type>added_to</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}</name>
+        <name>"Transition Results"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports : "Transition Results" was added</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Transition Results"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:Peptide}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Transition Results" &gt; Columns : contains "Molecule"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Transition Results"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:Protein}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Transition Results" &gt; Columns : contains "Molecule List"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Transition Results"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:Replicate}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Transition Results" &gt; Columns : contains "Replicate"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Transition Results"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:Mz}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Transition Results" &gt; Columns : contains "Mz"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Transition Results"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:Charge}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Transition Results" &gt; Columns : contains "Charge"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Transition Results"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:ProductMz}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Transition Results" &gt; Columns : contains "Product Mz"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Transition Results"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:ProductCharge}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Transition Results" &gt; Columns : contains "Product Charge"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Transition Results"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:FragmentIon}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Transition Results" &gt; Columns : contains "Fragment Ion"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Transition Results"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:RetentionTime}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Transition Results" &gt; Columns : contains "Retention Time"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Transition Results"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:Area}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Transition Results" &gt; Columns : contains "Area"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Transition Results"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:Background}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Transition Results" &gt; Columns : contains "Background"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Transition Results"{2:PropertySeparator}{0:ViewSpec_Columns}</name>
+        <name>"{5:PeakRank}"</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Transition Results" &gt; Columns : contains "Peak Rank"</en_expanded>
+      </all_info>
+      <all_info>
+        <type>contains</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Transition Results"{2:PropertySeparator}{0:ViewSpec_Filters}</name>
+        <name>{ {0:FilterSpec_AuditLogColumn} = "{5:Value}", {0:IFilterOperation_DisplayName} = "Is Not Blank", {0:FilterPredicate_InvariantOperandText} = {2:Missing} }</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Transition Results" &gt; Filters : contains { Column = "Value", Operation = "Is Not Blank", Value = Missing }</en_expanded>
+      </all_info>
+      <all_info>
+        <type>is_</type>
+        <name>{0:Settings}{2:PropertySeparator}{0:SrmSettings_DataSettings}{2:PropertySeparator}{0:ViewSpecList_Views}{2:PropertySeparator}"Transition Results"{2:PropertySeparator}{0:ViewSpecLayout_DefaultLayoutName}</name>
+        <name>{2:Missing}</name>
+        <en_expanded>Settings &gt; Document Settings &gt; Reports &gt; "Transition Results" &gt; Default Layout Name is Missing</en_expanded>
+      </all_info>
+      <hash>v7DmBdob7/LKeqsQuFDO3tXd3KI=</hash>
+    </audit_log_entry>
+  </audit_log>
+</audit_log_root>
