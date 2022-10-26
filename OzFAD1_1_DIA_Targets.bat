@@ -1,10 +1,17 @@
 @ECHO OFF
-ECHO This batch file controls the de novo fatty acid analysis workflow using LC-OzID-MS data.
-ECHO This workflow was created by Jan Philipp Menzel, Mass Spectrometry Development Laboratory, Queensland University of Technology, 2021 / 2022.
-ECHO Before running the workflow, check that:
+ECHO ------- OzFAD1 stage 1 -------
+ECHO This batch file controls the de novo fatty acid analysis workflow using LC-OzID-MS data. 
+ECHO This stage enables calculation of a target list for the data dependent acquisition.
+ECHO The workflow was created by Dr. Jan Philipp Menzel,
+ECHO Mass Spectrometry Development Laboratory, Queensland University of Technology, 2021 / 2022.
+ECHO Before running the workflow, make sure that:
 ECHO  1 There is enough diskspace available, recommended is at least 10 GB free space.
 ECHO  2 The maximum retention time in the Transition Settings in the Skyline file template.sky is set according to the analysis.
 ECHO  3 The dataset to be analysed and python programs are in the appropriate directories.
+
+rem To install this file on a computer, modify the links to the folder location of your python version and the python scripts associated to this batch file.
+rem Tip: Use the find and replace function in Notepad++ to make the changes in all batch files at once.
+rem For example: replace "menzel2" with your username and "Python39" with your python version.
 
 rem ECHO For instructions and further information see the publication: _.
 set /p identifier=What is the identifier for this run of the workflow?:
@@ -47,34 +54,29 @@ rem Filter results and generate transition lists containing decoys for analysis 
 rem Run second filter on merged or output transition list
 call %BAT_Script_Second_Filter%  OzFAD1_results DIA_current_LCMS_dataset %identifier% 100000 12 "template.sky"
 
+if %ERRORLEVEL% NEQ 0 GOTO END
+GOTO END
+:END 
+
+
 rem begin make new folder and Move results files excel and csv to folder in OzFAD1_results location of current run
 md OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
 copy C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_workflow_parameters.xlsx C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_OzFAD1_0_precheck.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_OzFAD1_1_precursor.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_OzFAD1_2_full_list.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_OzFAD1_3_1st_filter_chunk.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_OzFAD1_3_1st_filter.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_OzFAD1_4_rank1_2nd_filter.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_OzFAD1_4_rank2_2nd_filter.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_OzFAD1_0.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_OzFAD1_1.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_OzFAD1_2.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_OzFAD1_3_chunk.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_OzFAD1_3.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_OzFAD1_4_rank1.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_OzFAD1_4_rank2.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_xic_report_OzFAD1_3_chunk.tsv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_xic_report_OzFAD1_3.tsv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_xic_report_OzFAD1_3_intensities.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_xic_report_OzFAD1_3_times.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_OzFAD1_2_precursor_analysis.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
+
+move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_vpw20_0_precheck.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
+move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_vpw20_1_precursor.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
+move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_vpw20_2_full_list.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
+move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_vpw20_2_precursor_analysis.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
+move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_vpw20_0.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
+move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_vpw20_1.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
+move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_xic_report_vpw20_0_precheck.tsv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
+move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_xic_report_vpw20_0_intensities.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
+move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_xic_report_vpw20_0_times.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
 move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_dda_targetlist.txt C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
 rem end make new folder and Move results files excel and csv to folder in OzFAD1_results location of current run
 
-if %ERRORLEVEL% NEQ 0 GOTO END
-GOTO END
+
 echo The calculation is completed.
-:END
+rem :END
 ENDLOCAL
 PAUSE
