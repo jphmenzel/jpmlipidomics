@@ -1,13 +1,15 @@
 @ECHO OFF
-ECHO "This batch file controls the de novo fatty acid analysis workflow, part 4, deconvolution and relative quantification, using DDA confirmed, selected, integral limit corrected DIA LC-OzID-MS data."
-ECHO "This workflow was created by Jan Philipp Menzel, Mass Spectrometry Development Laboratory, Queensland University of Technology, 2021 / 2022."
-ECHO "Before running the workflow, check that:"
-ECHO " "
-ECHO "1 There is enough diskspace available, recommended is at least 10 GB free space."
-ECHO "2 The maximum retention time in the Transition Settings in the Skyline file template.sky is set according to the analysis."
-ECHO "3 The dataset to be analysed (both DIA and DDA) and python programs are in the appropriate directories."
-ECHO "4 The appropriate files skyl_report_dia_int.csv; skyl_report_dia_xic.tsv and OzFAD1_workflow_parameters.xlsx must be copied into OzFAD1"
-ECHO " "
+ECHO ------- OzFAD1 stage 4 -------
+ECHO This batch file controls the de novo fatty acid analysis workflow, stage 4, deconvolution.
+ECHO This stage enables deconvolution and relative quantification, using DDA confirmed, selected, integral limit corrected DIA LC-OzID-MS data.
+ECHO This workflow was created by Jan Philipp Menzel, Mass Spectrometry Development Laboratory, Queensland University of Technology, 2021 / 2022.
+ECHO Before running the workflow, make sure that:
+ECHO ____
+ECHO  1 There is enough diskspace available, recommended is at least 10 GB free space.
+ECHO  2 The maximum retention time in the Transition Settings in the Skyline file template.sky is set according to the analysis.
+ECHO  3 The dataset to be analysed (both DIA and DDA) and python programs are in the appropriate directories.
+ECHO  4 The appropriate files skyl_report_dia_int.csv; skyl_report_dia_xic.tsv and OzFAD1_workflow_parameters.xlsx must be copied into OzFAD1
+ECHO ____
 
 rem ECHO For instructions and further information see the publication: _.
 set /p identifier=What is the identifier for this run of the workflow?:

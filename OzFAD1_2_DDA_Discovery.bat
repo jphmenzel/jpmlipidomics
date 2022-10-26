@@ -1,13 +1,15 @@
 @ECHO OFF
-ECHO This batch file controls the de novo fatty acid analysis workflow, part 2, DDA analysis, using LC-OzID-MS data.
+ECHO ------- OzFAD1 stage 2 -------
+ECHO This batch file controls the de novo fatty acid analysis workflow using DDA LC-OzID-MS/MS data.
+ECHO This stage enables de novo discovery of fatty acid double bond isomers based on the data dependent acquisition.
 ECHO This workflow was created by Jan Philipp Menzel, Mass Spectrometry Development Laboratory, Queensland University of Technology, 2021 / 2022.
-ECHO Before running the workflow, check that:
+ECHO Before running the workflow, make sure that:
 ECHO ____
 ECHO  1 There is enough diskspace available, recommended is at least 10 GB free space.
 ECHO  2 The maximum retention time in the Transition Settings in the Skyline file template.sky is set according to the analysis.
 ECHO  3 The LC-OzID-MS datasets that are to be analysed and python programs are in the appropriate directories.
 ECHO  4 The appropriate file jpmlipidomics_dda_targetlist.txt must be copied into OzFAD1.
-ECHO  4 The appropriate file OzFAD1_workflow_parameters.xlsx must be copied into OzFAD1.
+ECHO  5 The appropriate file OzFAD1_workflow_parameters.xlsx must be copied into OzFAD1.
 ECHO ____
 
 rem ECHO For instructions and further information see the publication: _.
@@ -62,7 +64,7 @@ rem The last Skyline file needs to be manually assessed to make sure that integr
 
 rem begin move results files excel and csv to folder in OzFAD1_results location of current run
 md OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
-move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_vpw20_4_rank1.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
+rem move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_vpw20_4_rank1.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
 move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_dda_targetlist.txt C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_dda_vpw20_0.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_dda_vpw20_1_filtered.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
@@ -74,14 +76,14 @@ move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_xic_dda_report_vpw20_1.tsv C:
 move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_xic_dda_report_vpw20_1_intensities.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_xic_dda_report_vpw20_1_times.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_workflow_parameters.xlsx C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
-move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_vpw20_6_DDA_confirmed_DIA.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
+rem move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_vpw20_6_DDA_confirmed_DIA.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_dda_vpw20_3_rt_shift1.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_dda_vpw20_3_rt_shift1.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_xic_dda_report_vpw20_3.tsv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_xic_dda_report_vpw20_3_times.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_xic_dda_report_vpw20_3_intensities.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move C:\Users\menzel2\batchprogramming\OzFAD1\jpmlipidomics_dda_vpw20_4_rt_shifted.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
-move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_vpw20_6_DDA_confirmed_DIA_rt_shifted.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
+rem move C:\Users\menzel2\batchprogramming\OzFAD1\skyl_report_vpw20_6_DDA_confirmed_DIA_rt_shifted.csv C:\Users\menzel2\batchprogramming\OzFAD1\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 
 rem end move results files excel and csv to folder in OzFAD1_results location of current run
 
