@@ -1298,7 +1298,7 @@ while segrun==1:
 					rtstart.append(e)
 					e=dwritelist[19][t] ## 	
 					rtend.append(e)
-					exrtwindow.append(0.05)
+					exrtwindow.append(0.1)
 					e=cutlist[t]
 					wcutlist.append(e)
 					e=avgexactexrtlist[t]

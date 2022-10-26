@@ -8,6 +8,7 @@
 ##			corrects areas for isotopic pattern using sum formula of species
 ##			saves data both in csv file and xlsx file
 
+
 import math
 import openpyxl
 import pandas as pd
@@ -30,13 +31,13 @@ beforeall=datetime.datetime.now()
 isotope=['1H   ', '2H  ', '12C   ', '14N   ', '16O    ', '31P   ', '32S    ' '23Na     ', 'e     ', '132Xe', '   127I']
 imass=[1.007825, 2.0141, 12.00000, 14.00307, 15.99491, 30.973762, 31.97207, 22.98977, 0.000548585, 131.9041535, 126.904473]
 ################
-print('This program generates the final fatty acid analysis output of the OzFAD1 workflow including a preliminary barchart.')
-print('Three output files of this program of three replicates can be used to create a replicate plot by another python script.')
+print('This program generates the fatty acid analysis output of the OzFAD1 workflow including a preliminary barchart.')
+print('Three output files of this program of three replicates can be used to create a replicate plot by the python script OzFAD1_6_Replicate_plot.')
 print('Before proceeding, ensure that the files OzFAD1_4_input_DIA_Q.xlsx and OzFAD1_4_DIA_deconv.xlsx are in the correct directory.')
 
 #selectiontype=eval(input('Generate Transition Results based on m/z error and retention time cutoff only (0) or based on strict selection criteria (1)? : '))
 # begin determine derivatization group sum formula
-fourlettcode=input('Enter four letter code of derivatization agent (e.g. AMPP, NMPA, NMPE, MDPE, NEPE, EDPE, NPPE, IAMP) :')
+fourlettcode=input('Enter four letter code of derivatization agent (e.g. AMPP, NMPA, NMPE, MDPE, NEPE, EDPE, NPPE, IAMP): ')
 fourlettcode=str(fourlettcode)
 if fourlettcode=='AMPP':
 	cderiv=12
@@ -531,6 +532,14 @@ while rf<len(fanclist):
 			cfas=cfas+'Z)'
 		fashorthand.append(cfas)
 		fasysname.append(fasys)
+	elif int(fanclist[rf][4])==0:
+		go=go
+		fasys=sheet.cell(row=rf+2, column=7)
+		fasys=fasys.value
+		fasys=str(fasys)
+		cfas=str(fasys)
+		fashorthand.append(cfas)
+		fasysname.append(fasys)	
 	else:
 		#get delta position of PUFA
 		fasys=sheet.cell(row=rf+2, column=7)
@@ -605,21 +614,21 @@ wb=openpyxl.load_workbook('OzFAD1_5_plot_table.xlsx')
 #ws = wb.create_sheet(sheetname)
 sheetbc=wb['final_barchart']
 #sheetprecr=wb['precursorresults']
-toprow=['FA', 'n-2 (Me, Z)', 'n-2 (Me, E)', 'n-2 (Bu)', 'n-2 (NMI, Z)', 'n-2 (NMI, E)', 
-'n-3 (Me, Z)', 'n-3 (Me, E)', 'n-3 (Bu)', 'n-3 (NMI, Z)', 'n-3 (NMI, E)',
-'n-4 (Me, Z)', 'n-4 (Me, E)', 'n-4 (Bu)', 'n-4 (NMI, Z)', 'n-4 (NMI, E)',
-'n-5 (Me, Z)', 'n-5 (Me, E)', 'n-5 (Bu)', 'n-5 (NMI, Z)', 'n-5 (NMI, E)',
-'n-6 (Me, Z)', 'n-6 (Me, E)', 'n-6 (Bu)', 'n-6 (NMI, Z)', 'n-6 (NMI, E)',
-'n-7 (Me, Z)', 'n-7 (Me, E)', 'n-7 (Bu)', 'n-7 (NMI, Z)', 'n-7 (NMI, E)',
-'n-8 (Me, Z)', 'n-8 (Me, E)', 'n-8 (Bu)', 'n-8 (NMI, Z)', 'n-8 (NMI, E)',
-'n-9 (Me, Z)', 'n-9 (Me, E)', 'n-9 (Bu)', 'n-9 (NMI, Z)', 'n-9 (NMI, E)',
-'n-10 (Me, Z)', 'n-10 (Me, E)', 'n-10 (Bu)', 'n-10 (NMI, Z)', 'n-10 (NMI, E)',
-'n-11 (Me, Z)', 'n-11 (Me, E)', 'n-11 (Bu)', 'n-11 (NMI, Z)', 'n-11 (NMI, E)',
-'n-12 (Me, Z)', 'n-12 (Me, E)', 'n-12 (Bu)', 'n-12 (NMI, Z)', 'n-12 (NMI, E)',
-'n-13 (Me, Z)', 'n-13 (Me, E)', 'n-13 (Bu)', 'n-13 (NMI, Z)', 'n-13 (NMI, E)',
-'n-14 (Me, Z)', 'n-14 (Me, E)', 'n-14 (Bu)', 'n-14 (NMI, Z)', 'n-14 (NMI, E)',
-'n-15 (Me, Z)', 'n-15 (Me, E)', 'n-15 (Bu)', 'n-15 (NMI, Z)', 'n-15 (NMI, E)',
-'n-16 (Me, Z)', 'n-16 (Me, E)', 'n-16 (Bu)', 'n-16 (NMI, Z)', 'n-16 (NMI, E)']
+toprow=['FA', 'n-2 (Me, Z)', 'n-2 (Me, E)', 'n-2 (Bu)', 'n-2 (NMI)', 'n-2 (Branched)', 
+'n-3 (Me, Z)', 'n-3 (Me, E)', 'n-3 (Bu)', 'n-3 (NMI)', 'n-3 (Branched)',
+'n-4 (Me, Z)', 'n-4 (Me, E)', 'n-4 (Bu)', 'n-4 (NMI)', 'n-4 (Branched)',
+'n-5 (Me, Z)', 'n-5 (Me, E)', 'n-5 (Bu)', 'n-5 (NMI)', 'n-5 (Branched)',
+'n-6 (Me, Z)', 'n-6 (Me, E)', 'n-6 (Bu)', 'n-6 (NMI)', 'n-6 (Branched)',
+'n-7 (Me, Z)', 'n-7 (Me, E)', 'n-7 (Bu)', 'n-7 (NMI)', 'n-7 (Branched)',
+'n-8 (Me, Z)', 'n-8 (Me, E)', 'n-8 (Bu)', 'n-8 (NMI)', 'n-8 (Branched)',
+'n-9 (Me, Z)', 'n-9 (Me, E)', 'n-9 (Bu)', 'n-9 (NMI)', 'n-9 (Branched)',
+'n-10 (Me, Z)', 'n-10 (Me, E)', 'n-10 (Bu)', 'n-10 (NMI)', 'n-10 (Branched)',
+'n-11 (Me, Z)', 'n-11 (Me, E)', 'n-11 (Bu)', 'n-11 (NMI)', 'n-11 (Branched)',
+'n-12 (Me, Z)', 'n-12 (Me, E)', 'n-12 (Bu)', 'n-12 (NMI)', 'n-12 (Branched)',
+'n-13 (Me, Z)', 'n-13 (Me, E)', 'n-13 (Bu)', 'n-13 (NMI)', 'n-13 (Branched)',
+'n-14 (Me, Z)', 'n-14 (Me, E)', 'n-14 (Bu)', 'n-14 (NMI)', 'n-14 (Branched)',
+'n-15 (Me, Z)', 'n-15 (Me, E)', 'n-15 (Bu)', 'n-15 (NMI)', 'n-15 (Branched)',
+'n-16 (Me, Z)', 'n-16 (Me, E)', 'n-16 (Bu)', 'n-16 (NMI)', 'n-16 (Branched)']
 
 # 'n-4 (Me)', 'n-4 (Bu)', 'n-4 (Other)', 'n-5 (Me)', 'n-5 (Bu)', 'n-5 (Other)', 'n-6 (Me)', 'n-6 (Bu)', 'n-6 (Other)',
 #'n-7 (Me)', 'n-7 (Bu)', 'n-7 (Other)', 'n-8 (Me)', 'n-8 (Bu)', 'n-8 (Other)', 'n-9 (Me)', 'n-9 (Bu)', 'n-9 (Other)', 'n-10 (Me)', 'n-10 (Bu)', 'n-10 (Other)', 'n-11 (Me)', 
@@ -665,6 +674,8 @@ while i<(len(shortlistfa)):
 	use=0
 	if int(shortlistfa[i][3])==1:
 		use=1
+	elif int(shortlistfa[i][3])==0:
+		use=0
 	else:
 		fi=4		#determine if polyunsaturated FA Me/Bu spaced
 		while fi<(len(shortlistfa[i])):
@@ -705,7 +716,7 @@ while i<(len(shortlistfa)):
 				else:
 					cat=0					
 			else:
-				cat=0	##### enter if clause to fix disappearing sciadonic acid, while keeping all else correct !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				cat=0	
 	else:
 		cfa=str(shortlistfa[i][0])+str(shortlistfa[i][1])+str(shortlistfa[i][2])+str(shortlistfa[i][3])
 		cat=3 #dbn=dbn+26
@@ -715,7 +726,7 @@ while i<(len(shortlistfa)):
 	if cat==3:
 		if str(fanclist[i][len(fanclist[i])-2])=='E':
 			cat=4		# NMI (E)		
-	use=1
+	#use=1
 	if use==1:
 		#print(cat)
 		#print(cfa)
@@ -790,12 +801,30 @@ while bcl<(len(barchartlist)):
 	pbarchartlist.append(pbcl)
 	bcl=bcl+1
 #print(pbarchartlist)
-#write results in barchartlist in excel file
+
+## begin sort pbarchartlist by odd and even FA
+spbarchartlist=[]	#sorted pbarchartlist
+oddlist=[1,3,5,7,9]
+evenlist=[0,2,4,6,8]
+sp=0
+while sp<(len(pbarchartlist)):
+	if int(pbarchartlist[sp][0][1]) in oddlist:
+		spbarchartlist.append(pbarchartlist[sp])
+	sp=sp+1
+sp=0
+while sp<(len(pbarchartlist)):
+	if int(pbarchartlist[sp][0][1]) in evenlist:
+		spbarchartlist.append(pbarchartlist[sp])
+	sp=sp+1
+## end sort pbarchartlist by odd and even FA
+#print(spbarchartlist)
+
+#write results in pbarchartlist in excel file
 r=2
-while r<(len(pbarchartlist)+2):
+while r<(len(spbarchartlist)+2):
 	c=1
-	while c<(len(pbarchartlist[r-2])+1):
-		sheetbc.cell(row=r, column=c).value=pbarchartlist[r-2][c-1]
+	while c<(len(spbarchartlist[r-2])+1):
+		sheetbc.cell(row=r, column=c).value=spbarchartlist[r-2][c-1]
 		c=c+1
 	r=r+1
 #begin create bar chart in excel sheet
@@ -804,16 +833,16 @@ assigned.append(toprow)
 #aslist=['index', 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2] # 0 is Me; 1 is Bu; 2 is Other
 aslist=['index', 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4] # 0 is Me; 1 is Bu; 2 is Other
 ias=0
-while ias<(len(pbarchartlist)):
+while ias<(len(spbarchartlist)):
 	assigned.append(aslist)
 	ias=ias+1
 
-mr=len(pbarchartlist)+1
+mr=len(spbarchartlist)+1
 if satfaonly==1:
 	print('Only saturated fatty acids were found, results are saved in jpm_lipidomics_vpw11_5_final_output.xlsx')
 	quit()
 else:
-	mc=len(pbarchartlist[0])
+	mc=len(spbarchartlist[0])
 chart1 = BarChart()
 chart1.type = "col"
 chart1.style = 12
@@ -913,7 +942,7 @@ while stbr<(len(assigned[0])-1):
     stbr=stbr+1
 chart1.legend=None
 #end test new barchart with patterns
-chartposition=str('A')+str(len(pbarchartlist)+3)
+chartposition=str('A')+str(len(spbarchartlist)+3)
 sheetbc.add_chart(chart1, chartposition)
 #end create bar chart in excel sheet
 
@@ -923,8 +952,8 @@ lralist=['Categories', 'n-2', 'n-3', 'n-4', 'n-5', 'n-6', 'n-7', 'n-8', 'n-9', '
 legendrows.append(lralist)
 lrlist=['FA', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 i=0
-while i<(len(pbarchartlist)):
-	fa=pbarchartlist[i][0]
+while i<(len(spbarchartlist)):
+	fa=spbarchartlist[i][0]
 	#lrlist[0]=fa
 	lrblist=[]
 	lrblist.append(fa)
@@ -935,7 +964,7 @@ while i<(len(pbarchartlist)):
 	legendrows.append(lrblist)
 	i=i+1
 
-r=70+len(pbarchartlist)
+r=70+len(spbarchartlist)
 rinit=r
 while r<(len(legendrows)+rinit):
 	c=1
@@ -1007,7 +1036,7 @@ fill.background=ColorChoice(prstClr='white')
 sa.graphicalProperties.pattFill=fill
 sa.graphicalProperties.line.solidFill=ColorChoice(prstClr='white')
 
-chartposition=str('A')+str(35+len(pbarchartlist))
+chartposition=str('A')+str(35+len(spbarchartlist))
 sheetbc.add_chart(chart2, chartposition)
 #end create chart with legend
 after=datetime.datetime.now()
@@ -1016,13 +1045,19 @@ today=after[0]+after[1]+after[2]+after[3]+'_'+after[5]+after[6]+'_'+after[8]+aft
 filename='OzFAD1_5_plot_table.xlsx'	# today+
 wb.save(filename)
 ####################################
-## begin write remaining results summary
 
+
+# SWITCH for troubleshooting to terminate before LIPIDMAPS LOOKUP
+#quit()
+#################################################################
+
+
+## begin write remaining results summary
 wb=openpyxl.load_workbook('OzFAD1_5_plot_table.xlsx')
 sheetbc=wb['final_barchart']
 sheetsummary=wb['results_summary']
-
-#print(pbarchartlist)
+ozidbc=wb['ozid_barchart']
+#print(spbarchartlist)
 #quit()
 
 rf=0
@@ -1031,8 +1066,8 @@ while rf<len(fanclist):
 	cfaa=str()
 	cfaa=cfaa+str(fanclist[rf][1])+str(fanclist[rf][2])+str(fanclist[rf][3])+str(fanclist[rf][4])	#e.g. 14:1
 	pi=0
-	while pi<len(pbarchartlist):
-		if cfaa==pbarchartlist[pi][0]:
+	while pi<len(spbarchartlist):
+		if cfaa==spbarchartlist[pi][0]:
 			if int(fanclist[rf][4])==1:
 				#MUFA
 				efa=0
@@ -1050,7 +1085,7 @@ while rf<len(fanclist):
 					pipos=2+(5*(cfaan-2))	# E FA
 				else:
 					pipos=1+(5*(cfaan-2))	# Z FA
-				crelab=float(pbarchartlist[pi][pipos])
+				crelab=float(spbarchartlist[pi][pipos])
 				if crelab==100:
 					crelab=round(crelab,0)
 				elif crelab>10:
@@ -1148,9 +1183,16 @@ while rf<len(fanclist):
 					crelab=round(crelab,3)
 				relab.append(crelab)
 		pi=pi+1
+	if str(fanclist[rf][4])==0:
+		relab.append('N/A')
 	# end get relative isomer abundance
 
 	rf=rf+1
+
+
+wbld=openpyxl.load_workbook('LIPID_MAPS_local_data.xlsx')
+wsld=wbld['local_data']
+addlocal=[]
 
 #begin get lipidmaps ID and common name
 #fasysname contains updated systematic names
@@ -1160,150 +1202,226 @@ linklist=[]
 fsi=0
 while fsi<fullsearch:
 	searchfor=str(fasysname[fsi])
-	# begin extract LipidMAPS ID
-	#searchfor='6Z,9Z-octadecadienoic+acid'
-	#print(searchfor)
-	#searchfor='6Z,9Z-tetradecadienoic+acid'
-	#searchfor='8Z,11Z-eicosadienoic+acid'
-	urlpart='https://www.lipidmaps.org/search/quicksearch.php?Name='
-	url=urlpart+searchfor
-	#url='https://www.lipidmaps.org/search/quicksearch.php?Name=9Z-octadecenoic+acid'
-	response = requests.get(url)
-	#print(response)
-	soup = BeautifulSoup(response.text, 'html.parser')
-	results = soup.find_all('a')
-	#print(len(results))
-	k=0
-	idfound=0
-	cnidfound=0
-	while k<len(results):
-		one_a_tag = soup.findAll('a')[k]
-		link = one_a_tag['href']
-		#print(link)
-		slink=str(link)
-		finder=slink.find('LMID')
-		if finder>0:
-			idfound=1
-			#print(link)
-			#print(finder)
-			extractid=str()
-			eid=finder
-			go=0
-			while eid<(len(link)-1):
-				if link[eid]=='=':
-					go=1
-				if go==1:	
-					extractid=extractid+str(link[eid+1])
-				eid=eid+1			
-		k=k+1
-	
-	if idfound==1:
-		print('LipidMAPS ID is:')
-		print(extractid)
-		lipidmapsidlist.append(extractid)
-		clink='https://www.lipidmaps.org/databases/lmsd/'
-		clink=clink+extractid+'?LMID='+extractid
-		linklist.append(clink)
 
-		# begin get common name and append to list commonname
-		commonname=str()
-		#cnfound=0
-		#print('LipidMAPS ID is:')
-		#print(extractid)
-		#begin retrieve common name
-		urlcfa='https://www.lipidmaps.org/databases/lmsd/'+str(extractid)+'?LMID='+str(extractid)
-		#print(urlcfa)
-		responsecfa = requests.get(urlcfa)
-		#print(responsecfa.content)
-		soup = BeautifulSoup(responsecfa.text, 'html.parser')
-		results = soup.find_all('div')
-		#print(results)
-		#soup=BeautifulSoup(responsecfa.content,'html5lib')
-		#print(soup.prettify())
+	# begin check excel file LIPID_MAPS_local_data.xlsx for IDs of found species # to speed up Database lookup and only search for species not saved locally
+	# later build excel file LIPID_MAPS_local_data.xlsx, if ID found that is not saved locally
+	localid=0
+	rd=2
+	gol=1
+	while gol==1:
+		dl=wsld.cell(row=rd, column=1)
+		dl=dl.value
+		#dl=str(dl)
+		if dl is None:
+			gol=0
+		elif dl=='nan':
+			gol=0
+		elif 'acid' in dl:
+			if searchfor==dl:
+				localid=1
+				# get data saved locally for this species
+				dls=wsld.cell(row=rd, column=2)
+				dls=dls.value
+				dls=str(dls)
+				lipidmapsidlist.append(dls)
+				dlc=wsld.cell(row=rd, column=3)
+				dlc=dlc.value
+				dlc=str(dlc)
+				commonnamelist.append(dlc)
+				dll=wsld.cell(row=rd, column=4)
+				dll=dll.value
+				dll=str(dll)
+				linklist.append(dll)
+				gol=0
+		else:
+			gol=0
+		rd=rd+1
+
+	# end check excel file LIPID_MAPS_local_data.xlsx for IDs of found species # to speed up Database lookup and only search for species not saved locally
+	
+
+	if localid==0:
+		# begin extract LipidMAPS ID
+		#searchfor='6Z,9Z-octadecadienoic+acid'
+		#print(searchfor)
+		#searchfor='6Z,9Z-tetradecadienoic+acid'
+		#searchfor='8Z,11Z-eicosadienoic+acid'
+		urlpart='https://www.lipidmaps.org/search/quicksearch.php?Name='
+		url=urlpart+searchfor
+		#url='https://www.lipidmaps.org/search/quicksearch.php?Name=9Z-octadecenoic+acid'
+		response = requests.get(url)
+		#print(response)
+		soup = BeautifulSoup(response.text, 'html.parser')
+		results = soup.find_all('a')
+		#print(len(results))
 		k=0
 		idfound=0
+		cnidfound=0
 		while k<len(results):
-			divtag = soup.findAll('div')[k]
-			#print(divtag)
-			#link = divtag['class']
+			one_a_tag = soup.findAll('a')[k]
+			link = one_a_tag['href']
 			#print(link)
-			foundcn=0
-			slink=str(divtag)
-			finder=slink.find('Common Name')
+			slink=str(link)
+			finder=slink.find('LMID')
 			if finder>0:
 				idfound=1
 				#print(link)
-				#print('-------')
 				#print(finder)
-				#print(k)
-				#print('Common Name found !!!')
-				#print(divtag)
-				#print('-------')
-				sdivtag=str(divtag)
+				extractid=str()
+				eid=finder
+				go=0
+				while eid<(len(link)-1):
+					if link[eid]=='=':
+						go=1
+					if go==1:	
+						extractid=extractid+str(link[eid+1])
+					eid=eid+1			
+			k=k+1
+		
+		if idfound==1:
+			print('LipidMAPS ID is:')
+			print(extractid)
+			lipidmapsidlist.append(extractid)
+			clink='https://www.lipidmaps.org/databases/lmsd/'
+			clink=clink+extractid+'?LMID='+extractid
+			linklist.append(clink)
 
-				cnextractid=str()
-				cni=0
-				cnk=0
-				while cni<len(sdivtag):
-					cnj=cni
-					cmn=str()
-					while cnj<cni+11:
-						cmn=cmn+str(sdivtag[cnj])
-						cnj=cnj+1
-					if cmn=='Common Name':
-						#print('---####----')
-						cnk=cni
-						cni=len(sdivtag)
-					cni=cni+1
-				cna=cnk
-				while cnk<len(sdivtag)-11:
-					cnj=cnk
-					cmn=str()
-					while cnj<cnk+11:
-						cmn=cmn+str(sdivtag[cnj])
-						cnj=cnj+1
-					if cmn=='3 lg:mt-0">':
-						#print('*************************')
-						foundcn=1
-						cna=cnk+17
-						cnk=len(sdivtag)
-					cnk=cnk+1
-				cnr=cna-1
-				gor=1
-				while gor==1:
-					if cnr<len(sdivtag):
-						if str(sdivtag[cnr])==' ':
-							if str(sdivtag[cnr+1])==' ':
+			# begin get common name and append to list commonname
+			commonname=str()
+			#cnfound=0
+			#print('LipidMAPS ID is:')
+			#print(extractid)
+			#begin retrieve common name
+			urlcfa='https://www.lipidmaps.org/databases/lmsd/'+str(extractid)+'?LMID='+str(extractid)
+			#print(urlcfa)
+			responsecfa = requests.get(urlcfa)
+			#print(responsecfa.content)
+			soup = BeautifulSoup(responsecfa.text, 'html.parser')
+			results = soup.find_all('div')
+			#print(results)
+			#soup=BeautifulSoup(responsecfa.content,'html5lib')
+			#print(soup.prettify())
+			k=0
+			idfound=0
+			while k<len(results):
+				divtag = soup.findAll('div')[k]
+				#print(divtag)
+				#link = divtag['class']
+				#print(link)
+				foundcn=0
+				slink=str(divtag)
+				finder=slink.find('Common Name')
+				if finder>0:
+					idfound=1
+					#print(link)
+					#print('-------')
+					#print(finder)
+					#print(k)
+					#print('Common Name found !!!')
+					#print(divtag)
+					#print('-------')
+					sdivtag=str(divtag)
+
+					cnextractid=str()
+					cni=0
+					cnk=0
+					while cni<len(sdivtag):
+						cnj=cni
+						cmn=str()
+						while cnj<cni+11:
+							cmn=cmn+str(sdivtag[cnj])
+							cnj=cnj+1
+						if cmn=='Common Name':
+							#print('---####----')
+							cnk=cni
+							cni=len(sdivtag)
+						cni=cni+1
+					cna=cnk
+					while cnk<len(sdivtag)-11:
+						cnj=cnk
+						cmn=str()
+						while cnj<cnk+11:
+							cmn=cmn+str(sdivtag[cnj])
+							cnj=cnj+1
+						if cmn=='3 lg:mt-0">':
+							#print('*************************')
+							foundcn=1
+							cna=cnk+17
+							cnk=len(sdivtag)
+						cnk=cnk+1
+					cnr=cna-1
+					gor=1
+					while gor==1:
+						if cnr<len(sdivtag):
+							if str(sdivtag[cnr])==' ':
+								if str(sdivtag[cnr+1])==' ':
+									gor=0
+								else:
+									cnextractid=cnextractid+str(sdivtag[cnr])
+							elif str(sdivtag[cnr])=='<':
+								gor=0
+							elif cnr>cnk+100:
 								gor=0
 							else:
 								cnextractid=cnextractid+str(sdivtag[cnr])
-						elif str(sdivtag[cnr])=='<':
-							gor=0
-						elif cnr>cnk+100:
-							gor=0
 						else:
-							cnextractid=cnextractid+str(sdivtag[cnr])
-					else:
-						gor=0
-					cnr=cnr+1
-				cnextractid=cnextractid[:-1]
-				#print('##################')
-				#print(cnextractid)
-				if foundcn==1:
-					commonname=cnextractid
-			k=k+1
-		commonnamelist.append(commonname)
-		# end get common name and append to commonnamelist
-	else:
-		print('Fatty acid not found:')
-		print(fasysname[fsi])
-		lipidmapsidlist.append('Not found in LIPID MAPS.')
-		linklist.append('_')
-		commonnamelist.append('_')
-	# end extract LipidMAPS ID
-	time.sleep(0.0005)		# waiting period in between LipidMAPS database lookup to prevent server overload (previously set to 0.05 without problems)
+							gor=0
+						cnr=cnr+1
+					cnextractid=cnextractid[:-1]
+					#print('##################')
+					#print(cnextractid)
+					if foundcn==1:
+						commonname=cnextractid
+				k=k+1
+			commonnamelist.append(commonname)
+			dlocal=[]
+			dlocal.append(str(fasysname[fsi]))
+			dlocal.append(extractid)
+			dlocal.append(commonname)
+			dlocal.append(clink)
+			addlocal.append(dlocal)
+			# end get common name and append to commonnamelist
+		else:
+			print('Fatty acid not found in LIPID MAPS:')
+			print(fasysname[fsi])
+			lipidmapsidlist.append('Not found in LIPID MAPS.')
+			linklist.append('_')
+			commonnamelist.append('_')
+		# end extract LipidMAPS ID
+		time.sleep(0.0005)		# waiting period in between LipidMAPS database lookup to prevent server overload (previously set to 0.05 or 0.0005 without problems)
 	fsi=fsi+1
 #end get lipidmaps ID and common name
+
+# begin save lipidmaps IDs etc that are now found but are not yet in the local database
+#print('checkpoint1')
+dw=2
+gol=1
+while gol==1:
+	dadd=0
+	dl=wsld.cell(row=dw, column=1)	
+	dl=dl.value
+	#dl=str(dl)
+	if dl is None:
+		dadd=1
+	elif dl=='nan':
+		dadd=1
+	else:
+		dadd=0
+	if dadd==1:
+		dww=0
+		while dww<(len(addlocal)):
+			wsld.cell(row=dw, column=1).value=addlocal[dww][0]
+			wsld.cell(row=dw, column=2).value=addlocal[dww][1]
+			wsld.cell(row=dw, column=3).value=addlocal[dww][2]
+			wsld.cell(row=dw, column=4).value=addlocal[dww][3]
+			dww=dww+1
+			dw=dw+1
+		gol=0
+	dw=dw+1
+
+wbld.save('LIPID_MAPS_local_data.xlsx')
+# end save lipidmaps IDs etc that are now found but are not yet in the local database
+#print('checkpoint2')
 
 #print(relab)
 # write results in summary sheet
@@ -1325,6 +1443,11 @@ if fanclist[0]=='C16:0d31':
 else:
 	afw=0
 	fw=0
+while len(relab)<len(fanclist):
+	relab.append('N/A')
+
+
+
 while fw<(len(fanclist)):
 	#print(fw)
 	sheetsummary.cell(row=fw+2+afw, column=4).value=lipidmapsidlist[fw]
@@ -1336,21 +1459,26 @@ while fw<(len(fanclist)):
 	sheetsummary.cell(row=fw+2+afw, column=7).value=relab[fw]
 	fw=fw+1
 
+#wb.remove_sheet(ozidbc)
+wb.remove(ozidbc)
+
 wb.save('OzFAD1_5_plot_table.xlsx')
 
 
 ## end write remaining results summary
 afterall=datetime.datetime.now()
 dt=afterall-beforeall
-print('Calculation time(h:mm:s) is:')
-print(dt)
-print('Congratulations! Final results are saved as OzFAD1_5_plot_table.xlsx')	# yyyy_mm_dd
+#print('Calculation time(h:mm:s) is:')
+#print(dt)
+print('Calculation time (h:mm:ss) is: %s' % dt)
+print('Final results are saved as OzFAD1_5_plot_table.xlsx')	# yyyy_mm_dd
 print('The excel file contains four worksheets:')
-print(' - The first contains a transition list with the selected transitions in the format readable by Skyline.')
-#print(' - The second contains the data in a sorted structure, allowing the results to be plotted with color coding in relation to the different transitions from the double bonds.')
-print(' - The third contains a summary of the fatty acids found. The data specific to the fatty acids can for example be displayed in barcharts.')
-print(' - The fourth contains the calculated areas for each fatty acid that are displayed in the barchart.')
+print(' - The first contains a report of the transitions from Skyline. This report can be changed into a transition list.')
+print(' - The second contains a results summary including preliminary integrals.')
+print(' - The third contains a table of relative isomer quantities, which are the data for the barchart shown beneath the table.')
 print('    To complete the barchart shown, copy the legend from the "empty" barchart below into the barchart showing the data.')
+print(' - The fourth contains a final results summary including fatty acid shorthand notations, systematic names, Lipid MAPS IDs, common names, retention times and relative isomer abundance values.')
+
 #end write bar chart data and save in worksheet
 ###########################################################################################################################################################################
 ###########################################################################################################################################################################

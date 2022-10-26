@@ -286,7 +286,7 @@ while kl<(len(swritelist[0])): #(len(keeplist)):
 	cexrt=str(cexrt)
 	cexrt=float(cexrt)
 	exrt.append(cexrt)	#exrt done
-	exrtwindow.append(0.05)		################################# ENTER EXPLICIT RETENTION TIME WINDOW ##############################
+	exrtwindow.append(0.1)		################################# ENTER EXPLICIT RETENTION TIME WINDOW ##############################
 	precoverlap.append('ok')
 	kl=kl+1
 	t=t+1
@@ -301,7 +301,7 @@ if manualfilter==1:
 	while f<len(prodformula):
 		g=f+1
 		while g<len(prodformula):
-			if prodformula[f]==prodformula[g]:
+			if (str(precname[f][5])+str(precname[f][6])+str(precname[f][7])+str(precname[f][8]))==(str(precname[g][5])+str(precname[g][6])+str(precname[g][7])+str(precname[g][8])):
 				if str(prodname[f][len(prodname[f])-1])=='r':
 					if str(prodname[g][len(prodname[g])-1])=='r':
 						if rtstart[f]<rtend[g]:
@@ -893,6 +893,8 @@ while i<(len(shortlistfa)):
 	use=0
 	if int(shortlistfa[i][3])==1:
 		use=1
+	elif int(shortlistfa[i][3])==0:
+		use=0
 	else:
 		fi=4		#determine if polyunsaturated FA Me/Bu spaced
 		while fi<(len(shortlistfa[i])):
@@ -927,9 +929,9 @@ while i<(len(shortlistfa)):
 				cfa=cfa #+str(' (He)')
 				cat=2 #dbn=dbn+26
 	else:
-		cfa=str(shortlistfa[i][0])+str(shortlistfa[i][1])+str(shortlistfa[i][2])+str(shortlistfa[i][3])
+		cfa=str(shortlistfa[i][0])+str(shortlistfa[i][1])+str(shortlistfa[i][2])+str(shortlistfa[i][3])		# SatFA
 		cat=2 #dbn=dbn+26
-	use=1
+	#use=1
 	if use==1:
 		#print(cfa)
 		#print(shortlistfa[i])
@@ -964,7 +966,7 @@ while i<(len(shortlistfa)):
 			ibclist[0]=cfa
 			if shortlistfa[i][8]=='_':
 				dbn=int(shortlistfa[i][7])
-			elif shortlistfa[i][9]=='_':
+			elif shortlistfa[i][9]=='_':									# <>
 				dbn=10*int(shortlistfa[i][7])+int(shortlistfa[i][8])
 			dbn=dbn-1
 			if cat==0:
@@ -2148,6 +2150,8 @@ while r<ki:
 
 # begin save numerical integral of ozid products in precursor_results in new sheet Summary_OzID_Integrals
 wbd=openpyxl.load_workbook('OzFAD1_4_DIA_deconv_raw.xlsx')
+std=wbd['Sheet']
+wbd.remove(std)
 sheetname='Summary_OzID_Integrals'
 ws = wbd.create_sheet(sheetname)
 #wbd.save('jpmlipidomics_vpw20_5_quantification_deconvolution1.xlsx')

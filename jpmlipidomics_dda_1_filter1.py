@@ -87,7 +87,7 @@ while wfi<len(workflowidentifier):
 
 # begin calculate monounsaturated precursors from input
 beforeall=datetime.datetime.now()
-print('Workflow is running ...')
+#print('Workflow is running ...')
 
 # begin build mostwantedlist 
 mostwantedlist=[]
@@ -876,7 +876,7 @@ while kl<(len(swritelist[0])): #(len(keeplist)):
 	cexrt=str(cexrt)
 	cexrt=float(cexrt)
 	exrt.append(cexrt)	#exrt done
-	exrtwindow.append(0.01)		################################# ENTER EXPLICIT RETENTION TIME WINDOW ##############################
+	exrtwindow.append(0.1)		################################# ENTER EXPLICIT RETENTION TIME WINDOW ##############################
 	precoverlap.append('ok')
 	kl=kl+1
 	t=t+1
@@ -913,6 +913,7 @@ transitionresultsdf.to_csv(filename, index=False)
 print('Transition list is saved as jpmlipidomics_dda_vpw20_1_filtered.csv')
 afterall=datetime.datetime.now()
 dt=afterall-beforeall
-print('Calculation time (h:mm:ss) is:')
-print(dt)
+print('Calculation time (h:mm:ss) is: %s' % dt)
+#print('Calculation time (h:mm:ss) is:')
+#print(dt)
 

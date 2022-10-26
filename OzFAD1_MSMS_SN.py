@@ -11,8 +11,8 @@ import openpyxl
 from openpyxl import Workbook
 #import psutil
 #import subprocess
-import brainpy
-from brainpy import isotopic_variants
+#import brainpy
+#from brainpy import isotopic_variants
 
 isotope=['1H   ', '2H  ', '12C   ', '14N   ', '16O    ', '31P   ', '32S    ' '23Na     ', 'e     ', '132Xe', '   127I']
 imass=[1.007825, 2.0141, 12.00000, 14.00307, 15.99491, 30.973762, 31.97207, 22.98977, 0.000548585, 131.9041535, 126.904473]
@@ -113,7 +113,13 @@ if devmode==0:
     xlx=0
     while specn<(len(rawxlx)-1):
         #print(specn)
-        print(rawxlx[specn][1])
+        currentFA=str()
+        ccf=0
+        while ccf<(len(rawxlx[specn][1])-23):
+            currentFA=currentFA+rawxlx[specn][1][ccf]
+            ccf=ccf+1
+        #print(rawxlx[specn][1])
+        print(currentFA)
         if str(rawxlx[specn+1][0])=='_':
             # Found MSMS from MassLynx
             cmzraw=[]
@@ -474,7 +480,9 @@ if devmode==0:
     # end combine spectra to one combined MSMS spectrum per species (distinguish between cases of MSMS from Skyline only or only from MassLynx)
     # begin save combined MS/MS spectra in excel file
     wb = Workbook()   #write_only=True)
-    ws = wb.create_sheet('combined_MSMS')
+    std=wb['Sheet']
+    wb.remove(std)
+    ws = wb.create_sheet('Combined_MSMS')
     r=0
     c=0
     while c<(len(allmzraw)):
@@ -486,7 +494,7 @@ if devmode==0:
         c=c+1
 
     wb.save('Combined_MSMS_spectra.xlsx')
-    print('Combined MS/MS spectra are saved in an excel file.')
+    print('Combined MS/MS spectra are saved in excel file Combined_MSMS_spectra.xlsx.')
     # end save combined MS/MS spectra in excel file
 ###########################
 
@@ -532,9 +540,20 @@ else:
     ok=1 # use allmzraw and allintraw as calculated above.
 # end read excel file for development mode
 
-print('Number of MSMS spectra: %d' % len(allmzraw))
+print('Number of fatty acid isomers to be tested: %d' % len(allmzraw))
 #print('Number of MSMS spectra: %d' % len(allintraw))
-print('Running calculations...')
+#print('Running calculations...')
+#print('_________________________________________________')
+#print(allmzraw[spec][1])
+
+#spec=0
+#currentFA=str()
+#ccf=0
+#while ccf<(len(allmzraw[spec][1])-23):
+#    currentFA=currentFA+allmzraw[spec][1][ccf]
+#    ccf=ccf+1
+#print(currentFA)
+
 # begin calculate characteristic pattern for each species
 mztol=0.08  # for exclusion of characteristic pattern use each hypothetical m/z +- mz tolerance of 0.08
 falist=[]   # list with FA species
@@ -568,7 +587,15 @@ while spec<(len(allmzraw)):
             sm=sm+1
     charamz.append(float(allmzraw[spec][cprecsm]))
     print('_________________________________________________')
-    print(allmzraw[spec][1])
+    #print(allmzraw[spec][1])
+
+    currentFA=str()
+    ccf=0
+    while ccf<(len(allmzraw[spec][1])-23):
+        currentFA=currentFA+allmzraw[spec][1][ccf]
+        ccf=ccf+1
+    print(currentFA)
+
     #print(charamz[0])
     # end get precursor m/z
     #isotope=['1H   ', '2H  ', '12C   ', '14N   ', '16O    ', '31P   ', '32S    ' '23Na     ', 'e     ', '132Xe', '   127I']
@@ -619,7 +646,9 @@ while spec<(len(allmzraw)):
         ccc=ccc-1
 
     # end calculate characteristic pattern for each species
-    print('Number of mz values in characteristic pattern: %d' % len(charamz))
+
+    #print('Number of mz values in characteristic pattern: %d' % len(charamz))
+
     #print('Get signal integrals...')
     # begin find matched peaks for each species and calculate signal to noise values for each species
     signal=0     # signal is average integral of OzID fragment peaks 
@@ -697,17 +726,33 @@ while spec<(len(allmzraw)):
     #print('Number of noise peaks is %d.' % len(nointlist))
     #print('Noise value is %d.' % noise)
     # end find matched peaks for each species and calculate signal to noise values for each species
-    csn=signal/noise
+    csn=round(signal/noise, 1)
     cfa=str(allmzraw[spec][1])
-    falist.append(cfa)
+    cfaa=str()
+    cgo=1
+    cgi=0
+    while cgo==1:
+        if cgi>7:
+            if cgi<(len(cfa)-2):
+                if str(cfa[cgi+1])=='a':
+                    cgo=0
+            else:
+                cgo=0
+        if cgo==1:
+            cfaa=cfaa+cfa[cgi]
+        cgi=cgi+1
+    falist.append(cfaa)
     snlist.append(csn)
     #print(cfa)
-    print('SIGNAL to NOISE: %d' % csn)
+    print('SIGNAL to NOISE: %.1f' % csn)
     spec=spec+1
 ###########################
+print('_________________________________________________')
 print('Saving final S/N values...')
 # begin write Signal to Noise values for each species in file
 wb = Workbook()   #write_only=True)
+std=wb['Sheet']
+wb.remove(std)
 ws = wb.create_sheet('SN_MSMS')
 r=0
 while r<(len(falist)):        
@@ -719,6 +764,8 @@ wb.save('Signal_to_noise_of_MSMS_spectra.xlsx')
 # end write Signal to Noise values for each species in file
 ###########################
 
-print('Combined MS/MS spectra are saved in: Combined_MSMS_spectra.xlsx.')
-print('S/N values are saved in: Signal_to_noise_of_MSMS_spectra.xlsx. in sheet SN_MSMS.')
+#print('Combined MS/MS spectra are saved in: Combined_MSMS_spectra.xlsx.')
+print('S/N values are saved in Signal_to_noise_of_MSMS_spectra.xlsx in sheet SN_MSMS.')
 print('Use this information to delete false positive identifications from Skyline file OzFAD1_2_DDA_found.sky')
+
+

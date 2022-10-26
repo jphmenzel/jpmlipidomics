@@ -12,6 +12,28 @@ import matplotlib.pyplot as plt
 import openpyxl
 # ask for number of replicates
 
+#defined otherwise in line 539:  #This colour scheme defines the colours in the plot:
+#colourschemebarchart=['n-2  ', 'n-3           ', 'n-4   ', 'n-5    ', 'n-6 ', 'n-7         ', 'n-8        ', 'n-9   ', 'n-10     ', 'n-11  ', 'n-12  ', 'n-13', 'n-14   ', 'n-15', 'n-16']
+#colourschemebarchart=['coral', 'cornflowerblue', 'silver', 'magenta', 'gold', 'mediumpurple', 'deepskyblue', 'sienna', 'limegreen', 'yellow', 'darkorange', 'red', 'seagreen', 'cyan', 'blue']
+
+# Backup standard scheme:
+#colourschemebarchart=['n-2  ', 'n-3           ', 'n-4   ', 'n-5    ', 'n-6 ', 'n-7         ', 'n-8        ', 'n-9   ', 'n-10     ', 'n-11  ', 'n-12  ', 'n-13', 'n-14   ', 'n-15', 'n-16']
+colourschemebarchart=['salmon', 'cornflowerblue', 'silver', 'magenta', 'gold', 'mediumpurple', 'deepskyblue', 'sienna', 'limegreen', 'yellow', 'orange', 'red', 'seagreen', 'cyan', 'blue']
+
+
+#defined otherwise in line 698:
+#colourschemebarchartlegend=['white', 'white', 'white', 'white', 'white', 'blue', 'cyan', 'seagreen', 'red', 'orange', 'yellow', 'limegreen', 'sienna', 'deepskyblue', 'mediumpurple', 'gold', 'magenta', 'silver', 'cornflowerblue', 'salmon']
+
+colourschemebarchartlegend=['white', 'white', 'white', 'white', 'white']        # build legend colour scheme based on plot colour scheme
+csb=len(colourschemebarchart)-1
+while csb>-1:
+    cap=str(colourschemebarchart[csb])
+    colourschemebarchartlegend.append(cap)
+    csb=csb-1
+
+#print(colourschemebarchart)
+#print(colourschemebarchartlegend)
+
 print('This program is part of the OzFAD1 workflow and creates a replicate plot from three fatty acid analysis excel files.')
 print('The data needs to be in files with the following filenames:')
 print('OzFAD1_5_plot_table_rep1.xlsx')
@@ -62,6 +84,8 @@ while go==1:
     e=e.value
     if e is None:
         go=0
+    elif str(e)=='None':
+        go=0
     elif str(e)=='':
         go=0
     else:
@@ -71,6 +95,7 @@ while go==1:
         while cri<(datasize+2):
             crd=sheetr1.cell(row=cr, column=cri)
             crd=crd.value
+            #print(crd)
             crd=float(crd)
             crow.append(crd)
             cri=cri+1
@@ -427,8 +452,16 @@ def plot_clustered_stacked(dfall, labels=None, title='', H="/", **kwargs): #titl
             knx=knx+1
         krep=krep+1
 
+    plt.rcParams['font.size']='14'  #OK
+
+    plt.ylim(0,100) #OK
+
     axe.set_xticks((np.arange(0, 2 * n_ind, 2) + 1 / float(n_df + 1)) / 2.)
-    axe.set_xticklabels(df.index, rotation = 0)
+    axe.set_xticklabels(df.index, rotation = 90, font='Arial') #OK fontsize=28
+
+    axe.set_yticks((0,10,20,30,40,50,60,70,80,90,100))
+    axe.set_yticklabels((0,10,20,30,40,50,60,70,80,90,100),font='Arial')    #OK ,fontsize=28
+
     axe.set_title(title)
 
     # Add invisible data to add another legend
@@ -440,6 +473,8 @@ def plot_clustered_stacked(dfall, labels=None, title='', H="/", **kwargs): #titl
     #if labels is not None:
     #    l2 = plt.legend(n, labels, loc=[1.01, 0.1])    # labed for replicates, only use if colours of replicates shaded
     axe.add_artist(l1)
+
+    
 
     return axe
     
@@ -518,7 +553,13 @@ asdf2=pd.DataFrame(asrowsdf2b, index=dfindex2, columns=dfcolumns)
 asdf3=pd.DataFrame(asrowsdf3b, index=dfindex3, columns=dfcolumns)
 
 #colourschemebarchart=['cornflowerblue', 'silver', 'magenta']
-colourschemebarchart=['salmon', 'cornflowerblue', 'silver', 'magenta', 'gold', 'mediumpurple', 'deepskyblue', 'sienna', 'limegreen', 'yellow', 'orange', 'red', 'seagreen', 'cyan', 'blue']
+#colourschemebarchart=['salmon', 'cornflowerblue', 'silver', 'magenta', 'gold', 'mediumpurple', 'deepskyblue', 'sienna', 'limegreen', 'yellow', 'orange', 'red', 'seagreen', 'cyan', 'blue']
+
+#backup standard colour scheme
+#colourschemebarchart=['salmon', 'cornflowerblue', 'silver', 'magenta', 'gold', 'mediumpurple', 'deepskyblue', 'sienna', 'limegreen', 'yellow', 'orange', 'red', 'seagreen', 'cyan', 'blue']
+
+
+
 
 #print(colourschemebarchart)    # begin extend colourschemebarchart
 ncolcat=4       # higher than 0, if category is not defined by assignment list, but position in dataframes
@@ -577,7 +618,7 @@ plt.show()      #display plot in separate window, copy from there as vector imag
 
 print('Copy plot into power point or other program or save as svg / png.')
 print('Legend will be generated separately (after plot was copied).')
-check=eval(input('Figure copied? YES:1 ::'))
+check=1 #eval(input('Figure copied? YES:1 ::'))
 
 # begin generate empty plot with legend
 
@@ -615,10 +656,10 @@ def plot_legend_clustered_stacked(dfall, labels=None, title='', H="/", **kwargs)
                     #rect.set(hatch='/', facecolor='r', edgecolor='black')   # 
                 plt.rcParams['hatch.linewidth']=1.5
                 if j==len(colourschemebarchart)-1:
-                    rect.set(hatch=hatchschemebarchart[krep][kfa][knx], facecolor=colourschemebarchart[j], edgecolor='grey')   # set grey hatches for n-2 position
+                    rect.set(hatch=hatchschemebarchart[krep][kfa][knx], facecolor=colourschemebarchartlegend[j], edgecolor='grey')   # set grey hatches for n-2 position
                     #print('Well...')
                 else:
-                    rect.set(hatch=hatchschemebarchart[krep][kfa][knx], facecolor=colourschemebarchart[j], edgecolor='black')   # 
+                    rect.set(hatch=hatchschemebarchart[krep][kfa][knx], facecolor=colourschemebarchartlegend[j], edgecolor='black')   # 
                 rect.set_width(1 / float(n_df + 1))
                 kfa=kfa+1
             knx=knx+1
@@ -633,9 +674,14 @@ def plot_legend_clustered_stacked(dfall, labels=None, title='', H="/", **kwargs)
     for i in range(n_df):
         n.append(axe.bar(0, 0, color="black", hatch=H * i))  ### n.append(axe.bar(0, 0, color="gray", hatch=H * i))
 
-    l1 = axe.legend(h[:n_col], l[:n_col], loc=[1.01, 0.05])  #legend and defined position
-    #if labels is not None:
-    #    l2 = plt.legend(n, labels, loc=[1.01, 0.1])    # labed for replicates, only use if colours of replicates shaded
+    l1 = axe.legend(h[:n_col], l[:n_col], loc=[1.01, 0.05], prop={'family': 'Arial'})  #legend and defined position
+
+    plt.rcParams['font.size']='14'  #OK
+    plt.ylim(0,100) #OK
+
+    axe.set_yticks((0,10,20,30,40,50,60,70,80,90,100))
+    axe.set_yticklabels((0,10,20,30,40,50,60,70,80,90,100),font='Arial')    #OK ,fontsize=28
+
     axe.add_artist(l1)
 
     return axe
@@ -662,20 +708,20 @@ df4=pd.DataFrame(rowsdf1, index=dfindex, columns=dfcolumns)   # number of elemen
 df5=pd.DataFrame(rowsdf2, index=dfindex, columns=dfcolumns)
 df6=pd.DataFrame(rowsdf3, index=dfindex, columns=dfcolumns)
 
-#colourschemebarchart=['cornflowerblue', 'silver', 'magenta']
-colourschemebarchart=['white', 'white', 'white', 'white', 'white', 'blue', 'cyan', 'seagreen', 'red', 'orange', 'yellow', 'limegreen', 'sienna', 'deepskyblue', 'mediumpurple', 'gold', 'magenta', 'silver', 'cornflowerblue', 'salmon']
 
-#print(colourschemebarchart)    # begin extend colourschemebarchart
+#colourschemebarchartlegend=['white', 'white', 'white', 'white', 'white', 'blue', 'cyan', 'seagreen', 'red', 'orange', 'yellow', 'limegreen', 'sienna', 'deepskyblue', 'mediumpurple', 'gold', 'magenta', 'silver', 'cornflowerblue', 'salmon']
+
+#print(colourschemebarchartlegend)    # begin extend colourschemebarchartlegend
 ncolcat=0       # higher than 0, if category is not defined by assignment list, but position in dataframes
-ncb=len(colourschemebarchart)
+ncb=len(colourschemebarchartlegend)
 while ncb>0:
-    ccol=colourschemebarchart[ncb-1]
+    ccol=colourschemebarchartlegend[ncb-1]
     ncc=0
     while ncc<ncolcat:
-        colourschemebarchart.insert(ncb-1, str(colourschemebarchart[ncb-1]))
+        colourschemebarchartlegend.insert(ncb-1, str(colourschemebarchartlegend[ncb-1]))
         ncc=ncc+1
     ncb=ncb-1
-#print(colourschemebarchart)    # end extend colourschemebarchart
+#print(colourschemebarchartlegend)    # end extend colourschemebarchartlegend
 
 # begin make list hatchschemebarchart (replicate, FA_species, n-x position)
 #hatchschemebarchart=[[['', '', '/'], ['', '', '']], [['', '', ''], ['', '|', '']], [['', '', ''], ['x', '', '']]]

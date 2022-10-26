@@ -724,22 +724,31 @@ while go==1:
 								rangeend=crange		#end of this range is defined now
 								# begin delete all j and k species in range, reassign i species as alternating between i, j and k.
 								md=0
-								tcheck=0
 								delgo=0
 								while md<(len(targetrtlist)):
 									if targetmzlist[md]==tmzj:
-										tcheck=1
-									elif targetmzlist[md]==tmzk:
-										tcheck=1
-									else:
-										tcheck=0
-									if tcheck==1:
 										if targetrtlist[md]>(rangestart-targetstepwidth):
 											if targetrtlist[md]<(rangeend+targetstepwidth):
 												#print('A species was deleted from overlap of 3:')
 												#print(targetmzlist[md])
 												#print(targetrtlist[md]*60)
 												del targetrtlist[md]	# delete j species at index md for rt list and mz list
+												del targetmzlist[md]
+												delgo=1
+									if delgo==0:
+										md=md+1
+									else:
+										delgo=0
+								md=0
+								delgo=0
+								while md<(len(targetrtlist)):
+									if targetmzlist[md]==tmzk:
+										if targetrtlist[md]>(rangestart-targetstepwidth):
+											if targetrtlist[md]<(rangeend+targetstepwidth):
+												#print('A species was deleted from overlap of 3:')
+												#print(targetmzlist[md])
+												#print(targetrtlist[md]*60)
+												del targetrtlist[md]	# delete k species at index md for rt list and mz list
 												del targetmzlist[md]
 												delgo=1
 									if delgo==0:
@@ -883,21 +892,47 @@ while go==1:
 									rangeend=crange		#end of this range is defined now
 									# begin delete all j and k species in range, reassign i species as alternating between i, j and k.
 									md=0
-									tcheck=0
 									delgo=0
 									while md<(len(targetrtlist)):
 										if targetmzlist[md]==tmzj:
-											tcheck=1
-										elif targetmzlist[md]==tmzk:
-											tcheck=1
-										elif targetmzlist[md]==tmzkf:
-											tcheck=1
-										else:
-											tcheck=0
-										if tcheck==1:
 											if targetrtlist[md]>(rangestart-targetstepwidth):
 												if targetrtlist[md]<(rangeend+targetstepwidth):
-													del targetrtlist[md]	# delete j, k, l species at index md for rt list and mz list
+													#print('A species was deleted from overlap of 4:')
+													#print(targetmzlist[md])
+													#print(targetrtlist[md]*60)
+													del targetrtlist[md]	# delete j species at index md for rt list and mz list
+													del targetmzlist[md]
+													delgo=1
+										if delgo==0:
+											md=md+1
+										else:
+											delgo=0
+									md=0
+									delgo=0
+									while md<(len(targetrtlist)):
+										if targetmzlist[md]==tmzk:
+											if targetrtlist[md]>(rangestart-targetstepwidth):
+												if targetrtlist[md]<(rangeend+targetstepwidth):
+													#print('A species was deleted from overlap of 4:')
+													#print(targetmzlist[md])
+													#print(targetrtlist[md]*60)
+													del targetrtlist[md]	# delete k species at index md for rt list and mz list
+													del targetmzlist[md]
+													delgo=1
+										if delgo==0:
+											md=md+1
+										else:
+											delgo=0
+									md=0
+									delgo=0
+									while md<(len(targetrtlist)):
+										if targetmzlist[md]==tmzkf:
+											if targetrtlist[md]>(rangestart-targetstepwidth):
+												if targetrtlist[md]<(rangeend+targetstepwidth):
+													#print('A species was deleted from overlap of 4:')
+													#print(targetmzlist[md])
+													#print(targetrtlist[md]*60)
+													del targetrtlist[md]	# delete l species at index md for rt list and mz list
 													del targetmzlist[md]
 													delgo=1
 										if delgo==0:
@@ -1053,23 +1088,63 @@ while go==1:
 										rangeend=crange		#end of this range is defined now
 										# begin delete all j and k species in range, reassign i species as alternating between i, j and k.
 										md=0
-										tcheck=0
 										delgo=0
 										while md<(len(targetrtlist)):
 											if targetmzlist[md]==tmzj:
-												tcheck=1
-											elif targetmzlist[md]==tmzk:
-												tcheck=1
-											elif targetmzlist[md]==tmzkf:
-												tcheck=1
-											elif targetmzlist[md]==tmzkg:
-												tcheck=1
-											else:
-												tcheck=0
-											if tcheck==1:
 												if targetrtlist[md]>(rangestart-targetstepwidth):
 													if targetrtlist[md]<(rangeend+targetstepwidth):
-														del targetrtlist[md]	# delete j, k, kf, kg species at index md for rt list and mz list
+														#print('A species was deleted from overlap of 4:')
+														#print(targetmzlist[md])
+														#print(targetrtlist[md]*60)
+														del targetrtlist[md]	# delete j species at index md for rt list and mz list
+														del targetmzlist[md]
+														delgo=1
+											if delgo==0:
+												md=md+1
+											else:
+												delgo=0
+										md=0
+										delgo=0
+										while md<(len(targetrtlist)):
+											if targetmzlist[md]==tmzk:
+												if targetrtlist[md]>(rangestart-targetstepwidth):
+													if targetrtlist[md]<(rangeend+targetstepwidth):
+														#print('A species was deleted from overlap of 4:')
+														#print(targetmzlist[md])
+														#print(targetrtlist[md]*60)
+														del targetrtlist[md]	# delete k species at index md for rt list and mz list
+														del targetmzlist[md]
+														delgo=1
+											if delgo==0:
+												md=md+1
+											else:
+												delgo=0
+										md=0
+										delgo=0
+										while md<(len(targetrtlist)):
+											if targetmzlist[md]==tmzkf:
+												if targetrtlist[md]>(rangestart-targetstepwidth):
+													if targetrtlist[md]<(rangeend+targetstepwidth):
+														#print('A species was deleted from overlap of 4:')
+														#print(targetmzlist[md])
+														#print(targetrtlist[md]*60)
+														del targetrtlist[md]	# delete l species at index md for rt list and mz list
+														del targetmzlist[md]
+														delgo=1
+											if delgo==0:
+												md=md+1
+											else:
+												delgo=0
+										md=0
+										delgo=0
+										while md<(len(targetrtlist)):
+											if targetmzlist[md]==tmzkg:
+												if targetrtlist[md]>(rangestart-targetstepwidth):
+													if targetrtlist[md]<(rangeend+targetstepwidth):
+														#print('A species was deleted from overlap of 4:')
+														#print(targetmzlist[md])
+														#print(targetrtlist[md]*60)
+														del targetrtlist[md]	# delete h species at index md for rt list and mz list
 														del targetmzlist[md]
 														delgo=1
 											if delgo==0:
@@ -1242,25 +1317,79 @@ while go==1:
 											rangeend=crange		#end of this range is defined now
 											# begin delete all j and k species in range, reassign i species as alternating between i, j and k.
 											md=0
-											tcheck=0
 											delgo=0
 											while md<(len(targetrtlist)):
 												if targetmzlist[md]==tmzj:
-													tcheck=1
-												elif targetmzlist[md]==tmzk:
-													tcheck=1
-												elif targetmzlist[md]==tmzkf:
-													tcheck=1
-												elif targetmzlist[md]==tmzkg:
-													tcheck=1
-												elif targetmzlist[md]==tmzkh:
-													tcheck=1
-												else: 
-													tcheck=0
-												if tcheck==1:
 													if targetrtlist[md]>(rangestart-targetstepwidth):
 														if targetrtlist[md]<(rangeend+targetstepwidth):
+															#print('A species was deleted from overlap of 4:')
+															#print(targetmzlist[md])
+															#print(targetrtlist[md]*60)
 															del targetrtlist[md]	# delete j species at index md for rt list and mz list
+															del targetmzlist[md]
+															delgo=1
+												if delgo==0:
+													md=md+1
+												else:
+													delgo=0
+											md=0
+											delgo=0
+											while md<(len(targetrtlist)):
+												if targetmzlist[md]==tmzk:
+													if targetrtlist[md]>(rangestart-targetstepwidth):
+														if targetrtlist[md]<(rangeend+targetstepwidth):
+															#print('A species was deleted from overlap of 4:')
+															#print(targetmzlist[md])
+															#print(targetrtlist[md]*60)
+															del targetrtlist[md]	# delete k species at index md for rt list and mz list
+															del targetmzlist[md]
+															delgo=1
+												if delgo==0:
+													md=md+1
+												else:
+													delgo=0
+											md=0
+											delgo=0
+											while md<(len(targetrtlist)):
+												if targetmzlist[md]==tmzkf:
+													if targetrtlist[md]>(rangestart-targetstepwidth):
+														if targetrtlist[md]<(rangeend+targetstepwidth):
+															#print('A species was deleted from overlap of 4:')
+															#print(targetmzlist[md])
+															#print(targetrtlist[md]*60)
+															del targetrtlist[md]	# delete l species at index md for rt list and mz list
+															del targetmzlist[md]
+															delgo=1
+												if delgo==0:
+													md=md+1
+												else:
+													delgo=0
+											md=0
+											delgo=0
+											while md<(len(targetrtlist)):
+												if targetmzlist[md]==tmzkg:
+													if targetrtlist[md]>(rangestart-targetstepwidth):
+														if targetrtlist[md]<(rangeend+targetstepwidth):
+															#print('A species was deleted from overlap of 4:')
+															#print(targetmzlist[md])
+															#print(targetrtlist[md]*60)
+															del targetrtlist[md]	# delete h species at index md for rt list and mz list
+															del targetmzlist[md]
+															delgo=1
+												if delgo==0:
+													md=md+1
+												else:
+													delgo=0
+											md=0
+											delgo=0
+											while md<(len(targetrtlist)):
+												if targetmzlist[md]==tmzkh:
+													if targetrtlist[md]>(rangestart-targetstepwidth):
+														if targetrtlist[md]<(rangeend+targetstepwidth):
+															#print('A species was deleted from overlap of 4:')
+															#print(targetmzlist[md])
+															#print(targetrtlist[md]*60)
+															del targetrtlist[md]	# delete h species at index md for rt list and mz list
 															del targetmzlist[md]
 															delgo=1
 												if delgo==0:
@@ -1450,27 +1579,95 @@ while go==1:
 												rangeend=crange		#end of this range is defined now
 												# begin delete all j and k species in range, reassign i species as alternating between i, j and k.
 												md=0
-												tcheck=0
 												delgo=0
 												while md<(len(targetrtlist)):
 													if targetmzlist[md]==tmzj:
-														tcheck=1
-													elif targetmzlist[md]==tmzk:
-														tcheck=1
-													elif targetmzlist[md]==tmzkf:
-														tcheck=1
-													elif targetmzlist[md]==tmzkg:
-														tcheck=1
-													elif targetmzlist[md]==tmzkh:
-														tcheck=1
-													elif targetmzlist[md]==tmzki:
-														tcheck=1
-													else:
-														tcheck=0
-													if tcheck==1:
 														if targetrtlist[md]>(rangestart-targetstepwidth):
 															if targetrtlist[md]<(rangeend+targetstepwidth):
+																#print('A species was deleted from overlap of 4:')
+																#print(targetmzlist[md])
+																#print(targetrtlist[md]*60)
 																del targetrtlist[md]	# delete j species at index md for rt list and mz list
+																del targetmzlist[md]
+																delgo=1
+													if delgo==0:
+														md=md+1
+													else:
+														delgo=0
+												md=0
+												delgo=0
+												while md<(len(targetrtlist)):
+													if targetmzlist[md]==tmzk:
+														if targetrtlist[md]>(rangestart-targetstepwidth):
+															if targetrtlist[md]<(rangeend+targetstepwidth):
+																#print('A species was deleted from overlap of 4:')
+																#print(targetmzlist[md])
+																#print(targetrtlist[md]*60)
+																del targetrtlist[md]	# delete k species at index md for rt list and mz list
+																del targetmzlist[md]
+																delgo=1
+													if delgo==0:
+														md=md+1
+													else:
+														delgo=0
+												md=0
+												delgo=0
+												while md<(len(targetrtlist)):
+													if targetmzlist[md]==tmzkf:
+														if targetrtlist[md]>(rangestart-targetstepwidth):
+															if targetrtlist[md]<(rangeend+targetstepwidth):
+																#print('A species was deleted from overlap of 4:')
+																#print(targetmzlist[md])
+																#print(targetrtlist[md]*60)
+																del targetrtlist[md]	# delete l species at index md for rt list and mz list
+																del targetmzlist[md]
+																delgo=1
+													if delgo==0:
+														md=md+1
+													else:
+														delgo=0
+												md=0
+												delgo=0
+												while md<(len(targetrtlist)):
+													if targetmzlist[md]==tmzkg:
+														if targetrtlist[md]>(rangestart-targetstepwidth):
+															if targetrtlist[md]<(rangeend+targetstepwidth):
+																#print('A species was deleted from overlap of 4:')
+																#print(targetmzlist[md])
+																#print(targetrtlist[md]*60)
+																del targetrtlist[md]	# delete h species at index md for rt list and mz list
+																del targetmzlist[md]
+																delgo=1
+													if delgo==0:
+														md=md+1
+													else:
+														delgo=0
+												md=0
+												delgo=0
+												while md<(len(targetrtlist)):
+													if targetmzlist[md]==tmzkh:
+														if targetrtlist[md]>(rangestart-targetstepwidth):
+															if targetrtlist[md]<(rangeend+targetstepwidth):
+																#print('A species was deleted from overlap of 4:')
+																#print(targetmzlist[md])
+																#print(targetrtlist[md]*60)
+																del targetrtlist[md]	# delete h species at index md for rt list and mz list
+																del targetmzlist[md]
+																delgo=1
+													if delgo==0:
+														md=md+1
+													else:
+														delgo=0
+												md=0
+												delgo=0
+												while md<(len(targetrtlist)):
+													if targetmzlist[md]==tmzki:
+														if targetrtlist[md]>(rangestart-targetstepwidth):
+															if targetrtlist[md]<(rangeend+targetstepwidth):
+																#print('A species was deleted from overlap of 4:')
+																#print(targetmzlist[md])
+																#print(targetrtlist[md]*60)
+																del targetrtlist[md]	# delete h species at index md for rt list and mz list
 																del targetmzlist[md]
 																delgo=1
 													if delgo==0:
@@ -1678,29 +1875,111 @@ while go==1:
 													rangeend=crange		#end of this range is defined now
 													# begin delete all j and k species in range, reassign i species as alternating between i, j and k.
 													md=0
-													tcheck=0
 													delgo=0
 													while md<(len(targetrtlist)):
 														if targetmzlist[md]==tmzj:
-															tcheck=1
-														elif targetmzlist[md]==tmzk:
-															tcheck=1
-														elif targetmzlist[md]==tmzkf:
-															tcheck=1
-														elif targetmzlist[md]==tmzkg:
-															tcheck=1
-														elif targetmzlist[md]==tmzkh:
-															tcheck=1
-														elif targetmzlist[md]==tmzki:
-															tcheck=1
-														elif targetmzlist[md]==tmzkj:
-															tcheck=1
-														else:
-															tcheck=0
-														if tcheck==1:
 															if targetrtlist[md]>(rangestart-targetstepwidth):
 																if targetrtlist[md]<(rangeend+targetstepwidth):
+																	#print('A species was deleted from overlap of 4:')
+																	#print(targetmzlist[md])
+																	#print(targetrtlist[md]*60)
 																	del targetrtlist[md]	# delete j species at index md for rt list and mz list
+																	del targetmzlist[md]
+																	delgo=1
+														if delgo==0:
+															md=md+1
+														else:
+															delgo=0
+													md=0
+													delgo=0
+													while md<(len(targetrtlist)):
+														if targetmzlist[md]==tmzk:
+															if targetrtlist[md]>(rangestart-targetstepwidth):
+																if targetrtlist[md]<(rangeend+targetstepwidth):
+																	#print('A species was deleted from overlap of 4:')
+																	#print(targetmzlist[md])
+																	#print(targetrtlist[md]*60)
+																	del targetrtlist[md]	# delete k species at index md for rt list and mz list
+																	del targetmzlist[md]
+																	delgo=1
+														if delgo==0:
+															md=md+1
+														else:
+															delgo=0
+													md=0
+													delgo=0
+													while md<(len(targetrtlist)):
+														if targetmzlist[md]==tmzkf:
+															if targetrtlist[md]>(rangestart-targetstepwidth):
+																if targetrtlist[md]<(rangeend+targetstepwidth):
+																	#print('A species was deleted from overlap of 4:')
+																	#print(targetmzlist[md])
+																	#print(targetrtlist[md]*60)
+																	del targetrtlist[md]	# delete l species at index md for rt list and mz list
+																	del targetmzlist[md]
+																	delgo=1
+														if delgo==0:
+															md=md+1
+														else:
+															delgo=0
+													md=0
+													delgo=0
+													while md<(len(targetrtlist)):
+														if targetmzlist[md]==tmzkg:
+															if targetrtlist[md]>(rangestart-targetstepwidth):
+																if targetrtlist[md]<(rangeend+targetstepwidth):
+																	#print('A species was deleted from overlap of 4:')
+																	#print(targetmzlist[md])
+																	#print(targetrtlist[md]*60)
+																	del targetrtlist[md]	# delete h species at index md for rt list and mz list
+																	del targetmzlist[md]
+																	delgo=1
+														if delgo==0:
+															md=md+1
+														else:
+															delgo=0
+													md=0
+													delgo=0
+													while md<(len(targetrtlist)):
+														if targetmzlist[md]==tmzkh:
+															if targetrtlist[md]>(rangestart-targetstepwidth):
+																if targetrtlist[md]<(rangeend+targetstepwidth):
+																	#print('A species was deleted from overlap of 4:')
+																	#print(targetmzlist[md])
+																	#print(targetrtlist[md]*60)
+																	del targetrtlist[md]	# delete h species at index md for rt list and mz list
+																	del targetmzlist[md]
+																	delgo=1
+														if delgo==0:
+															md=md+1
+														else:
+															delgo=0
+													md=0
+													delgo=0
+													while md<(len(targetrtlist)):
+														if targetmzlist[md]==tmzki:
+															if targetrtlist[md]>(rangestart-targetstepwidth):
+																if targetrtlist[md]<(rangeend+targetstepwidth):
+																	#print('A species was deleted from overlap of 4:')
+																	#print(targetmzlist[md])
+																	#print(targetrtlist[md]*60)
+																	del targetrtlist[md]	# delete h species at index md for rt list and mz list
+																	del targetmzlist[md]
+																	delgo=1
+														if delgo==0:
+															md=md+1
+														else:
+															delgo=0
+													md=0
+													delgo=0
+													while md<(len(targetrtlist)):
+														if targetmzlist[md]==tmzkj:
+															if targetrtlist[md]>(rangestart-targetstepwidth):
+																if targetrtlist[md]<(rangeend+targetstepwidth):
+																	#print('A species was deleted from overlap of 4:')
+																	#print(targetmzlist[md])
+																	#print(targetrtlist[md]*60)
+																	del targetrtlist[md]	# delete h species at index md for rt list and mz list
 																	del targetmzlist[md]
 																	delgo=1
 														if delgo==0:
@@ -1725,12 +2004,10 @@ while go==1:
 																		targetmzlist[ma]=tmzkg
 																	elif altern==5:
 																		targetmzlist[ma]=tmzkh
-																	elif altern==6:
-																		targetmzlist[ma]=tmzki
 																	else:
-																		targetmzlist[ma]=tmzkj
+																		targetmzlist[ma]=tmzki
 																	altern=altern+1
-																	if altern==8:
+																	if altern==7:
 																		altern=0
 														ma=ma+1
 													j=len(targetrtlist)

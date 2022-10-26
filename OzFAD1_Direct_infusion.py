@@ -2,8 +2,6 @@
 
 # Jan Philipp Menzel 
 # goal: quantitative evaluation of direct infusion derivatized fatty acid mass spectra.
-# created: 11/06/2021
-# modified: 16/06/2021, 22/02/2022
 # Notes: imports ms data from excel. makes list with theoretical masses of searched species. numerically integrates species. 
 # Loop for sequential spectra evaluation (analysis and subtraction of Process Blank).
 
@@ -25,28 +23,30 @@ ia=[0.9893, 0.0107, 0.999885, 0.000115, 0.99636, 0.00364, 0.99747, 0.00038, 0.00
 #isotope=['1H   ', '2H  ', '12C   ', '14N   ', '16O    ', '31P   ', '32S    ' '23Na     ', 'e     ', '132Xe', '   127I']
 imass=[1.007825, 2.0141, 12.00000, 14.00307, 15.99491, 30.973762, 31.97207, 22.98977, 0.000548585, 131.9041535, 126.904473]
 ######################################################################
-print('Direct infusion mass spectrum of sample must be in: jpmlipidomics_raw_ms_di.xlsx and Process Blank in: jpmlipidomics_raw_ms_di_process_blank.xlsx (Spectrum starts in row 9.)')
+print('Direct infusion mass spectrum of sample must be in: jpmlipidomics_raw_ms_di.xlsx') # and Process Blank in: jpmlipidomics_raw_ms_di_process_blank.xlsx (Spectrum starts in row 9.)')
 
 mzmin=305.0						# define m/z region of interest
-mzmax=570.0
+mzmax=900  #570.0
 
 
 minlenfa=12
-maxlenfa=24
-cutoff=3000
-famemix=0
-procblank=0
+maxlenfa=30
 
-#minlenfa=eval(input('Number of C in shortest FA chain?'))
-#maxlenfa=eval(input('Number of C in longest FA chain?'))
+cutoff=3000
+#famemix=0
+procblank=0		#If 0, Process Blank will not be subtracted
+
+minlenfa=eval(input('Number of C in shortest FA chain?'))
+maxlenfa=eval(input('Number of C in longest FA chain?'))
 #cutoff=eval(input('Enter cutoff for relevant integrals (recommended: start with low value, e.g. 3000, then rerun script with higher value, e.g. 50000 or 200000) :'))
-#famemix=eval(input('Is this a spectrum of the derivatized FAME 37 mix? Yes: 1 | No: 0 :'))
+famemix=eval(input('Is this a spectrum of the derivatized FAME 37 mix? Yes: 1 | No: 0 :'))
 #procblank=eval(input('Subtract Process Blank? Yes: 1 | No: 0 :'))
 
 # begin determine derivatization agent
-#fourlettcode=input('Enter four letter code of derivatization agent (e.g. AMPP, NMPA, NMPE, MDPE, NEPE, EDPE, NPPE, IAMP) :')
-fourlettcode='AMPP'
-print('Edit code, line 34, if derivatization agent not AMPP! Thanks.')
+fourlettcode=input('Enter four letter code of derivatization agent (e.g. AMPP, NMPA, NMPE, MDPE, NEPE, EDPE, NPPE, IAMP) :')
+#fourlettcode='AMPP'
+#fourlettcode='IAMP'
+#print('Edit code, line 49, if derivatization agent not AMPP! Thanks.')
 fourlettcode=str(fourlettcode)
 if fourlettcode=='AMPP':
 	cderiv=12
@@ -277,9 +277,7 @@ while spectrum<spectrumall:
 	lockmasslist.append(palmiticacidmz)
 	lockmasslist.append(stearicacidmz)
 	# end sum formula dependent calculation of lockmasslist
-
-
-	#lockmasslist=[423.3375, 451.3688]			# For any other derivatization agent than AMPP, add calculation for lockmasses !!!
+	#print(lockmasslist)
 	shiftlist=[]
 	fwhmlist=[]
 	lmk=0
@@ -288,9 +286,13 @@ while spectrum<spectrumall:
 		while explistx[k]<lockmasslist[lmk]:
 			k=k+1
 		k=k-1
+		#print('k')
+		#print(k)
+		#print(explistyc[k])
 		if explistyc[k]>0:
 			if explistyc[k-1]<explistyc[k]:	# theoretical peak before experimental peak maximum
 				check=1
+				check2=0
 				while check>0:
 					if explistyc[k-1]>0:
 						if explistyc[k-1]<explistyc[k]:
@@ -299,11 +301,14 @@ while spectrum<spectrumall:
 							check=0
 					else:
 						check=0
+						check2=1
 					if check==1:
 						k=k+1
 					else:
 						k=k
 				k=k-1
+				if check2==1:
+					k=k+1
 				# peak mz identified, begin calc lockmass correction
 				shift=lockmasslist[lmk]-explistx[k]
 				shiftlist.append(shift)
@@ -330,6 +335,8 @@ while spectrum<spectrumall:
 			else:
 				k=k
 			# begin determine FWHM
+			#print(shiftlist)
+			#print(explistyc[k])
 			fwi=k
 			while explistyc[fwi]>(0.5*explistyc[k]):
 				fwi=fwi-1
@@ -338,6 +345,9 @@ while spectrum<spectrumall:
 			while explistyc[fwi]>(0.5*explistyc[k]):
 				fwi=fwi+1
 			ufwi=fwi
+			#print(fwi)
+			#print(lfwi)
+			#print(ufwi)
 			fwhm=(explistx[ufwi-1]+((explistx[ufwi]-explistx[ufwi-1])*((explistyc[ufwi-1]-(0.5*explistyc[k]))/(explistyc[ufwi-1]-explistyc[ufwi]))))-(explistx[lfwi+1]-((explistx[lfwi+1]-explistx[lfwi])*((explistyc[lfwi+1]-(0.5*explistyc[k]))/(explistyc[lfwi+1]-explistyc[lfwi]))))
 			fwhmlist.append(fwhm)
 			# end determine FWHM 
@@ -941,10 +951,11 @@ while spectrum<spectrumall:
 		kr=2
 		lenfintlistn=len(fintlistn)
 		while r<len(fintlistn):
-			dlt=0						#################################################################### shortened name for better labelling in graph
+			dlt=1						#################################################################### shortened name for better labelling in graph
 			if dlt==1:
-				if 'AMPP' in fintlistn[r]:
+				if 'AMPP' in str(fintlistn[r]):
 					sh=5
+					#print('#######')
 					nfai=str()
 					while sh<(len(fintlistn[r])):
 						nfai=nfai+str(fintlistn[r][sh])

@@ -116,19 +116,21 @@ if default==1:		# default analysis parameters
 	largeareathreshold=3000
 	productareathreshold=200
 else:
-	workflow=eval(input('Run slow and full workflow (including all FA) (1) or quick and limited workflow (excluding FA with 5 or 6 double bonds) (2)? Workflow: '))
+	workflow=eval(input('Run slow and full workflow (including all FA): 1 or quick and limited workflow (excluding FA with 5 or 6 double bonds): 2. Workflow: '))
 	rtlimitation=2 #eval(input('Apply retention time limitation (1; recommended when linear - Gelb - gradient is used) or no limitation (0; use when retention time trends unknown) :'))
-	mostwanted=eval(input('Use fatty acid library to prevent filtering out important fatty acids? (1: Apply library. 0: Pure De-Novo Search) :'))
+	#mostwanted=eval(input('Use fatty acid library to prevent filtering out important fatty acids? (Apply library: 1; Pure De-Novo Search: 0): '))
+	mostwanted=1
 	transtest=0 #eval(input('Add -2H species to list? (Yes: 1; No: 0) :'))
 	firstexrt=1.01	# 0.3 # firstexrt is the first explicit retention time that is set to look for species (e.g. 1.5 min)	
-	lastexrt=eval(input('Enter maximum retention time (at which FA are expected, e.g. 11.90 or 17.8) [min] :'))
-	minlenfa=eval(input('Enter number of C atoms in shortest FA chain (at least 4; recommended: 12) :'))
-	maxlenfa=eval(input('Enter number of C atoms in longest FA chain (max. 30; recommended: 24) :'))
+	lastexrt=eval(input('Enter maximum retention time [min] (at which FA are expected, e.g. 17): '))
+	minlenfa=eval(input('Enter number of C atoms in shortest FA chain (at least 4; recommended: 12): '))
+	maxlenfa=eval(input('Enter number of C atoms in longest FA chain (max. 30; recommended: 24): '))
 	print('Next, enter parameters for transition results filtering:')
-	mzcutoff=eval(input('What is max mz [ppm] for positive identification of species? (e.g. 10) :'))
-	largeareathreshold=eval(input('What is the threshold for detected precursor peak area? (compare Skyline report file, e.g. 3000) :'))
-	productareathreshold=eval(input('What is the threshold for detected product peak area? (compare Skyline report file, e.g. 200) :'))
-	runprecheck=eval(input('Run pre check based on palmitic acid and stearic acid (Retention time range prediction)? (1: Yes; 0: No). :'))
+	mzcutoff=eval(input('What is max mz error [ppm] for positive identification of species? (e.g. 50): '))
+	largeareathreshold=eval(input('What is the threshold for detected precursor peak area? (compare Skyline report file, e.g. 250): '))
+	productareathreshold=eval(input('What is the threshold for detected product peak area? (compare Skyline report file, e.g. 100): '))
+	runprecheck=eval(input('Run pre check based on palmitic acid and stearic acid (Retention time range prediction)? (Yes: 1; No: 0): '))
+	#runprecheck=1
 	workflowidentifier=sys.argv[1]	# for individual run of this script use instead '23478635249' #
 	workflowidentifier=str(workflowidentifier)
 	#print(workflowidentifier)
@@ -163,8 +165,8 @@ transferlist.append(workflowidentifier)	#20
 #print(transferlist)
 wb = Workbook(write_only=True)
 ws = wb.create_sheet()
-wb.save('jpmlipidomics_workflow_parameters.xlsx')
-wb=openpyxl.load_workbook('jpmlipidomics_workflow_parameters.xlsx')
+wb.save('OzFAD1_workflow_parameters.xlsx')
+wb=openpyxl.load_workbook('OzFAD1_workflow_parameters.xlsx')
 ws=wb.active
 tli=0
 while tli<len(transferindexlist):

@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-# Jan Philipp Menzel jpm_lipidomics_vpw13_1_precursor_tr.py
+# Jan Philipp Menzel
 #created: 09 07 2020
 #modified: regularly until 07 04 2021 
 # Goal: STEP 1. Generate transition list for Skyline containing precursors (intact derivatized fatty acids), either one of seven pre-defined derivatives or any new structure
@@ -23,11 +23,17 @@ isotope=['1H   ', '2H  ', '12C   ', '14N   ', '16O    ', '31P   ', '32S    ' '23
 imass=[1.007825, 2.0141, 12.00000, 14.00307, 15.99491, 30.973762, 31.97207, 22.98977, 0.000548585, 131.9041535, 126.904473]
 ###########
 
-discoverylevel=eval(input('Run full discovery workflow: (0); streamlined discovery workflow: (1) (limited to FA_library for all FA > three db; no discovery workflow: (2) (all limited to FA_library)? ::'))
+discoverylevel=eval(input('Run full discovery workflow: 0; Streamlined discovery workflow (limited to FA_library for all FA > three db, otherwise full discovery): 1 or Library-based workflow (limited to FA_library): 2. Workflow: '))
 dlevel=discoverylevel	
 
+discoverylimitation=eval(input('Limit search to certain fatty acids by chain length? Yes: 1; No: 0. :'))
+if discoverylimitation==1:
+	cminlimit=eval(input('Search from minimum chain length: '))
+	cmaxlimit=eval(input('to maximum chain length: '))
+
+
 beforeall=datetime.datetime.now()
-print('DDA Workflow is analysing targets to generate a transition list.')
+print('The targetlist is being analyzed to generate a transition list.')
 
 
 # begin build mostwantedlist 
@@ -87,6 +93,8 @@ while rdi<(len(rawtargetlist)):
 		stri=str(rawtargetlist[rdi][rdii])
 		cstr=cstr+stri
 		rdii=rdii+1
+	if cstr[len(cstr)-1]==',':
+		cstr=cstr[:-1]
 	crt=float(cstr)/60
 	rttargetlist.append(crt)
 	rdi=rdi+1
@@ -291,7 +299,7 @@ while kt<(len(rttargetlist)-4):
 	kt=kt+1
 # end reassign targets in targetlist (skip neighboring targets - targets with two direct neighbors)
 lmzt=len(mztargetlist)
-print('Number of targets in targetlist after first reassignment: %d' % lmzt)
+#print('Number of targets in targetlist after first reassignment: %d' % lmzt)
 
 # begin reassign targets in targetlist 
 
@@ -334,7 +342,8 @@ while kt<(len(rttargetlist)-4):
 	kt=kt+1
 # end reassign targets in targetlist 
 lmzt=len(mztargetlist)
-print('Number of targets in targetlist after second reassignment: %d' % lmzt)
+#print('Number of targets in targetlist after second reassignment: %d' % lmzt)
+print('Number of targets in processed targetlist after reassignment: %d. Transition list is being generated...' % lmzt)
 
 ########### begin read workflow parameters
 transferlist=[]
@@ -378,11 +387,7 @@ imass=[1.007825, 2.0141, 12.00000, 14.00307, 15.99491, 30.973762, 31.97207, 22.9
 minlenfa=transferlist[8] #eval(input('Enter number of C atoms in shortest FA chain (e.g. 4) :'))
 maxlenfa=transferlist[9] #eval(input('Enter number of C atoms in longest FA chain (e.g. 24) :'))
 
-
-print('Calculation of transition list is running ...')
-
-
-
+#print('Calculation of transition list is running ...')
 
 if discoverylevel<2:
 	lfa=maxlenfa-minlenfa+1
@@ -3995,6 +4000,21 @@ while r<ki:
 	if (r+1)>ki:
 		pos=0
 		r=r+2
+	
+	if discoverylimitation==1:
+		if int(str(vwritelist[1][r][5])+str(vwritelist[1][r][6]))<cminlimit:
+			godi=0
+		elif int(str(vwritelist[1][r][5])+str(vwritelist[1][r][6]))>cmaxlimit:
+			godi=0
+		else:
+			godi=1
+	else:
+		godi=1
+	if godi==1:
+		pos=pos
+	else:
+		pos=0
+
 	if pos==1:
 		#print('Block found')
 		#print(precspecies)
@@ -4072,7 +4092,7 @@ while r<ki:
 				#else:	
 				#	exrtstep=0.027
 				#end define small and large exrtstep dependent on degree of unsaturation and number of C atoms in chain
-				e=0.02 #exrtstep*2
+				e=0.1 #exrtstep*2
 				rtwindow.append(e)	
 				r=r+1
 			kr=kr+1
@@ -4118,13 +4138,11 @@ writelist.append(rtwindow)
 
 
 
-
-
 nrows=len(vmlistname)
 #print('Full discovery transition list will contain %d transitions. If this is more than 1M, consider to run the streamlined discovery workflow.'% nrows)
 #discoverylevel=eval(input('Run full discovery workflow (0); streamlined discovery workflow (1) (limited to FA_library for all FA > 3 db; no discovery workflow (2) (all limited to FA_library)? ::'))
 discoverylevel=0
-# begin reduce transition list to species in fa_lib if desired for certain fatty acids
+# begin reduce transition list to species in fa_lib if desired for certain fatty acids 
 if discoverylevel>0:
 	r=0
 	while r<(len(writelist[0])):
@@ -4177,8 +4195,6 @@ if discoverylevel>0:
 			r=s+1
 # end reduce transition list to species in fa_lib if desired for certain fatty acids
 
-
-
 mespacedrule=0											########## ACTIVATE (1) OR DEACTIVATE (0) METHYLENE (BUTYLENE) SPACED RULE ####### ACTIVATE DOES NOT WORK
 if mespacedrule==0:			## MODIFY BEFORE ACTIVATE
 	transitionresultsdf=pd.DataFrame(writelist).transpose()
@@ -4190,15 +4206,16 @@ if mespacedrule==0:			## MODIFY BEFORE ACTIVATE
 	print('Transition list is saved as jpmlipidomics_dda_vpw20_0.csv (%d rows)' % nrows)
 	afterall=datetime.datetime.now()
 	dt=afterall-beforeall
-	print('Calculation time:')
-	print(dt)
+	print('Calculation time (h:mm:ss) is: %s' % dt)
+	#print('Calculation time:')
+	#print(dt)
 	quit()
 	# end save to csv file
 
 #################################################################################################################################################
 ############################### END REDUCE TO ENTRIES OF FOUND PRECURSOR AND EXPAND WITH PRECURSOR EXPLICIT RETENTION TIMES #####################
 #################################################################################################################################################
-
+nlrows=0
 #################################################################################################################################################
 ## begin apply methylene (butylene) spacing rule to relevant species 
 ## (delete unrealistic species that can't be distinguished from realistic species as associated double bonds are non-diagnostic)
@@ -4265,41 +4282,54 @@ if mespacedrule==1:
 		if pos==1:
 			r=s+1
 		else:
-			t=r
-			while t<(s+1):
-				e=writelist[0][t] ## mlistname	# begin append rows of suitable species to lists for later saving in excel output
-				mlistname.append(e)
-				e=writelist[1][t] ## precname	
-				precname.append(e)
-				e=writelist[2][t] ## 	
-				precformula.append(e)
-				e=writelist[3][t] ## 	
-				precadduct.append(e)
-				e=writelist[4][t] ## 	
-				precmz.append(e)
-				e=writelist[5][t] ## 	
-				precchrg.append(e)
-				e=writelist[6][t] ## 	
-				prodname.append(e)
-				e=writelist[7][t] ## 	
-				prodformula.append(e)
-				e=writelist[8][t] ## 	
-				prodadduct.append(e)
-				e=writelist[9][t] ## 
-				prodmz.append(e)
-				e=writelist[10][t] ## 	
-				prodchrg.append(e)
-				e=str(writelist[11][t]) ## 
-				wprecrt.append(e)
-				e=str(writelist[12][t]) ## 	
-				wrtwindow.append(e)
-				t=t+1
+			#check if compartmentalization of discovery process required
+			if discoverylimitation==1:
+				if int(str(writelist[1][t][5])+str(writelist[1][t][6]))<cminlimit:
+					godi=0
+				elif int(str(writelist[1][t][5])+str(writelist[1][t][6]))>cmaxlimit:
+					godi=0
+				else:
+					godi=1
+			else:
+				godi=1
+			if godi==1:
+				t=r
+				while t<(s+1):
+					e=writelist[0][t] ## mlistname	# begin append rows of suitable species to lists for later saving in excel output
+					mlistname.append(e)
+					e=writelist[1][t] ## precname	
+					precname.append(e)
+					e=writelist[2][t] ## 	
+					precformula.append(e)
+					e=writelist[3][t] ## 	
+					precadduct.append(e)
+					e=writelist[4][t] ## 	
+					precmz.append(e)
+					e=writelist[5][t] ## 	
+					precchrg.append(e)
+					e=writelist[6][t] ## 	
+					prodname.append(e)
+					e=writelist[7][t] ## 	
+					prodformula.append(e)
+					e=writelist[8][t] ## 	
+					prodadduct.append(e)
+					e=writelist[9][t] ## 
+					prodmz.append(e)
+					e=writelist[10][t] ## 	
+					prodchrg.append(e)
+					e=str(writelist[11][t]) ## 
+					wprecrt.append(e)
+					e=str(writelist[12][t]) ## 	
+					wrtwindow.append(e)
+					t=t+1
+					nlrows=nlrows+1
 		r=s+1
 
 # end build full transition list and reduce and expand with reassigned targets (for neighboring targets, skip every second to reduce number of transitions leading to same peak)
 ###############################################################################################################################
 ###############################################################################################################################
-
+if discoverylimitation==1:
+	print('Transitionlist limited to search criteria is saved containing %d rows.' % nlrows)
 ###############################################################################################################################
 
 toprow=['MoleculeGroup', 'PrecursorName', 'PrecursorFormula', 'PrecursorAdduct', 'PrecursorMz', 'PrecursorCharge', 'ProductName', 'ProductFormula', 'ProductAdduct', 'ProductMz', 'ProductCharge', 'PrecursorRT', 'PrecursorRTWindow']
@@ -4340,8 +4370,9 @@ dt=afterall-beforeall
 nrows=len(vmlistname)
 #print('Transition list is saved as yyyy_mm_dd_1_xxxx_jpmlipidomics_vpw13_1_precursor.csv (%d rows)' % nrows)
 print('Transition list is saved as jpmlipidomics_dda_vpw20_0.csv (%d rows)' % nrows)
-print('Calculation time (h:mm:ss) is:')
-print(dt)
+#print('Calculation time (h:mm:ss) is: ')
+print('Calculation time (h:mm:ss) is: %d' % dt)
+#print(dt)
 # end save to csv file
 #################################################################################################################################################
 

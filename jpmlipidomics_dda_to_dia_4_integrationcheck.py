@@ -28,7 +28,7 @@ imass=[1.007825, 2.0141, 12.00000, 14.00307, 15.99491, 30.973762, 31.97207, 22.9
 ###########
 
 beforeall=datetime.datetime.now()
-print('Workflow is running ...')
+#print('Workflow is running ...')
 
 #begin read file and save data in lists, edit strings and calculate fragment masses, build output lists
 trdf=pd.read_csv('skyl_report_vpw20_6_DDA_confirmed_DIA_int_check.csv')
@@ -125,7 +125,7 @@ while t<(len(swritelist[0])):
 	prodchrg.append(e)
 	e=swritelist[11][t] ##	explicitrt
 	explicitrt.append(e)
-	exrtwindow.append(0.01)		################################# ENTER EXPLICIT RETENTION TIME WINDOW ##############################
+	exrtwindow.append(0.1)		################################# ENTER EXPLICIT RETENTION TIME WINDOW ##############################
 	t=t+1
 
 writelist=[]
@@ -160,8 +160,9 @@ transitionresultsdf.to_csv(filename, index=False)
 print('Transition list is saved as jpmlipidomics_dda_vpw20_4_rt_shifted.csv')
 afterall=datetime.datetime.now()
 dt=afterall-beforeall
-print('Calculation time (h:mm:ss) is:')
-print(dt)
+print('Calculation time (h:mm:ss) is: %s' % dt)
+#print('Calculation time (h:mm:ss) is:')
+#print(dt)
 
 
 

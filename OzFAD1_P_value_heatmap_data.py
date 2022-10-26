@@ -148,9 +148,16 @@ while r<len(superlist[0]):
             cd2list.append(cd2)
             cds=cds+1
 
-        t,p=stats.ttest_ind(cd1list, cd2list, equal_var=False)
-        t=str(t)
-        p=str(p)
+        if cd1list[0]==cd1list[1]==cd1list[2]==0:
+            t='1'
+            p='1'
+        elif cd2list[0]==cd2list[1]==cd2list[2]==0:
+            t='1'
+            p='1'
+        else:
+            t,p=stats.ttest_ind(cd1list, cd2list, equal_var=False)
+            t=str(t)
+            p=str(p)
         if t=='nan':
             t=str(1.0)
         if p=='nan':
@@ -207,6 +214,9 @@ if writeoutput==1:
     wb.save('jpmlipidomics_p_values_for_heatmap.xlsx')
     wb=openpyxl.load_workbook('jpmlipidomics_p_values_for_heatmap.xlsx')
     ws=wb.active
+    ws.title='Data for Heatmaps'
+    ws=wb['Data for Heatmaps']
+    ndblist=[]
 
     c=0
     while c<len(superlist[0][0]):   #write top row with db assignment
@@ -253,10 +263,10 @@ if writeoutput==1:
                 if dblabel[dx]=='(':
                     dxn=0
                     ndblabel=str()
-                    while dxn<dx+1:
+                    while dxn<dx-1: #previously +1
                         ndblabel=ndblabel+dblabel[dxn]
                         dxn=dxn+1
-                    ndblabel=ndblabel+'trans (E))'
+                    ndblabel=ndblabel+'t' #'trans)' #'trans (E))'
                 dx=dx+1
         elif 'Me, Z' in str(superlist[0][0][c]):
             dblabel=str(superlist[0][0][c])
@@ -265,13 +275,14 @@ if writeoutput==1:
                 if dblabel[dx]=='(':
                     dxn=0
                     ndblabel=str()
-                    while dxn<dx+1:
+                    while dxn<dx-1: #previously +1
                         ndblabel=ndblabel+dblabel[dxn]
                         dxn=dxn+1
-                    ndblabel=ndblabel+'cis (Z))'
+                    ndblabel=ndblabel+'c'  #'cis)' #'cis (Z))'
                 dx=dx+1
         else:
             ndblabel=str(superlist[0][0][c])
+        ndblist.append(ndblabel)
         ws.cell(row=1, column=c+1).value=ndblabel  # write row label for p value heatmap   
         ws.cell(row=1+4+len(superlist[0]), column=c+1).value=ndblabel  # write row label for fold change heatmap    
         c=c+1
@@ -292,8 +303,99 @@ if writeoutput==1:
     ws.cell(row=3+len(superlist[0]), column=2).value='Below: Fold change values for heatmap'   #write Note
 
     wb.save('jpmlipidomics_p_values_for_heatmap.xlsx')
-    print('P values are saved in excel file jpmlipidomics_p_values_for_heatmap.xlsx')
-    #end write p values in output excel file 
-print('Done.')
+    #print('P values are saved in excel file jpmlipidomics_p_values_for_heatmap.xlsx')
+    #end write p values and fold change values in output excel file 
+#print('Done.')
 
+#print(ndblist)
+#print('##########')
+#print(foldlist[0])
+#print(superlist[0][1][0])
+#quit()
+
+# begin assemble data for volcano plot
+# use plist and foldlist and superlist indices to build list for volcano plot data
+vfalist=[]  #list of fatty acid isomer labels for volcano plot
+vfclist=[]  #list of fold change values for volcano plot
+vpvlist=[]  #list of P values for volcano plot
+vlogfclist=[]  #list of LOG fold change values for volcano plot
+vlogpvlist=[]  #list of LOG P values for volcano plot
+
+si=0    # rows in p value table, e.g. 12:1 species, 14:1 species ...
+sii=0   # columns in p value table, e.g. n-7(Z) species, n-7(E) species ...
+while si<(len(foldlist)):
+    sii=0
+    while sii<(len(foldlist[0])):
+        if float(foldlist[si][sii])>0:
+            if float(plist[si][sii])<1:
+                #found a data point for volcano plot
+                cvfa=str(superlist[0][si+1][0])   #+str(superlist[0][0][sii])
+                # read top row of p value data
+                ndblbl=ndblist[sii+1]
+                cvfa=cvfa+str(ndblbl)
+                vfalist.append(cvfa)
+                cvfc=float(foldlist[si][sii])
+                vfclist.append(cvfc)
+                cvpv=float(plist[si][sii])
+                vpvlist.append(cvpv)
+                cvlogfc=math.log2(cvfc)
+                cvlogpv=math.log10(cvpv)
+                cvlogpv=-1*cvlogpv
+                vlogfclist.append(cvlogfc)
+                vlogpvlist.append(cvlogpv)
+        sii=sii+1
+    si=si+1
+
+wb=openpyxl.load_workbook('jpmlipidomics_p_values_for_heatmap.xlsx')
+wb.create_sheet(title='Data for Volcano Plot')
+wsvp=wb['Data for Volcano Plot']
+
+wsvp.cell(row=1, column=1).value='FA isomer'    #write top row
+wsvp.cell(row=1, column=2).value='Fold change'    #write top row
+wsvp.cell(row=1, column=3).value='P value'    #write top row
+
+wsvp.cell(row=1, column=5).value='FA isomer'    #write top row
+wsvp.cell(row=1, column=6).value='log2 fold change'    #write top row
+wsvp.cell(row=1, column=7).value='="-log10 p-value"'    #write top row
+wsvp.cell(row=1, column=8).value='="-log10 p-value"'    #write top row
+
+vol=2
+while vol<(len(vfalist)+2):
+    wsvp.cell(row=vol, column=1).value=vfalist[vol-2]    #write fatty acid labels for volcano plot data
+    wsvp.cell(row=vol, column=2).value=vfclist[vol-2]    #write fatty acid labels for volcano plot data
+    wsvp.cell(row=vol, column=3).value=vpvlist[vol-2]    #write fatty acid labels for volcano plot data
+
+    wsvp.cell(row=vol, column=5).value=vfalist[vol-2]    #write fatty acid labels for volcano plot data
+    wsvp.cell(row=vol, column=6).value=vlogfclist[vol-2]    #write fatty acid labels for volcano plot data
+    if abs(float(vlogfclist[vol-2]))<1:
+        wsvp.cell(row=vol, column=8).value=vlogpvlist[vol-2]    #write significant, little changing FA datapoints for volcano plot data
+    elif float(vlogpvlist[vol-2])<1.30103:
+        wsvp.cell(row=vol, column=8).value=vlogpvlist[vol-2]    #write non significant, highly changing FA datapoints for volcano plot data
+    else:
+        wsvp.cell(row=vol, column=7).value=vlogpvlist[vol-2]    #write significant and highly changing FA datapoints for volcano plot data
+    vol=vol+1
+
+wsvp.cell(row=(len(vfalist)+2), column=6).value=-10    #write values for border lines to denote statistical significance and high changes (> twofold)
+wsvp.cell(row=(len(vfalist)+2), column=9).value=1.30103    #write values for border lines to denote statistical significance and high changes (> twofold)
+wsvp.cell(row=(len(vfalist)+3), column=6).value=10    #write values for border lines to denote statistical significance and high changes (> twofold)
+wsvp.cell(row=(len(vfalist)+3), column=9).value=1.30103    #write values for border lines to denote statistical significance and high changes (> twofold)
+
+wsvp.cell(row=(len(vfalist)+4), column=6).value=-1.0000000001    #write values for border lines to denote statistical significance and high changes (> twofold)
+wsvp.cell(row=(len(vfalist)+4), column=10).value=-1    #write values for border lines to denote statistical significance and high changes (> twofold)
+wsvp.cell(row=(len(vfalist)+5), column=6).value=-1    #write values for border lines to denote statistical significance and high changes (> twofold)
+wsvp.cell(row=(len(vfalist)+5), column=10).value=10    #write values for border lines to denote statistical significance and high changes (> twofold)
+
+wsvp.cell(row=(len(vfalist)+6), column=6).value=1   #write values for border lines to denote statistical significance and high changes (> twofold)
+wsvp.cell(row=(len(vfalist)+6), column=11).value=-1    #write values for border lines to denote statistical significance and high changes (> twofold)
+wsvp.cell(row=(len(vfalist)+7), column=6).value=1.0000000001    #write values for border lines to denote statistical significance and high changes (> twofold)
+wsvp.cell(row=(len(vfalist)+7), column=11).value=10    #write values for border lines to denote statistical significance and high changes (> twofold)
+
+wsvp.cell(row=(len(vfalist)+8), column=6).value=0    #write values for border lines to denote statistical significance and high changes (> twofold)
+wsvp.cell(row=(len(vfalist)+8), column=12).value=-1    #write values for border lines to denote statistical significance and high changes (> twofold)
+wsvp.cell(row=(len(vfalist)+9), column=6).value=0.0000000001    #write values for border lines to denote statistical significance and high changes (> twofold)
+wsvp.cell(row=(len(vfalist)+9), column=12).value=10    #write values for border lines to denote statistical significance and high changes (> twofold)
+
+wb.save('jpmlipidomics_p_values_for_heatmap.xlsx')
+print('P values, fold change values and data for volcano plot are saved in excel file jpmlipidomics_p_values_for_heatmap.xlsx')
+# end assemble data for volcano plot
 

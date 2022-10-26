@@ -917,7 +917,7 @@ while kl<(len(swritelist[0])): #(len(keeplist)):
 	cexrt=str(cexrt)
 	cexrt=float(cexrt)
 	exrt.append(cexrt)	#exrt done
-	exrtwindow.append(0.05)		################################# ENTER EXPLICIT RETENTION TIME WINDOW ##############################
+	exrtwindow.append(0.1)		################################# ENTER EXPLICIT RETENTION TIME WINDOW ##############################
 	precoverlap.append('ok')
 	kl=kl+1
 	t=t+1

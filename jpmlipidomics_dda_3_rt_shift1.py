@@ -205,7 +205,7 @@ while r<ki:
 				prodchrg.append(e)
 				e=writelist[17][t] ## 	
 				explicitrt.append(e)
-				exrtwindow.append(0.01)		################################# ENTER EXPLICIT RETENTION TIME WINDOW ##############################
+				exrtwindow.append(0.1)		################################# ENTER EXPLICIT RETENTION TIME WINDOW ##############################
 				t=t+1
 			qwritelist=[]
 			qwritelist.append(mlistname)
@@ -239,8 +239,9 @@ transitionresultsdf.to_csv(filename, index=False)
 print('Transition list is saved as jpmlipidomics_dda_vpw20_3_rt_shift1.csv')
 afterall=datetime.datetime.now()
 dt=afterall-beforeall
-print('Calculation time (h:mm:ss) is:')
-print(dt)
+print('Calculation time (h:mm:ss) is: %s' % dt)
+#print('Calculation time (h:mm:ss) is:')
+#print(dt)
 
 
 

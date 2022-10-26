@@ -1,14 +1,29 @@
 # -*- coding: UTF-8 -*-
 
-#Jan Philipp Menzel testcode for speed of calculation
+#Jan Philipp Menzel 
 #created: 2018 04 18
-#Notes: counts iteratively to 100 000 000 (takes about 11 sec, QUT PC)
+#Notes: 
 import math
 import openpyxl
 import pandas as pd
 import datetime
 import statistics
 import csv
+
+import sys
+#csv.field_size_limit(sys.maxsize)
+maxInt=sys.maxsize
+while True:
+	try:
+		csv.field_size_limit(maxInt)
+		break
+	except OverflowError:
+		maxInt=int(maxInt/10)
+
+
+
+
+
 beforeall=datetime.datetime.now()
 
 segmentsize=500	# min number of entries in xic report and transitions report to be processed at once (once functional change to 500, then increase to test if advantageous)

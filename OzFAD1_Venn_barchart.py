@@ -161,7 +161,7 @@ while mi<(len(datalist[0])):
 				k=k+1
 			go=0
 	mi=mi+1
-print(sortedlist)
+#print(sortedlist)
 #print(len(sortedlist))
 # end sort datalist
 #workflowunique=1
