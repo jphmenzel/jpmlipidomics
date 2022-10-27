@@ -5,7 +5,7 @@ Jan Philipp Menzel, Reuben S. Young, Aurelie H. Benfield, Julia S. Scott, Lisa M
 A preprint is available on BioRxiv:
 https://www.biorxiv.org/content/10.1101/2022.10.24.513604v1
 
-This publication is currently in Review in Nature Methods. 
+This publication is currently submitted to Nature Methods. 
 
 The code in this repository allows processing of LC-OzID-MS and LC-OzID-MS/MS files as well as mass spectrometry data from direct infusion ESI-MS as part of the workflow introduced in the associated publication.
 
