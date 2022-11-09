@@ -116,7 +116,8 @@ if default==1:		# default analysis parameters
 	largeareathreshold=3000
 	productareathreshold=200
 else:
-	workflow=eval(input('Run slow and full workflow (including all FA): 1 or quick and limited workflow (excluding FA with 5 or 6 double bonds): 2. Workflow: '))
+	#workflow=eval(input('Run slow and full workflow (including all FA): 1 or quick and limited workflow (excluding FA with 5 or 6 double bonds): 2. Workflow: '))
+	workflow=1
 	rtlimitation=2 #eval(input('Apply retention time limitation (1; recommended when linear - Gelb - gradient is used) or no limitation (0; use when retention time trends unknown) :'))
 	#mostwanted=eval(input('Use fatty acid library to prevent filtering out important fatty acids? (Apply library: 1; Pure De-Novo Search: 0): '))
 	mostwanted=1
@@ -127,15 +128,23 @@ else:
 	maxlenfa=eval(input('Enter number of C atoms in longest FA chain (max. 30; recommended: 24): '))
 	print('Next, enter parameters for transition results filtering:')
 	mzcutoff=eval(input('What is max mz error [ppm] for positive identification of species? (e.g. 50): '))
-	largeareathreshold=eval(input('What is the threshold for detected precursor peak area? (compare Skyline report file, e.g. 250): '))
-	productareathreshold=eval(input('What is the threshold for detected product peak area? (compare Skyline report file, e.g. 100): '))
-	runprecheck=eval(input('Run pre check based on palmitic acid and stearic acid (Retention time range prediction)? (Yes: 1; No: 0): '))
-	#runprecheck=1
+	#largeareathreshold=eval(input('What is the threshold for detected precursor peak area? (compare Skyline report file, e.g. 250): '))
+	largeareathreshold=250
+	#productareathreshold=eval(input('What is the threshold for detected product peak area? (compare Skyline report file, e.g. 100): '))
+	productareathreshold=100
+	#runprecheck=eval(input('Run pre check based on palmitic acid and stearic acid (Retention time range prediction)? (Yes: 1; No: 0): '))
+	runprecheck=1
 	workflowidentifier=sys.argv[1]	# for individual run of this script use instead '23478635249' #
 	workflowidentifier=str(workflowidentifier)
 	#print(workflowidentifier)
 	
-	
+
+beforeall=datetime.datetime.now()
+print('Calculation begins at:')
+print(beforeall)
+
+print('Workflow is running ...')
+
 nchunks=1
 rettimecutoff=lastexrt #eval(input('What is the maximum retention time [min]? (e.g. 11.9 or 17.8) :'))
 # begin save workflow parameters in csv file (to be used in following python steps during automated workflow)
@@ -177,8 +186,7 @@ while tli<len(transferindexlist):
 wb.save('OzFAD1_workflow_parameters.xlsx')
 # end save workflow parameters in csv file (to be used in following python steps during automated workflow)
 # begin calculate monounsaturated precursors from input
-beforeall=datetime.datetime.now()
-print('Workflow is running ...')
+
 #quit()
 # begin define workflow parameters for precheck only
 minlenfa=16

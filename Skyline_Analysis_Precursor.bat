@@ -25,7 +25,12 @@ rem Save to new location to allow parallel processing
 %SKYLINE_RUNNER% --timestamp --dir="%ROOT_DIR%" --in="..\%SKYLINE_FILE%" --out="%MODEL_NAME%\jpmlipidomics_vpw20_1_precursor.sky" >> %LOG%
 
 rem Do the analysis in the new location
-%SKYLINE_RUNNER% --timestamp --dir="%ROOT_DIR%" --in="%MODEL_NAME%\jpmlipidomics_vpw20_1_precursor.sky" --import-transition-list=%ROOT_ANALYSIS_DIR%\jpmlipidomics_vpw20_1_precursor.csv --save  --import-lockmass-positive=556.2771 --import-lockmass-tolerance=0.5 --import-all="%ROOT_ANALYSIS_DIR%\DIA_current_LCMS_dataset" --import-naming-pattern="_([^_]*)$" --save --report-add="%ROOT_ANALYSIS_DIR%\OzFAD1_black_box\skyline_report_vpw15.skyr" --report-conflict-resolution=overwrite --report-name=skyl_report_template_vpw15 --report-file="%ROOT_ANALYSIS_DIR%\skyl_report_vpw20_1.csv" --report-invariant >> %LOG%
+%SKYLINE_RUNNER% --timestamp --dir="%ROOT_DIR%" --in="%MODEL_NAME%\jpmlipidomics_vpw20_1_precursor.sky" --import-transition-list=%ROOT_ANALYSIS_DIR%\jpmlipidomics_vpw20_1_precursor.csv --save  --import-lockmass-positive=556.2771 --import-lockmass-tolerance=0.5 --import-all="%ROOT_ANALYSIS_DIR%\DIA_current_LCMS_dataset" --import-naming-pattern="_([^_]*)$" --save --report-add="%ROOT_ANALYSIS_DIR%\OzFAD1_black_box\skyline_report_vpw15.skyr" --report-conflict-resolution=overwrite --report-name=skyl_report_template_vpw15 --report-file="%ROOT_ANALYSIS_DIR%\skyl_report_vpw20_1.csv" --report-invariant --chromatogram-products --chromatogram-file="%ROOT_ANALYSIS_DIR%\skyl_xic_report_1_precursor.tsv" >> %LOG%
+
+rem convert tsv to csv file(s) containing XIC intensities
+"C:\Users\menzel2\AppData\Local\Programs\Python\Python39\python.exe" "%~dp0\OzFAD1_py\OzFAD1_py_black_box\jpmlipidomics_01_jpmtsvtocsv.py"
+
+
 rem ECHO precursor analysis finished
 rem PAUSE
 if %ERRORLEVEL% NEQ 0 GOTO END
