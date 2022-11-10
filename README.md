@@ -8,3 +8,10 @@ https://www.biorxiv.org/content/10.1101/2022.10.24.513604v1
 The code in this repository allows processing of LC-OzID-MS and LC-OzID-MS/MS files as well as mass spectrometry data from direct infusion ESI-MS as part of the workflow introduced in the associated publication.
 
 Usage of the code is explained in the Supplementary Information of the associated publication.
+
+IMPORTANT NOTE: Skyline (64-bit), version 21.1.0.278 was used for the analysis of the data in the associated publication. Newer versions (including the latest version of Skyline) may (are) not be compatible with the current version of this workflow. To download this version of Skyline, go to the Skyline MS website > release installation page for your system architecture (here 64-bit) > follow link for unplugged installer > "I Agree" > "Archive" link below the [Download] link > Skyline (64-bit) 21.1.0.278. 
+
+
+Latest updates to the workflow: 
+2022_11_10: Speed improvements of initial precursor analysis and generation of target lists. The first batch file in the workflow may run significantly faster (< 90 sec) than outlined in the Supplementary Information of the preprint published on BioRxiv (> 6 min).
+
