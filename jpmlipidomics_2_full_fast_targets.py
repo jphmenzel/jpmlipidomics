@@ -17,6 +17,7 @@ import openpyxl
 import pandas as pd
 import datetime
 import openpyxl
+from pathlib import Path
 from openpyxl import Workbook
 beforeall=datetime.datetime.now()
 ############################################################################################################################################
@@ -246,7 +247,8 @@ if troubleshoot==1:
 	today=after[0]+after[1]+after[2]+after[3]+'_'+after[5]+after[6]+'_'+after[8]+after[9]+'_'+fourlettcode+'_'
 	#filename=today+'OzFAD_dda_targetlist_raw.txt'
 	filename='OzFAD1_dda_targetlist_raw.txt'
-	path='C:/Users/menzel2/OzFAD1.2' #/OzFAD1_black_box/OzFAD1_py' #'C:/Users/menzel2/pythonprogramming'
+	path=Path.cwd()
+	#path='C:/Users/menzel2/OzFAD1.2' 
 	file=filename
 	with open(os.path.join(path, file), 'w') as fp:
 		pass
@@ -586,7 +588,8 @@ after=str(after)
 today=after[0]+after[1]+after[2]+after[3]+'_'+after[5]+after[6]+'_'+after[8]+after[9]+'_'+fourlettcode+'_'
 filename=today+'OzFAD1_dda_targetlist.txt'
 #filename='OzFAD_dda_targetlist.txt'
-path='C:/Users/menzel2/OzFAD1.2' #/OzFAD1_black_box/OzFAD1_py' #'C:/Users/menzel2/pythonprogramming'
+path=Path.cwd()
+#path='C:/Users/menzel2/OzFAD1.2'
 file=filename
 with open(os.path.join(path, file), 'w') as fp:
     pass
@@ -602,7 +605,7 @@ with open(os.path.join(path, file), 'w') as fp:
             i=i+1
         j=j+1
 genfilename='OzFAD1_dda_targetlist.txt'
-path='C:/Users/menzel2/OzFAD1.2' # /OzFAD1_black_box/OzFAD1_py' #'C:/Users/menzel2/pythonprogramming'
+#path='C:/Users/menzel2/OzFAD1.2' 
 file=genfilename
 with open(os.path.join(path, file), 'w') as fp:
     pass
