@@ -13,5 +13,6 @@ IMPORTANT NOTE: Skyline (64-bit), version 21.1.0.278 was used for the analysis o
 
 
 Latest updates to the workflow: 
-2022_11_10: Speed improvements of initial precursor analysis and generation of target lists. The first batch file in the workflow may run significantly faster (< 90 sec) than outlined in the Supplementary Information of the preprint published on BioRxiv (> 6 min).
+2022_11_02: Batch files now contain relative paths, only the path to the python version installed locally needs to be adjusted in each batch file, when setting up the workflow. Both python versions 3.9 and 3.11 (python.org) as well as other python versions should be compatible with the workflow. Paths in jpmlipidomics_2_full_fast_targets.py, lines 248, 589 and 605 need to be adjusted to a local path.
+2022_11_09: Speed improvements of initial precursor analysis and generation of target lists. The first batch file in the workflow may run significantly faster (< 90 sec) than outlined in the Supplementary Information of the preprint published on BioRxiv (> 6 min).
 
