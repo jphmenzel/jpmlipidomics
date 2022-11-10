@@ -1,16 +1,11 @@
 # -*- coding: UTF-8 -*-
 
-# Jan Philipp Menzel jpm_lipidomics_vpw13_2_full.py
-#created: 09 07 2020
-#modified: regularly until 07 04 2021  
+# Jan Philipp Menzel 
+#first version created: 09 07 2020
 # Goal: read excel file containing data for monounsaturated lipids without double bond info, add rows for OzID product ions, save in excel file
-## Notes: work in progress for fatty acids AMPP derivatives (no other ionization), double bond position added to Precursorname after calculations but before saving in excel file 
-## Notes: addition for saturated FAs, bisunsaturated FAs, added line for precursor, option for precursor-only transition list with dummy percursor.
 ## NOTES: VIRTUAL PRECURSOR - PrecursorName and PrecursorMz are artificially set +Xe (only column 3 and 5), fragment transitions correct including precursor
 ## NOTES: Virtual precursor forces Skyline to consider all transitions incl. real precursor (fragment in transition list), Skyline Setting: TransitionSettings-Filter-IonTypes-f
-## NOTES: Include Fatty acids with three double bonds EDIT WRITING OF TRANSITIONS ALDEHYDE AND CRIGEE INTROCUDE NEW VARIABLE FOR THIRD DBposition
-## NOTES: Added option for reducing transition list to one entry per precursor and then expanding list with added varied explicit retention times 
-#  NOTES: filters precursor results and builds large list with pandas. export to csv 
+#  NOTES: filters precursor results and builds list with pandas. export to csv 
 import math
 import os
 import openpyxl
@@ -211,8 +206,6 @@ print('Raw targetlist is created')
 #print(targetrtlist)
 #print(targetmzlist)
 #quit()
-######################################################################### using targetrtlist and targetmzlist to build target list (txt)	#####################################
-######################################################################### using targetrtlist and targetmzlist to build target list (txt)	#####################################
 ######################################################################### using targetrtlist and targetmzlist to build target list (txt)	#####################################
 # begin format m/z values to six digits after comma
 rawtargetmzlist=[]
@@ -1595,9 +1588,9 @@ while r<ki:		#go through rows of excel file jpmlipidozidinput
 	while prec==prevprec:
 		if r<(ki-1):
 			r=r+1
-			e=writelist[1][r-1] #sheetinput.cell(row=(r-1), column=2)
+			e=writelist[1][r-1] #
 			prevprec=e
-			e=writelist[1][r] #sheetinput.cell(row=(r), column=2)
+			e=writelist[1][r] #
 			prec=e		# end determine whether PrecursorName is the same as previous Precursorname, if yes: r=r+1 (go through rows without action)
 		else:
 			prec='stop_loop'
@@ -4388,7 +4381,6 @@ if mespacedrule==1:
 
 #################################################################################################################################################
 ## end apply methylene spacing rule to relevant species 
-## (delete unrealistic species that can't be distinguished from realistic species as associated double bonds are non-diagnostic)
 #################################################################################################################################################
 
 
