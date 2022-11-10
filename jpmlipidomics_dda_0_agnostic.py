@@ -1,10 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 # Jan Philipp Menzel
-#created: 09 07 2020
-#modified: regularly until 07 04 2021 
-# Goal: STEP 1. Generate transition list for Skyline containing precursors (intact derivatized fatty acids), either one of seven pre-defined derivatives or any new structure
-## Notes: Derivative, positive fixed charge
+# Goal: Analysis of DDA Skyline report using target list
 ## NOTES: VIRTUAL PRECURSOR - PrecursorName and PrecursorMz are artificially set +Xe (only column 3 and 5), fragment transitions correct including precursor
 ## NOTES: Virtual precursor forces Skyline to consider all transitions incl. real precursor (fragment in transition list), Skyline Setting: TransitionSettings-Filter-IonTypes-f 
 import math

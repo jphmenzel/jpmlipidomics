@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
 
 #Jan Philipp Menzel 
-#created: 2018 04 18
 #Notes: 
 import math
 import openpyxl

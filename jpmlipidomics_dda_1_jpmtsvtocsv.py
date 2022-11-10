@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
 
 #Jan Philipp Menzel
-#created: 2021 09 16
 #Notes: convert tsv file to csv file for further processing
 import math
 import openpyxl

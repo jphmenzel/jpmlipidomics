@@ -1,16 +1,8 @@
 # -*- coding: UTF-8 -*-
 
-# Philipp Menzel lipidomics oz id transition list generate from excel list, use for skyline
-#created: 09 07 2020
-#modified: regularly until 25 08 2020 
-# Goal: read excel file containing data for monounsaturated lipids without double bond info, add rows for OzID product ions, save in excel file
-## Notes: work in progress for fatty acids AMPP derivatives (no other ionization), double bond position added to Precursorname after calculations but before saving in excel file 
-## Notes: addition for saturated FAs, bisunsaturated FAs, added line for precursor, option for precursor-only transition list with dummy percursor.
-## NOTES: STAGE 2 for LIPIDOMICS WORKFLOW AMPP VPW05. Here: read TransitionResults from Skyline for precursor only results with MinPeakFoundRatio=1.0. Select correct species based on
-##		  manually defined selection rules. OUTPUT CONTAINS RT INFORMATION FOR PRECURSOR ONLY ANALYSIS
-##		  strict selection criteria enabled, based on relative abundance of precursor to fragments
-##			flag overlap of precursor species
-##	DONE ## 
+# Jan Philipp Menzel
+# Goal: Filter Skyline report (transition results) to generate smaller list of suitable ID's 
+## Notes: 
 import math
 import openpyxl
 import pandas as pd

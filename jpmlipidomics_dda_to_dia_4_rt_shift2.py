@@ -1,9 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-# Jan Philipp Menzel jpm_lipidomics_vpw13_1_precursor_tr.py
-#created: 09 07 2020
-#modified: regularly until 07 04 2021 
-# Goal: STEP 1. Generate transition list for Skyline containing precursors (intact derivatized fatty acids), either one of seven pre-defined derivatives or any new structure
+# Jan Philipp Menzel
 ## Notes: Derivative, positive fixed charge
 ## NOTES: VIRTUAL PRECURSOR - PrecursorName and PrecursorMz are artificially set +Xe (only column 3 and 5), fragment transitions correct including precursor
 ## NOTES: Virtual precursor forces Skyline to consider all transitions incl. real precursor (fragment in transition list), Skyline Setting: TransitionSettings-Filter-IonTypes-f 

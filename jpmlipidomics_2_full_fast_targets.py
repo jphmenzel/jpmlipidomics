@@ -1,8 +1,7 @@
 # -*- coding: UTF-8 -*-
 
 # Jan Philipp Menzel 
-#first version created: 09 07 2020
-# Goal: read excel file containing data for monounsaturated lipids without double bond info, add rows for OzID product ions, save in excel file
+# Goal: Analyze precursor chromatograms and generate target list for DDA acquisition
 ## NOTES: VIRTUAL PRECURSOR - PrecursorName and PrecursorMz are artificially set +Xe (only column 3 and 5), fragment transitions correct including precursor
 ## NOTES: Virtual precursor forces Skyline to consider all transitions incl. real precursor (fragment in transition list), Skyline Setting: TransitionSettings-Filter-IonTypes-f
 #  NOTES: filters precursor results and builds list with pandas. export to csv 

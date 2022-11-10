@@ -1,14 +1,10 @@
 # -*- coding: UTF-8 -*-
 
 # Jan Philipp Menzel 
-#created: 09 07 2020
-#last edit: 12 07 2022
 # Goal: read csv file containing data from last skyline routine (manual curation of list), save data as transition list csv file and sorted xlsx file for plotting
-## NOTES: STAGE 4 . 
-##			flags overlap of precursor species, deconvolution of precursor
+## NOTES: 	flags overlap of precursor species, deconvolution of precursor
 ##			corrects areas for isotopic pattern using sum formula of species
 ##			saves data both in csv file and xlsx file
-##	DONE ## 
 import math
 import openpyxl
 import pandas as pd

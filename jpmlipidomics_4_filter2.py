@@ -1,14 +1,8 @@
 # -*- coding: UTF-8 -*-
 
-# Philipp Menzel lipidomics oz id transition list generate from excel list, use for skyline
-#created: 10 12 2020
-#modified: 2021 02 02; 
-# Goal: read excel file containing data for monounsaturated lipids without double bond info, add rows for OzID product ions, save in excel file
-## Notes: work in progress for fatty acids AMPP derivatives (no other ionization), double bond position added to Precursorname after calculations but before saving in excel file 
-## Notes: addition for saturated FAs, bisunsaturated FAs, added line for precursor, option for precursor-only transition list with dummy percursor.
-## NOTES: STAGE 4 for LIPIDOMICS WORKFLOW AMPP VPW08. Here: delete species for which -H decoy is more than twice the area than precursor principal ion
-## NOTES: then delete species for which exact retention times of relevant (excluding n-6) transitions (based on gaussion fit) differ too much (exactexrtthreshold)
-##	DONE ## 
+# Jan Philipp Menzel 
+# Goal: Second filter step for analysis of OzID product ions and precursors
+## Notes: 
 import math
 import openpyxl
 import pandas as pd
