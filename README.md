@@ -7,7 +7,11 @@ https://www.biorxiv.org/content/10.1101/2022.10.24.513604v1
 
 The code in this repository allows processing of LC-OzID-MS and LC-OzID-MS/MS files as well as mass spectrometry data from direct infusion ESI-MS as part of the workflow introduced in the associated publication. Usage of the code is explained in the Supplementary Information of the associated publication.
 
-IMPORTANT: Skyline (64-bit), version 21.1.0.278 was used for the analysis of the data in the associated publication. Newer versions (including the latest version of Skyline) may not be compatible with the current version of this workflow. To download this version of Skyline, go to the Skyline MS website > release installation page for your system architecture (here 64-bit) > follow link for unplugged installer > "I Agree" > "Archive" link below the "Download" link > Skyline (64-bit) 21.1.0.278. (try https://skyline.ms/wiki/home/software/Skyline/page.view?name=install-64-disconnected_22_2, or https://skyline.ms/labkey/_webdav/home/software/Skyline/%40files/installers/Skyline-64_21_1_0_278.zip)
+IMPORTANT: Skyline (64-bit), version 21.1.0.278 was used for the analysis of the data in the associated publication. Newer versions (including the latest version of Skyline) may not be compatible with the initial version of this workflow. To download this version of Skyline, go to the Skyline MS website > release installation page for your system architecture (here 64-bit) > follow link for unplugged installer > "I Agree" > "Archive" link below the "Download" link > Skyline (64-bit) 21.1.0.278. (try https://skyline.ms/wiki/home/software/Skyline/page.view?name=install-64-disconnected_22_2, or https://skyline.ms/labkey/_webdav/home/software/Skyline/%40files/installers/Skyline-64_21_1_0_278.zip)
+
+If any problems with getting started with the OzFAD workflow remain or occur during data analysis, please contact me via ResearchGate, LinkedIn or E-mail.
+https://www.researchgate.net/publication/364795613_OzFAD_Ozone-enabled_fatty_acid_discovery_reveals_unexpected_diversity_in_the_human_lipidome >> Jan Philipp Menzel
+https://au.linkedin.com/in/jan-philipp-menzel-b09455b7
 
 
 Latest updates to the workflow: 
@@ -15,4 +19,6 @@ Latest updates to the workflow:
 2022_11_02: Batch files now contain relative paths, only the path to the python version installed locally needs to be adjusted in each batch file, when setting up the workflow. Both python versions 3.9 and 3.11 (python.org) as well as other python versions should be compatible with the workflow. 
 
 2022_11_09: Speed improvements of initial precursor analysis and generation of target lists. The first batch file in the workflow may run significantly faster (< 90 sec) than outlined in the Supplementary Information of the preprint published on BioRxiv (> 6 min).
+
+2022_11_14: The workflow is now compatible with latest Skyline versions.
 
