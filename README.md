@@ -20,5 +20,5 @@ Latest updates to the workflow:
 
 2022_11_09: Speed improvements of initial precursor analysis and generation of target lists. The first batch file in the workflow may run significantly faster (< 90 sec) than outlined in the Supplementary Information of the preprint published on BioRxiv (> 6 min).
 
-2022_11_14: The workflow is now compatible with latest Skyline versions. Two image explaining the steps of the workflow and the required folder structure for the files contained in this repository are added (Small changes to the versions inluded in the preprint).
+2022_11_14: The workflow is now compatible with latest Skyline versions. Two images explaining the steps of the workflow and the required folder structure for the files contained in this repository are added (Small changes to the versions inluded in the preprint).
 
