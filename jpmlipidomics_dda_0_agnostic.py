@@ -69,7 +69,7 @@ while go==1:
 # end build mostwantedlist
 
 # begin get target list from txt file
-rawtarget=open('jpmlipidomics_dda_targetlist.txt','r')
+rawtarget=open('OzFAD1_dda_targetlist.txt','r')
 rawtargetlist=rawtarget.readlines()
 #print(rawtargetlist)
 mztargetlist=[]
