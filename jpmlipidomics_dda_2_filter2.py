@@ -839,6 +839,24 @@ while kl<(len(swritelist[0])): #(len(keeplist)):
 	kl=kl+1
 	t=t+1
 
+
+# begin remove H'0 from formula, where applicable
+#print("Start removing H'0")
+pfi=0
+while pfi<len(precformula):
+	if "H'0" in str(precformula[pfi]):
+		#remove H'0 from formula
+		ri=precformula[pfi].index("H'0")
+		precformula[pfi]=precformula[pfi][0:ri:]+precformula[pfi][ri+3::]
+	if "H'0" in str(prodformula[pfi]):
+		#remove H'0 from formula
+		ri=prodformula[pfi].index("H'0")
+		prodformula[pfi]=prodformula[pfi][0:ri:]+prodformula[pfi][ri+3::]
+	pfi=pfi+1
+#print("End removing H'0")
+# end remove H'0 from formula, where applicable
+
+
 writelist=[]
 writelist.append(mlistname)
 writelist.append(precname)

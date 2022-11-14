@@ -3727,6 +3727,22 @@ while r<ki:
 		pos=1
 	r=r+corr
 	
+# begin remove H'0 from formula, where applicable
+#print("Start removing H'0")
+pfi=0
+while pfi<len(virtualprecformula):
+	if "H'0" in str(virtualprecformula[pfi]):
+		#remove H'0 from formula
+		ri=virtualprecformula[pfi].index("H'0")
+		virtualprecformula[pfi]=virtualprecformula[pfi][0:ri:]+virtualprecformula[pfi][ri+3::]
+	if "H'0" in str(vprodformula[pfi]):
+		#remove H'0 from formula
+		ri=vprodformula[pfi].index("H'0")
+		vprodformula[pfi]=vprodformula[pfi][0:ri:]+vprodformula[pfi][ri+3::]
+	pfi=pfi+1
+#print("End removing H'0")
+# end remove H'0 from formula, where applicable
+
 # begin save to csv file
 prt='PrecursorRT'
 prt=str(prt)
