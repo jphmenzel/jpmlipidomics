@@ -364,9 +364,18 @@ while r<ki:		# go through rows of list
 							fix=cxicint[len(cxicint)-1]
 							cxicint.append(fix)
 					nrt=0
-					while cxicrt[nrt]<writelist[17][t]: # dwritelist[17][t] is exrt
+					gort=0
+					if cxicrt[nrt]<writelist[17][t]:
+						gort=1
+					while gort==1: #cxicrt[nrt]<writelist[17][t]: # dwritelist[17][t] is exrt
 						intexrt=cxicint[nrt]			 # intexrt after this loop is intensity at exrt
 						nrt=nrt+1
+						if nrt==len(cxicrt):
+							gort=0
+						elif cxicrt[nrt]<writelist[17][t]:
+							gort=1
+						else:
+							gort=0
 					#print('intensity at exrt is:')
 					#print(intexrt)
 					cfwhm=writelist[16][t]
@@ -408,36 +417,52 @@ while r<ki:		# go through rows of list
 						print('cexrt is:')
 						print(cexrt)
 					cfpsxicint=0
-					while fpsxicrt[nrt]<cexrt:
+					gonrt=0
+					if fpsxicrt[nrt]<cexrt:
+						gonrt=1
+					while gonrt==1: #fpsxicrt[nrt]<cexrt:
 						cfpsxicrt=fpsxicrt[nrt]
 						nrt=nrt+1
+						if nrt==len(fpsxicrt):
+							gonrt=0
+						elif fpsxicrt[nrt]<cexrt:
+							gonrt=1
+						else:
+							gonrt=0
 					nrt=nrt-1
-					if fpsxicint[nrt]<fpsxicint[nrt+1]:			#cexrt before peakmax
-						stop=0
-						while fpsxicint[nrt]<fpsxicint[nrt+1]:
-							cfpsxicrt=fpsxicrt[nrt+1]
-							cfpsxicint=fpsxicint[nrt+1]
-							if (nrt+1)==(len(fpsxicint)-1):
-								if stop==0:
-									nrt=(-1)
-									stop=1
-								else:
-									fpsxicint.append(0)
+					if checkup==1:
+						print('nrt')
+						print(nrt)
+						print(len(fpsxicint))
+					if nrt>(len(fpsxicint)-2):
+						ok=1
+					else:
+						if fpsxicint[nrt]<fpsxicint[nrt+1]:			#cexrt before peakmax
+							stop=0
+							while fpsxicint[nrt]<fpsxicint[nrt+1]:
+								cfpsxicrt=fpsxicrt[nrt+1]
+								cfpsxicint=fpsxicint[nrt+1]
+								if (nrt+1)==(len(fpsxicint)-1):
+									if stop==0:
+										nrt=(-1)
+										stop=1
+									else:
+										fpsxicint.append(0)
+								nrt=nrt+1
+						else:										#cexrt after peakmax
+							stop=0
+							while fpsxicint[nrt]>fpsxicint[nrt+1]:
+								cfpsxicrt=fpsxicrt[nrt]
+								cfpsxicint=fpsxicint[nrt]
+								if (nrt)==0:
+									if stop==0:
+										nrt=(len(fpsxicint)-1)
+										stop=1
+									else:
+										nrt=(len(fpsxicint)-1)
+										fpsxicint.append(0)
+								nrt=nrt-1
 							nrt=nrt+1
-					else:										#cexrt after peakmax
-						stop=0
-						while fpsxicint[nrt]>fpsxicint[nrt+1]:
-							cfpsxicrt=fpsxicrt[nrt]
-							cfpsxicint=fpsxicint[nrt]
-							if (nrt)==0:
-								if stop==0:
-									nrt=(len(fpsxicint)-1)
-									stop=1
-								else:
-									nrt=(len(fpsxicint)-1)
-									fpsxicint.append(0)
-							nrt=nrt-1
-						nrt=nrt+1
 					##### end find max near cexrt in fpsxicint (find true center of peak using smoothed xic)
 					if str(diagnostics[xk])=='diagnostic':
 						exactexrtlist.append(cfpsxicrt)
@@ -884,9 +909,10 @@ transitionresultsdf.columns=[toprow[0],toprow[1],toprow[2],toprow[3],toprow[4],t
 after=datetime.datetime.now()
 after=str(after)
 today=after[0]+after[1]+after[2]+after[3]+'_'+after[5]+after[6]+'_'+after[8]+after[9]+'_5_'+fourlettcode+'_'
-filename='jpmlipidomics_dda_vpw20_2_filtered.csv'
+filename='OzFAD1_2_DDA_found.csv'
 transitionresultsdf.to_csv(filename, index=False)
-print('Transition list is saved as jpmlipidomics_dda_vpw20_2_filtered.csv')
+#print('Transition list is saved as jpmlipidomics_dda_vpw20_2_filtered.csv')
+print('Transition list is saved as OzFAD1_2_DDA_found.csv')
 afterall=datetime.datetime.now()
 dt=afterall-beforeall
 print('Calculation time (h:mm:ss) is: %s' % dt)

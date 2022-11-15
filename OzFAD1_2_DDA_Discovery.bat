@@ -65,10 +65,10 @@ rem The last Skyline file needs to be manually assessed to make sure that integr
 rem begin move results files excel and csv to folder in OzFAD1_results location of current run
 md OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 rem move %~dp0\skyl_report_vpw20_4_rank1.csv %~dp0\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files
-move %~dp0\jpmlipidomics_dda_targetlist.txt %~dp0\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
+move %~dp0\OzFAD1_dda_targetlist.txt %~dp0\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move %~dp0\jpmlipidomics_dda_vpw20_0.csv %~dp0\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move %~dp0\jpmlipidomics_dda_vpw20_1_filtered.csv %~dp0\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
-move %~dp0\jpmlipidomics_dda_vpw20_2_filtered.csv %~dp0\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
+move %~dp0\OzFAD1_2_DDA_found.csv %~dp0\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move %~dp0\skyl_report_dda_vpw20_0.csv %~dp0\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move %~dp0\skyl_report_dda_vpw20_1_filtered.csv %~dp0\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
 move %~dp0\skyl_report_dda_vpw20_2_filtered.csv %~dp0\OzFAD1_results\%identifier%\transition_lists_and_report_csv_files_dda
