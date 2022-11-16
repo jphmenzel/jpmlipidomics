@@ -22,3 +22,5 @@ Latest updates to the workflow:
 
 2022_11_14: The workflow is now compatible with latest Skyline versions. Two images explaining the steps of the workflow and the required folder structure for the files contained in this repository are added (Small changes to the versions inluded in the preprint).
 
+2022_11_16: The files in this repository are now in the folders in which they need to be locally for running the workflow. Paths to python do not need to be updated anymore, as long as python (any version of python3 should be fine) is installed correctly (Added to PATH during installation). To set up the workflow, simply download code as a zip file, unpack and copy OzFAD1.2 folder into your local home / personal folder; make sure that python with all relevant packages is installed, incl. IDE, as well as Skyline MS.
+
