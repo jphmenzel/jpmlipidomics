@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<views>
+  <view name="skyl_report_template_vpw15" rowsource="pwiz.Skyline.Model.Databinding.Entities.Transition" sublist="Results!*" uimode="small_molecules">
+    <column name="Precursor.Peptide.Protein.Name" />
+    <column name="Precursor.Peptide.MoleculeName" />
+    <column name="Precursor.NeutralFormula" />
+    <column name="Precursor.Adduct" />
+    <column name="Precursor.Mz" />
+    <column name="Precursor.Charge" />
+    <column name="FragmentIon" />
+    <column name="ProductNeutralFormula" />
+    <column name="ProductAdduct" />
+    <column name="ProductMz" />
+    <column name="ProductCharge" />
+    <column name="Results!*.Value.MassErrorPPM" />
+    <column name="Results!*.Value.RetentionTime" />
+    <column name="Results!*.Value.Area" />
+    <column name="Results!*.Value.AreaNormalized" />
+    <column name="Results!*.Value.Background" />
+    <column name="Results!*.Value.Fwhm" />
+    <column name="Precursor.Peptide.ExplicitRetentionTime" />
+    <column name="Results!*.Value.StartTime" />
+    <column name="Results!*.Value.EndTime" />
+  </view>
+</views>
