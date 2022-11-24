@@ -86,9 +86,19 @@ if runprecheck==1:
 	intalist=[]
 	intblist=[]
 	itl=8
-	while itl<(len(allxiclist[0])):
+
+	cutxic=(len(allxiclist[0]))
+	if fourlettcode=='PLPC':
+		cutxic=(len(allxiclist[0]))/3
+	elif fourlettcode=='PLPE':
+		cutxic=(len(allxiclist[0]))/3
+
+	while itl<cutxic:
 		intalist.append(int(allxiclist[0][itl]))
 		intblist.append(int(allxiclist[1][itl]))
+		if fourlettcode=='PLPC':
+			if int(xictimeslist[itl])>10:
+				cutxic=itl
 		itl=itl+1
 	maxinta=max(intalist)
 	maxintb=max(intblist)
@@ -154,6 +164,8 @@ while go==1:
 		predicted=setpoint+(slope*(float(predictionconstant[pr])))
 		if predicted<0.05:
 			predicted=0.05
+		if predicted>rettimecutoff:
+			predicted=rettimecutoff-2.5
 		predictedrtexact.append(predicted)
 		if (0.15*predicted)>1.0:
 			prtmin=predicted-(0.15*predicted)
@@ -165,12 +177,18 @@ while go==1:
 			if prtmin<0.05:
 				prtmin=0.05
 			prtmax=predicted+(1.0)
+		if prtmin>rettimecutoff:
+			prtmin=rettimecutoff-5
+		if prtmax>rettimecutoff:
+			prtmax=rettimecutoff-0.05
 		predictedrtmin.append(prtmin)
 		predictedrtmax.append(prtmax)
 	else:
 		predicted=(float(predictedrtexact[pr-37]))-(slope*(float(predictionconstant[pr])))
 		if predicted<0.05:
 			predicted=0.05
+		if predicted>rettimecutoff:
+			predicted=rettimecutoff-2.5
 		predictedrtexact.append(predicted)
 		if (0.15*predicted)>1.0:
 			prtmin=predicted-(0.15*predicted)
@@ -182,6 +200,10 @@ while go==1:
 			if prtmin<0.05:
 				prtmin=0.05
 			prtmax=predicted+(1.0)
+		if prtmin>rettimecutoff:
+			prtmin=rettimecutoff-5
+		if prtmax>rettimecutoff:
+			prtmax=rettimecutoff-0.05
 		predictedrtmin.append(prtmin)
 		predictedrtmax.append(prtmax)
 	# end make prediction
