@@ -24,6 +24,9 @@ Latest updates to the workflow:
     
     - NEW: Improved automated filtering after discovery step.
     
+    - NEW: Added files for testing of the workflow analysis steps (see folder Testing_files). 
+    The files represent MCF7, replicate 1 or for Venn Bar Chart the Pooled Human Plasma NIST 1950 SRM.
+    
     - NOTE: If some steps of the workflow do not execute correctly after being started through OzFAD1v3_GUI_5.exe, 
     start the GUI from python program OzFAD1v3_GUI_5.py via Visual Studio Code (or other IDE). 
     This may be required, if version problems with tcl persist. 
