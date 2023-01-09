@@ -17,10 +17,15 @@ https://au.linkedin.com/in/jan-philipp-menzel-b09455b7
 Latest updates to the workflow:                                              
 
 2023_01_09: Updated version OzFAD1.3 released: 
+
     - NEW: Graphical User Interface (GUI)
+    
     - NEW: All programs accessible via graphical user interface, which can be started either as python program or as an executable (.exe) file.
+    
     - NEW: Improved automated filtering after discovery step.
+    
     - NOTE: If some steps of the workflow do not execute correctly after being started through OzFAD1v3_GUI_5.exe, start the GUI from python program OzFAD1v3_GUI_5.py             via Visual Studio Code (or other IDE). This may be required, if version problems with tcl persist. 
+
 
 2022_11_16: The files in this repository are now in the folders in which they need to be locally for running the workflow. Paths to python do not need to be updated anymore, as long as python (any version of python3 should be fine) is installed correctly (Added to PATH during installation). To set up the workflow, simply download code as a zip file, unpack and copy OzFAD1.2 folder into your local home / personal folder; make sure that python with all relevant packages is installed, incl. IDE, as well as Skyline MS.
 
