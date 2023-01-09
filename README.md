@@ -6,6 +6,8 @@ A preprint is available on BioRxiv:
 https://www.biorxiv.org/content/10.1101/2022.10.24.513604v1
 
 The code in this repository allows processing of LC-OzID-MS and LC-OzID-MS/MS files as well as mass spectrometry data from direct infusion ESI-MS as part of the workflow introduced in the associated publication. Usage of the code is explained in the Supplementary Information of the associated publication.
+Data associated to this publication (raw data of LC-OzID-MS and LC-OzID-MS/MS files and Skyline transition lists) are available via:
+https://researchdatafinder.qut.edu.au/display/n25697
 
 IMPORTANT: Skyline (64-bit), version 21.1.0.278 was used for the analysis of the data in the associated publication. Newer versions (including the latest version of Skyline) may not be compatible with the initial version of this workflow. Skyline Daily may not be compatible with the workflow. To download this version of Skyline, go to the Skyline MS website > release installation page for your system architecture (here 64-bit) > follow link for unplugged installer > "I Agree" > "Archive" link below the "Download" link > Skyline (64-bit) 21.1.0.278. (try https://skyline.ms/wiki/home/software/Skyline/page.view?name=install-64-disconnected_22_2, or https://skyline.ms/labkey/_webdav/home/software/Skyline/%40files/installers/Skyline-64_21_1_0_278.zip)
 
