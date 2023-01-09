@@ -14,7 +14,7 @@ https://www.researchgate.net/publication/364795613_OzFAD_Ozone-enabled_fatty_aci
 https://au.linkedin.com/in/jan-philipp-menzel-b09455b7
 
 
-Latest updates to the workflow:                                                   ~~~~~~~~~~~
+Latest updates to the workflow:                                              
 
 2023_01_09: Updated version OzFAD1.3 released: 
     - NEW: Graphical User Interface (GUI)
