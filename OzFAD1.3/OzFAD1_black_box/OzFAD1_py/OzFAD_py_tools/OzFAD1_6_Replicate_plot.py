@@ -11,6 +11,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import figure
 import openpyxl
+
+
+# font size for y-axis and x-axis label:
+fsize='14'  # default is '14', set to other value, if required
+
+
+
 # ask for number of replicates
 #defined otherwise in line 539:  #This colour scheme defines the colours in the plot:
 #colourschemebarchart=['n-2  ', 'n-3           ', 'n-4   ', 'n-5    ', 'n-6 ', 'n-7         ', 'n-8        ', 'n-9   ', 'n-10     ', 'n-11  ', 'n-12  ', 'n-13', 'n-14   ', 'n-15', 'n-16']
@@ -448,7 +455,7 @@ def plot_clustered_stacked(dfall, labels=None, title='', H="/", **kwargs): #titl
             knx=knx+1
         krep=krep+1
 
-    plt.rcParams['font.size']='14'  #OK
+    plt.rcParams['font.size']=fsize #'14'  #OK
 
     plt.ylim(0,100) #OK
 
@@ -678,7 +685,7 @@ def plot_legend_clustered_stacked(dfall, labels=None, title='', H="/", **kwargs)
 
     l1 = axe.legend(h[:n_col], l[:n_col], loc=[1.01, 0.05], prop={'family': 'Arial'})  #legend and defined position
 
-    plt.rcParams['font.size']='14'  #OK
+    plt.rcParams['font.size']=fsize #'14'  #OK
     plt.ylim(0,100) #OK
 
     axe.set_yticks((0,10,20,30,40,50,60,70,80,90,100))
