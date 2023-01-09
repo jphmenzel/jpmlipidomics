@@ -25,28 +25,49 @@ colouroptions=['#FFF2CC','#FD9D3D','blanched almond','snow','bisque','old lace',
 #from tkinter import *
 #from tkinter.ttk import *
 
-zframe=tk.Tk(className='~ OzFAD: Ozone-enabled Fatty Acid Discovery ~')	# window and name of the window
+zframe=tk.Tk(className=' OzFAD: Ozone-enabled Fatty Acid Discovery')	# window and name of the window
 zframe.geometry('850x800+20+20')					# size of window
 zframe['bg']='white'  #'blue' #'white'						# background colour of window
 
-# add OzFAD logo to top left of window
-canvas=tk.Canvas(zframe, width=100, height=100, bg='white', highlightthickness=0)
-canvas.place(x=20, y=10, height=100, width=100)
-ozfadlogo=(Image.open('OzFAD_logo_HR.png'))
-resized_ozfadlogo=ozfadlogo.resize((98, 98), Image.ANTIALIAS)
-new_ozfadlogo=ImageTk.PhotoImage(resized_ozfadlogo)
-canvas.create_image(0, 0, anchor='nw', image=new_ozfadlogo)
+classic=0
+if classic==1:
+	# add OzFAD logo to top left of window	# old design, not active (would need to change text background to 'white')
+	canvas=tk.Canvas(zframe, width=100, height=100, bg='white', highlightthickness=0)
+	canvas.place(x=20, y=10, height=100, width=100)
+	ozfadlogo=(Image.open('OzFAD_logo_HR.png'))
+	resized_ozfadlogo=ozfadlogo.resize((98, 98), Image.ANTIALIAS)
+	new_ozfadlogo=ImageTk.PhotoImage(resized_ozfadlogo)
+	canvas.create_image(0, 0, anchor='nw', image=new_ozfadlogo)
+else:
+	# add OzFAD_logo_bg to top of window / set top background
+	bgcanvas=tk.Canvas(zframe, width=850, height=100, bg='white', highlightthickness=0)
+	bgcanvas.place(x=0, y=9.0, height=100, width=850)
+	ozfadlogobg=(Image.open('OzFAD_logo_HR_bg_f.png'))
+	resized_ozfadlogobg=ozfadlogobg.resize((850, 99), Image.ANTIALIAS)
+	new_ozfadlogobg=ImageTk.PhotoImage(resized_ozfadlogobg)
+	bgcanvas.create_image(0, 0, anchor='nw', image=new_ozfadlogobg)
+
+	# add OzFAD logo to top left of window
+	canvas=tk.Canvas(zframe, width=100, height=100, bg='white', highlightthickness=0)
+	canvas.place(x=20, y=10, height=100, width=100)
+	ozfadlogo=(Image.open('OzFAD_logo_HR.png'))
+	resized_ozfadlogo=ozfadlogo.resize((100, 98), Image.ANTIALIAS)
+	new_ozfadlogo=ImageTk.PhotoImage(resized_ozfadlogo)
+	canvas.create_image(0, 0, anchor='nw', image=new_ozfadlogo)
+
 #
 ozfadlogo=tk.PhotoImage(file='OzFAD_logo_HR.png')		# set OzFAD logo as icon for window
 zframe.iconphoto(False, ozfadlogo)						# set OzFAD logo as icon for window
 #
+
+yoffset=25
 
 # add arrows
 aht=15	#15
 awd=31	#30
 xarrow=125
 ac=tk.Canvas(zframe, width=awd, height=aht, bg='white', highlightthickness=0)
-ac.place(x=xarrow, y=125, height=aht, width=awd)
+ac.place(x=xarrow, y=125+yoffset, height=aht, width=awd)
 ozfadarrow=(Image.open('OzFAD_gui_arrow_1.png'))
 resized_ozfadarrow=ozfadarrow.resize((awd, aht), Image.ANTIALIAS)
 anew_ozfadarrow=ImageTk.PhotoImage(resized_ozfadarrow)
@@ -54,7 +75,7 @@ ac.create_image(0, 0, anchor='nw', image=anew_ozfadarrow)
 xarrow=xarrow+140
 
 bc=tk.Canvas(zframe, width=awd, height=aht, bg='white', highlightthickness=0)
-bc.place(x=xarrow, y=125, height=aht, width=awd)
+bc.place(x=xarrow, y=125+yoffset, height=aht, width=awd)
 ozfadarrow=(Image.open('OzFAD_gui_arrow_1.png'))
 resized_ozfadarrow=ozfadarrow.resize((awd, aht), Image.ANTIALIAS)
 bnew_ozfadarrow=ImageTk.PhotoImage(resized_ozfadarrow)
@@ -62,7 +83,7 @@ bc.create_image(0, 0, anchor='nw', image=bnew_ozfadarrow)
 xarrow=xarrow+140
 
 cc=tk.Canvas(zframe, width=awd, height=aht, bg='white', highlightthickness=0)
-cc.place(x=xarrow, y=125, height=aht, width=awd)
+cc.place(x=xarrow, y=125+yoffset, height=aht, width=awd)
 ozfadarrow=(Image.open('OzFAD_gui_arrow_1.png'))
 resized_ozfadarrow=ozfadarrow.resize((awd, aht), Image.ANTIALIAS)
 cnew_ozfadarrow=ImageTk.PhotoImage(resized_ozfadarrow)
@@ -70,7 +91,7 @@ cc.create_image(0, 0, anchor='nw', image=cnew_ozfadarrow)
 xarrow=xarrow+140
 
 dc=tk.Canvas(zframe, width=awd, height=aht, bg='white', highlightthickness=0)
-dc.place(x=xarrow, y=125, height=aht, width=awd)
+dc.place(x=xarrow, y=125+yoffset, height=aht, width=awd)
 ozfadarrow=(Image.open('OzFAD_gui_arrow_1.png'))
 resized_ozfadarrow=ozfadarrow.resize((awd, aht), Image.ANTIALIAS)
 dnew_ozfadarrow=ImageTk.PhotoImage(resized_ozfadarrow)
@@ -78,7 +99,7 @@ dc.create_image(0, 0, anchor='nw', image=dnew_ozfadarrow)
 xarrow=xarrow+140
 
 ec=tk.Canvas(zframe, width=awd, height=aht, bg='white', highlightthickness=0)
-ec.place(x=xarrow, y=125, height=aht, width=awd)
+ec.place(x=xarrow, y=125+yoffset, height=aht, width=awd)
 ozfadarrow=(Image.open('OzFAD_gui_arrow_1.png'))
 resized_ozfadarrow=ozfadarrow.resize((awd, aht), Image.ANTIALIAS)
 enew_ozfadarrow=ImageTk.PhotoImage(resized_ozfadarrow)
@@ -86,7 +107,7 @@ ec.create_image(0, 0, anchor='nw', image=enew_ozfadarrow)
 
 #lower arrow from Direct Infusion to Summary Table
 fc=tk.Canvas(zframe, width=awd, height=aht, bg='white', highlightthickness=0)
-fc.place(x=125, y=170, height=aht, width=awd)
+fc.place(x=125, y=170+yoffset, height=aht, width=awd)
 ozfadarrow=(Image.open('OzFAD_gui_arrow_1.png'))
 resized_ozfadarrow=ozfadarrow.resize((awd, aht), Image.ANTIALIAS)
 fnew_ozfadarrow=ImageTk.PhotoImage(resized_ozfadarrow)
@@ -96,7 +117,7 @@ fc.create_image(0, 0, anchor='nw', image=fnew_ozfadarrow)
 ht=20
 wd=720-140
 gc=tk.Canvas(zframe, width=wd, height=ht, bg='white', highlightthickness=0)
-gc.place(x=200, y=144, height=ht, width=wd)
+gc.place(x=200, y=144+yoffset, height=ht, width=wd)
 ozfadarroww=(Image.open('OzFAD_gui_arrow_wide.png'))
 resized_ozfadarroww=ozfadarroww.resize((wd, ht), Image.ANTIALIAS)
 gnew_ozfadarrow=ImageTk.PhotoImage(resized_ozfadarroww)
@@ -109,25 +130,25 @@ lbl1t='OzFAD - Ozone-enabled Fatty Acid Discovery based on LC-OzID-MS/MS.'
 lbl2t='This workflow employs the Skyline Mass Spectrometry Environment. For instructions, follow the link to the associated publication below.'
 lbl3t='Created by: Dr. Jan Philipp Menzel, Mass Spectrometry Development Laboratory, Queensland University of Technology, 2022.' # add hyperlink
 lbl4t='https://www.biorxiv.org/content/10.1101/2022.10.24.513604v1'	# Hyperlink to OzFAD preprint
-lbl1=tk.Label(text=lbl1t, fg='black', bg='white', width=len(lbl1t), height=1, font=('Helvetica 10 bold'))
-lbl2=tk.Label(text=lbl2t, fg='black', bg='white', width=len(lbl2t), height=1, font=('Helvetica 8'))
-lbl3=tk.Label(text=lbl3t, fg='black', bg='white', width=len(lbl3t), height=1, font=('Helvetica 8')) #, anchor='w')
-lbl4=tk.Label(text=lbl4t, fg='blue', bg='white', width=len(lbl4t), height=1, font=('Helvetica 8 underline'), anchor='w', cursor='hand2')
-lbl1.place(x=125, y=10, height=20, width=710)
-lbl2.place(x=125, y=35, height=20, width=710)
-lbl3.place(x=125, y=60, height=20, width=710)
-lbl4.place(x=300, y=85, height=20, width=317)
+lbl1=tk.Label(text=lbl1t, fg='black', bg=colouroptions[0], width=len(lbl1t), height=1, font=('Helvetica 10 bold'))
+lbl2=tk.Label(text=lbl2t, fg='black', bg=colouroptions[0], width=len(lbl2t), height=1, font=('Helvetica 8'))
+lbl3=tk.Label(text=lbl3t, fg='black', bg=colouroptions[0], width=len(lbl3t), height=1, font=('Helvetica 8')) #, anchor='w')
+lbl4=tk.Label(text=lbl4t, fg='blue', bg=colouroptions[0], width=len(lbl4t), height=1, font=('Helvetica 8 underline'), anchor='w', cursor='hand2')
+lbl1.place(x=225, y=10, height=20, width=510)
+lbl2.place(x=135, y=35, height=20, width=700)
+lbl3.place(x=135, y=83, height=20, width=700)
+lbl4.place(x=300, y=60, height=20, width=317)
 lbl4.bind('<Button-1>', lambda e: callback('https://www.biorxiv.org/content/10.1101/2022.10.24.513604v1'))		# Hyperlink to OzFAD preprint
 # end non variable part to be displayed always
 
 derivlist=['AMPP', 'IAMP', 'NMPA', 'NMPE', 'MDPE', 'NEPE', 'EDPE', 'NPPE', 'PLPC', 'PLPE']
 
-canh=640	# height of canvas, which hides other fields when switching between steps
-cany=200	# y position of canves, which hides other fields when switching between steps
+canh=600	# height of canvas, which hides other fields when switching between steps
+cany=200+2*yoffset	# y position of canves, which hides other fields when switching between steps
 
-yposd=200	# y position of description
-yposc=315	# y position of checklist
-yposi=480	# y position of input
+yposd=200+50	# y position of description
+yposc=315+50	# y position of checklist
+yposi=480+50	# y position of input
 
 ########################################################################################################################################### STEP 1  # 
 
@@ -260,8 +281,7 @@ def frame1():
 			else:
 				tk.Radiobutton(zframe, text=text, variable=flc, value=value, bg=colouroptions[0]).place(x=240+i*70-k, y=yposi+30+m, height=20, width=60) 	# OK bg='white'
 			i=i+1
-
-
+		
 	yposderiv=yposi+25
 	lbl11t='Enter maximum retention time:'
 	lbl11=tk.Label(text=lbl11t, fg='black', bg='white', width=len(lbl11t), height=1, font=('Helvetica 10 bold'), anchor='w')
@@ -489,8 +509,8 @@ def frame1():
 	buttonlabel='Build Target List'  #'Run' #
 	ttk.Button(zframe, text=buttonlabel, width=len(buttonlabel)+2, command=run_targets).place(x=320, y=yposi+230, height=25, width=120)
 
-	label9=tk.Label(zframe, text='', font=('Helvetica 10 bold'), bg='white') #OK	#display complete identifier
-	label9.place(x=180, y=790, height=20, width=400)
+	#label9=tk.Label(zframe, text='', font=('Helvetica 10 bold'), bg='white') #OK	#display complete identifier
+	#label9.place(x=180, y=790, height=20, width=400)
 	# End STEP 1 TARGETS ##################################################################################################################################
 
 ########################################################################################################################################### STEP 1  # 
@@ -703,7 +723,7 @@ def frame5():
 
 	# Begin STEP 4 Deconvolution ##################################################################################################################################
 	lbl1t='Step 5: Deconvolution of precursor extracted ion chromatograms of LC-OzID-MS data for quantification.'
-	lbl2t='  This step creates an excel file for quantification based on deconvoluted precursor XICs and OzID product ion XICs of DIA LC-OzID-MS data.'
+	lbl2t='  This step creates an excel file for quantification based on deconvoluted precursor and OzID product ion XICs of DIA LC-OzID-MS data.'
 	lbl1=tk.Label(text=lbl1t, fg='black', bg='white', width=len(lbl1t), height=1, font=('Helvetica 10 bold'), anchor='w')
 	lbl2=tk.Label(text=lbl2t, fg='black', bg='white', width=len(lbl2t), height=1, font=('Helvetica 10'))
 	lbl1.place(x=20, y=yposd, height=20, width=810)
@@ -1025,7 +1045,7 @@ def frame7():
 		subprocess.call([r'.\OzFAD1_7_Replicate_Barchart.bat'])
 
 	buttonlabel='Generate Replicate Bar Chart'  #'Run' #
-	ttk.Button(zframe, text=buttonlabel, width=len(buttonlabel)+2, command=run_rep_bc).place(x=280, y=yposi+25, height=25, width=230)
+	ttk.Button(zframe, text=buttonlabel, width=len(buttonlabel)+2, command=run_rep_bc).place(x=280, y=yposc+100, height=25, width=230)
 
 ########################################################################################################################################### STEP 7  # # #  # # #  # 
 ########################################################################################################################################### STEP 8  # # #  # # #  # #
@@ -1089,7 +1109,7 @@ def frame8():
 			entrynh.place(x=487, y=yposi+30, height=20, width=20) #OK
 
 			lbl=tk.Label(text='N', fg='black', bg='white', width=20, height=1, font=('Helvetica 10'), anchor='w')
-			lbl.place(x=510, y=350, height=20, width=15)
+			lbl.place(x=510, y=yposi+30, height=20, width=15)
 			entrynn=tk.Entry(zframe, width=40, bg='white')
 			entrynn.focus_set()
 			entrynn.place(x=527, y=yposi+30, height=20, width=20) #OK
@@ -1447,7 +1467,7 @@ style.map('TButton', background=[('active', colouroptions[1])])
 
 # Begin Buttons for selection of step of workflow
 bwidth=100
-yub=120
+yub=120+yoffset
 
 buttonlabel='Targets'  ##
 ttk.Button(zframe, text=buttonlabel, width=len(buttonlabel)+2, command=frame1).place(x=20, y=yub, height=25, width=bwidth)
@@ -1462,7 +1482,7 @@ ttk.Button(zframe, text=buttonlabel, width=len(buttonlabel)+2, command=frame5).p
 buttonlabel='Plot and Table'  ##
 ttk.Button(zframe, text=buttonlabel, width=len(buttonlabel)+2, command=frame6).place(x=720, y=yub, height=25, width=bwidth)
 
-ylb=165
+ylb=165+yoffset
 
 # xlb=[20, 195, 370, 545, 720]	# not preferred
 xlb=[20, 160, 300, 440, 580]
