@@ -20,7 +20,7 @@ Latest updates to the workflow:
 
     - NEW: Graphical User Interface (GUI)
     
-    - NEW: All programs accessible via graphical user interface, which can be started either as python program or as an executable file.
+    - NEW: All programs accessible via graphical user interface, which can be started either via a python program or an executable.
     
     - NEW: Improved automated filtering after discovery step.
     
