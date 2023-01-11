@@ -194,7 +194,7 @@ while r<len(superlist[0]):
         if 0 in cablist:
             cfold=0
         else:
-            cfold=((cablist[3]/cablist[0])+(cablist[4]/cablist[1])+(cablist[5]/cablist[2]))/3   # calculate mean fold change between samples
+            cfold=((cablist[3]+cablist[4]+cablist[5])/3)/((cablist[0]+cablist[1]+cablist[2])/3) # calculate fold change of mean values of samples of the two groups
         cfoldlist.append(cfold)
         c=c+1
     foldlist.append(cfoldlist)
