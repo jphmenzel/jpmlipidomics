@@ -46,7 +46,7 @@ rem run precheck precursor only Skyline analysis, export chromatograms, convert 
 call %BAT_Script_Precheck%  OzFAD1_results DIA_current_LCMS_dataset %identifier% 100000 12 "template.sky"
 
 rem Generate transition list (precursor only) 													###########################  generate TL, one transition for each possible precursor, DONE
-rem "C:\Users\menzel2\AppData\Local\Programs\Python\Python39\python.exe" "%~dp0\OzFAD1_black_box\OzFAD1_py\OzFAD1_py_black_box\jpmlipidomics_1_precursor_1xic.py"
+rem "C:\Users\menzel2\AppData\Local\Programs\Python\Python39\python.exe" "%~dp0\OzFAD1_black_box\OzFAD1_py\OzFAD1_py_black_box\jpmlipidomics_1_precursor_1xic_rapid.py"
 "python.exe" "%~dp0\OzFAD1_black_box\OzFAD1_py\OzFAD1_py_black_box\jpmlipidomics_1_precursor_1xic.py"
 
 rem run precursor only Skyline analysis  ###### export XICs, DONE; transform XICs tsv to csv, DONE
