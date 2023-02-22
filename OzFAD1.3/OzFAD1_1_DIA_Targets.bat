@@ -47,9 +47,9 @@ call %BAT_Script_Precheck%  OzFAD1_results DIA_current_LCMS_dataset %identifier%
 
 rem Generate transition list (precursor only) 													###########################  generate TL, one transition for each possible precursor, DONE
 rem "C:\Users\menzel2\AppData\Local\Programs\Python\Python39\python.exe" "%~dp0\OzFAD1_black_box\OzFAD1_py\OzFAD1_py_black_box\jpmlipidomics_1_precursor_1xic.py"
-rem activate below target list generation script: standard is preselected, unconfirmed version (rapid) can be tested as well in case of long gradients
-"python.exe" "%~dp0\OzFAD1_black_box\OzFAD1_py\OzFAD1_py_black_box\jpmlipidomics_1_precursor_1xic.py"
-rem "python.exe" "%~dp0\OzFAD1_black_box\OzFAD1_py\OzFAD1_py_black_box\jpmlipidomics_1_precursor_1xic_rapid.py"   
+rem below target list generation scripts are two possible versions, the standard one (top) is deactivated, while the improved is activated (faster processing with lower demand for memory)
+rem "python.exe" "%~dp0\OzFAD1_black_box\OzFAD1_py\OzFAD1_py_black_box\jpmlipidomics_1_precursor_1xic.py"
+"python.exe" "%~dp0\OzFAD1_black_box\OzFAD1_py\OzFAD1_py_black_box\jpmlipidomics_1_precursor_1xic_rapid.py"   
 
 
 rem run precursor only Skyline analysis  ###### export XICs, DONE; transform XICs tsv to csv, DONE
