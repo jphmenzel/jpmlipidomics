@@ -13,9 +13,9 @@ IMPORTANT: Skyline (64-bit), version 21.1.0.278 was used for the analysis of the
 For installation and usage of python: 
 1) Check, if multiple python versions exist (in cmd: "python --version")
 2) Uninstall all python version except the latest one (this one needs to be added to PATH, if unsure, uninstall and reinstall, adding python to PATH during installation).
-3) Use pip to install packages, where required. To install pandas, type "pip install pandas" in terminal. To install PIL, type "pip install pillow".
-4) If required, open folder OzFAD1.3 in VS Code.
-4) Run OzFAD1v3_GUI_7.py from VS Code or directly from the OzFAD1.3 folder.
+3) If required, open folder OzFAD1.3 in VS Code.
+4) Use pip to install packages, where required. To install pandas, type "pip install pandas" in terminal. To install PIL, type "pip install pillow".
+5) Run OzFAD1v3_GUI_7.py from VS Code or directly from the OzFAD1.3 folder.
 
 NOTE: The latest versions of Skyline should be compatible with this workflow. Skyline Daily may be incompatible. To download version 21.1.0.278 of Skyline, go to the Skyline MS website > release installation page for your system architecture (here 64-bit) > follow link for unplugged installer > "I Agree" > "Archive" link below the "Download" link > Skyline (64-bit) 21.1.0.278. (try https://skyline.ms/wiki/home/software/Skyline/page.view?name=install-64-disconnected_22_2, or https://skyline.ms/labkey/_webdav/home/software/Skyline/%40files/installers/Skyline-64_21_1_0_278.zip)
 
