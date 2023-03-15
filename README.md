@@ -17,7 +17,7 @@ For installation and usage of python:
 4) Use pip to install packages, where required. To install pandas, type "pip install pandas" in terminal. To install PIL, type "pip install pillow".
 5) Run OzFAD1v3_GUI_7.py from VS Code or directly from the OzFAD1.3 folder.
 
-NOTE: The latest versions of Skyline should be compatible with this workflow. Skyline Daily may be incompatible. To download version 21.1.0.278 of Skyline, go to the Skyline MS website > release installation page for your system architecture (here 64-bit) > follow link for unplugged installer > "I Agree" > "Archive" link below the "Download" link > Skyline (64-bit) 21.1.0.278. (try https://skyline.ms/wiki/home/software/Skyline/page.view?name=install-64-disconnected_22_2, or https://skyline.ms/labkey/_webdav/home/software/Skyline/%40files/installers/Skyline-64_21_1_0_278.zip)
+NOTE: The latest versions of Skyline should be compatible with this workflow. Skyline Daily may be incompatible. To download version 21.1.0.278 of Skyline, go to the Skyline MS website > release installation page for your system architecture (here 64-bit) > follow link for unplugged installer > "I Agree" > "Archive" link below the "Download" link > Skyline (64-bit) 21.1.0.278. (try https://skyline.ms/labkey/_webdav/home/software/Skyline/%40files/installers/Skyline-64_21_1_0_278.zip)
 
 If any problems with getting started with the OzFAD workflow remain or occur during data analysis, please contact me via ResearchGate, LinkedIn or E-mail.
 https://www.researchgate.net/publication/364795613_OzFAD_Ozone-enabled_fatty_acid_discovery_reveals_unexpected_diversity_in_the_human_lipidome >> Jan Philipp Menzel
