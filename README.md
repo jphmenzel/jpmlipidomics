@@ -26,6 +26,8 @@ https://au.linkedin.com/in/jan-philipp-menzel-b09455b7
 
 Latest updates to the workflow:   
 
+2023_05_10: The module for P value calculation now automatically writes mean values, standard deviations, fold changes, P values, t-test statistic values, degrees of freedom and confidence intervals (95%) into the output file.
+
 2023_02_10: Speed improvement to algorithm for target list calculation. The algorithm demands less memory in case of long chromatographic gradients.
 
 2023_01_09: Updated version OzFAD1.3 released: 
