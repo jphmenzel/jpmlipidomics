@@ -11,11 +11,8 @@
 ##		Link to repository for instructions and updates:
 ## 		https://github.com/jphmenzel/jpmlipidomics
 
-##		Link to preprint:
-##		https://www.biorxiv.org/content/10.1101/2022.10.24.513604v1
-
 ##		Link to publication:
-##		tba.
+##		https://www.nature.com/articles/s41467-023-39617-9
 
 
 #Jan Philipp Menzel 
