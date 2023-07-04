@@ -1,8 +1,8 @@
 # jpmlipidomics
 
 Code associated to the publication "Ozone-enabled fatty acid discovery reveals unexpected diversity in the human lipidome." by 
-Jan Philipp Menzel, Reuben S. Young, Aurelie H. Benfield, Julia S. Scott, Puttandon Wongsomboon, Lukas Cudlman, Josef Cvacka, Lisa M. Butler, Sonia T. Henriques, Berwyck L.J. Poad and Stephen J. Blanksby, 2023.
-A preprint of a previous version is available on BioRxiv (https://www.biorxiv.org/content/10.1101/2022.10.24.513604v1). Please note that this preprint is not the latest version and contains instructions on setting up and running the workflow that are not up to date anymore. Once published, the publication will be referenced here.
+Jan Philipp Menzel, Reuben S. Young, Aurelie H. Benfield, Julia S. Scott, Puttandon Wongsomboon, Lukas Cudlman, Josef Cvacka, Lisa M. Butler, Sonia T. Henriques, Berwyck L.J. Poad and Stephen J. Blanksby, Nature Communications, 3940, 2023.
+https://www.nature.com/articles/s41467-023-39617-9
 
 The code in this repository allows processing of LC-OzID-MS and LC-OzID-MS/MS files as well as mass spectrometry data from direct infusion ESI-MS as part of the workflow introduced in the associated publication. Usage of the code is explained in the Supplementary Information of the associated publication.
 Data associated to this publication (raw data of LC-OzID-MS and LC-OzID-MS/MS files and Skyline transition lists) are available via:
