@@ -151,7 +151,8 @@ def callback(url):
 lbl1t='OzFAD - Ozone-enabled Fatty Acid Discovery based on LC-OzID-MS/MS.'
 lbl2t='This workflow employs the Skyline Mass Spectrometry Environment. For instructions, follow the link to the associated publication below.'
 lbl3t='Created by: Dr. Jan Philipp Menzel, Mass Spectrometry Development Laboratory, Queensland University of Technology, 2022.' # add hyperlink
-lbl4t='https://www.biorxiv.org/content/10.1101/2022.10.24.513604v1'	# Hyperlink to OzFAD preprint
+#lbl4t='https://www.biorxiv.org/content/10.1101/2022.10.24.513604v1'	# Hyperlink to OzFAD preprint 
+lbl4t='https://www.nature.com/articles/s41467-023-39617-9'	# Hyperlink to publication
 lbl1=tk.Label(text=lbl1t, fg='black', bg=colouroptions[0], width=len(lbl1t), height=1, font=('Helvetica 10 bold'))
 lbl2=tk.Label(text=lbl2t, fg='black', bg=colouroptions[0], width=len(lbl2t), height=1, font=('Helvetica 8'))
 lbl3=tk.Label(text=lbl3t, fg='black', bg=colouroptions[0], width=len(lbl3t), height=1, font=('Helvetica 8')) #, anchor='w')
@@ -160,7 +161,7 @@ lbl1.place(x=225, y=10, height=20, width=510)
 lbl2.place(x=135, y=35, height=20, width=700)
 lbl3.place(x=135, y=83, height=20, width=700)
 lbl4.place(x=300, y=60, height=20, width=317)
-lbl4.bind('<Button-1>', lambda e: callback('https://www.biorxiv.org/content/10.1101/2022.10.24.513604v1'))		# Hyperlink to OzFAD preprint
+lbl4.bind('<Button-1>', lambda e: callback('https://www.nature.com/articles/s41467-023-39617-9'))		# Hyperlink to publication
 # end non variable part to be displayed always
 
 derivlist=['AMPP', 'IAMP', 'NMPA', 'NMPE', 'MDPE', 'NEPE', 'EDPE', 'NPPE', 'PLPC', 'PLPE']
