@@ -396,6 +396,15 @@ imass=[1.007825, 2.0141, 12.00000, 14.00307, 15.99491, 30.973762, 31.97207, 22.9
 minlenfa=int(transferlist[8]) #eval(input('Enter number of C atoms in shortest FA chain (e.g. 4) :'))
 maxlenfa=int(transferlist[9]) #eval(input('Enter number of C atoms in longest FA chain (e.g. 24) :'))
 
+if minlenfa<5:
+	minlenfa=12
+elif minlenfa>40:
+	minlenfa=12
+if maxlenfa<5:
+	maxlenfa=24
+elif maxlenfa>40:
+	maxlenfa=40
+
 #print('Calculation of transition list is running ...')
 
 if discoverylevel<2:
