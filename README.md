@@ -5,7 +5,7 @@ Jan Philipp Menzel, Reuben S. Young, Aurelie H. Benfield, Julia S. Scott, Puttan
 https://www.nature.com/articles/s41467-023-39617-9
 
 The code in this repository allows processing of LC-OzID-MS and LC-OzID-MS/MS files as well as mass spectrometry data from direct infusion ESI-MS as part of the workflow introduced in the associated publication. Usage of the code is explained in the Supplementary Information of the associated publication.
-Data associated to this publication (Raw data of LC-OzID-MS and LC-OzID-MS/MS files and Skyline transition lists. These transition lists require Skyline version 21.1.0.278) are available via:
+Data associated to this publication (Raw data of LC-OzID-MS and LC-OzID-MS/MS files and Skyline transition lists. These transition lists require Skyline version 21.1.0.278.) are available via:
 https://researchdatafinder.qut.edu.au/display/n25697
 
 IMPORTANT: Skyline (64-bit), version 21.1.0.278 was used for the analysis of the data in the associated publication. To use OzFAD, install Skyline, Visual Studio Code, python and download the zip file of this repository (<> Code - Download ZIP), unpack it and place it the folder OzFAD1.3 with all its contents in your main personal folder location.
