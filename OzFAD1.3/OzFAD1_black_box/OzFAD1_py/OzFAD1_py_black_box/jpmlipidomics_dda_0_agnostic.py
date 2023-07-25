@@ -102,6 +102,8 @@ while rdi<(len(rawtargetlist)):
 		stri=str(rawtargetlist[rdi][rdii])
 		cstr=cstr+stri
 		rdii=rdii+1
+	if cstr[len(cstr)-1]=='-':
+		cstr=cstr[:-1]
 	if cstr[len(cstr)-1]==',':
 		cstr=cstr[:-1]
 	crt=float(cstr)/60
