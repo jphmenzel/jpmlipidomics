@@ -24,7 +24,9 @@ https://www.researchgate.net/publication/364795613_OzFAD_Ozone-enabled_fatty_aci
 https://au.linkedin.com/in/jan-philipp-menzel-b09455b7
 
 
-Latest updates to the workflow:   
+Latest updates to the workflow or this repository:
+
+2023_09_21: Updated transition lists compatible with newer Skyline versions can be found in the folder with testing files.
 
 2023_05_10: The module for P value calculation now automatically writes mean values, standard deviations, fold changes, P values, t-test statistic values, degrees of freedom and confidence intervals (95%) into the output file.
 
